@@ -71,6 +71,7 @@ def produce_all_combinations(ignore_below=0) -> int:
 
 
 if __name__ == "__main__":
+    # Load recipes from JSON file
     if os.path.exists("recipes.json"):
         with open("recipes.json", "r") as fp:
             RECIPES = json.load(fp)
@@ -78,23 +79,20 @@ if __name__ == "__main__":
                 IGNORED_RECIPES.update(RECIPES[NULL_RECIPE_KEY])
             else:
                 RECIPES[NULL_RECIPE_KEY] = []  # Initialize it if it doesn't exist
+
     try:
         options = Options()
         DRIVER = webdriver.Chrome(options)
-
         DRIVER.implicitly_wait(1)
 
         DRIVER.get("https://neal.fun/infinite-craft/")
 
-        try:
-            sidebar = DRIVER.find_element(By.CLASS_NAME, "sidebar")
+        # Make sure we're in Mobile mode
+        DRIVER.set_window_size(0, 1000)
 
-            DRIVER.set_window_size(0, 1000)
-        except NoSuchElementException:
-            print("we're in small mode")
-
-        ignore = 0
-        level = 0
+        # Main Loop
+        ignore = 0  # Keeps track of the highest index we haven't checked
+        level = 0  # Keeps track of our current level
         while True:
             c = input("Continue? ")
             if c == "N" or c == "n":
