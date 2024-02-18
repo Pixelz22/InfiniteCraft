@@ -45,7 +45,6 @@ def produce_all_combinations(ignore_below=0) -> int:
 
         wait.until(lambda d: e1.click() or True)
         wait.until(lambda d: e2.click() or True)
-        time.sleep(0.12)
 
         try:
             wait.until(lambda d: item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile") or True)
@@ -98,7 +97,6 @@ if __name__ == "__main__":
             ignore = produce_all_combinations(ignore_below=ignore)
             duration = (time.time_ns() - start) / 1000000000
             print(f"Level {level}: Duration - {duration} s;")
-            print(RECIPES)
     finally:
         DRIVER.quit()
         with open("recipes.json", "w") as fp:
