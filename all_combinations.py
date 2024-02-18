@@ -54,6 +54,7 @@ def produce_all_combinations(ignore_below=0) -> int:
             crafted = item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile")
             crafted_key = crafted.text.partition("\n")[2]
             print(crafted_key)
+
             if crafted_key not in RECIPES:
                 RECIPES[crafted_key] = [recipe_key]
             elif recipe_key not in RECIPES[crafted_key]:
@@ -73,6 +74,8 @@ if __name__ == "__main__":
             RECIPES = json.load(fp)
             if NULL_RECIPE_KEY in RECIPES:  # Automatically ignore null recipes
                 IGNORED_RECIPES.update(RECIPES[NULL_RECIPE_KEY])
+            else:
+                RECIPES[NULL_RECIPE_KEY] = []  # Initialize it if it doesn't exist
     try:
         options = Options()
         DRIVER = webdriver.Chrome(options)
