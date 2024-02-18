@@ -53,7 +53,7 @@ def produce_all_combinations(ignore_below=0) -> int:
             # If we find the resulting recipe, add it to our list
             crafted = item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile")
             crafted_key = crafted.text.partition("\n")[2]
-            print(crafted_key)
+            print(recipe_key + " = " + crafted_key)
 
             if crafted_key not in RECIPES:
                 RECIPES[crafted_key] = [recipe_key]
@@ -62,7 +62,9 @@ def produce_all_combinations(ignore_below=0) -> int:
                 IGNORED_RECIPES.add(recipe_key)  # Only need to add this key, not re-add whole list
             else:
                 IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found a recipe, ignore other versions
+
         except TimeoutException:
+            print("NEW NULL RECIPE DISCOVERED: " + recipe_key)
             RECIPES[NULL_RECIPE_KEY].append(recipe_key)  # Recipe doesn't craft anything, add it to the null list
 
     return len(initial_elements)

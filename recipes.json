@@ -1288,5 +1288,14 @@
     ],
     "Sand Dunes": [
         "Dust Storm;Mountain Range"
+    ],
+    "%NULL%": [
+        "Smoke;Tea",
+        "Tsunami;Tea",
+        "Swamp;Tea",
+        "Mud;Tea",
+        "Dandelion;Island",
+        "Lily;Tea",
+        "Fjord;Tea"
     ]
 }
