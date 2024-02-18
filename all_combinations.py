@@ -60,7 +60,8 @@ def produce_all_combinations(level: int, ignore_below=0) -> int:
                 RECIPES[crafted_key] = [recipe_key]
             elif recipe_key not in RECIPES[crafted_key]:
                 RECIPES[crafted_key].append(recipe_key)
-                IGNORED_RECIPES.add(recipe_key)  # Only need to add this key, not re-add whole list
+                # Don't really need this line, since this recipe shouldn't come up again in this program's runtime
+                # IGNORED_RECIPES.add(recipe_key)  # Only need to add this key, not re-add whole list
             else:
                 IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found a recipe, ignore other versions
 
@@ -72,6 +73,33 @@ def produce_all_combinations(level: int, ignore_below=0) -> int:
             RECIPES[NULL_RECIPE_KEY].append(recipe_key)  # Recipe doesn't craft anything, add it to the null list
 
     return len(initial_elements)
+
+
+def craft_existing_recipes(sleep=0.0):
+    wait = WebDriverWait(DRIVER, timeout=2, poll_frequency=0.01,
+                         ignored_exceptions=[NoSuchElementException, ElementNotInteractableException,
+                                             ElementClickInterceptedException])
+
+    for result_key in RECIPES:
+        if result_key == NULL_RECIPE_KEY:
+            continue
+
+        # Recipes are stored in the order they are found, so the
+        # first recipe is always the easiest, and should only
+        # require items that came before it
+        recipe_key = RECIPES[result_key][0]
+        elements = recipe_key.split(';')
+
+        e1 = DRIVER.find_element(By.ID, "item-" + elements[0])
+        e2 = DRIVER.find_element(By.ID, "item-" + elements[1])
+        try:
+            wait.until(lambda d: e1.click() or True)
+            wait.until(lambda d: e2.click() or True)
+            wait.until(lambda d: DRIVER.find_element(By.CLASS_NAME, "item-crafted-mobile") or True)
+        except TimeoutException as e:
+            print("RECIPE FAILED:  " + recipe_key + " = " + result_key)
+            raise e
+        time.sleep(sleep)
 
 
 if __name__ == "__main__":
@@ -98,6 +126,9 @@ if __name__ == "__main__":
 
         # Make sure we're in Mobile mode
         DRIVER.set_window_size(0, 1000)
+
+        # Recover progress from last time
+        craft_existing_recipes(sleep=0.01)
 
         # Main Loop
         ignore = 0  # Keeps track of the highest index we haven't checked
