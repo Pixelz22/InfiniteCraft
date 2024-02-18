@@ -97,7 +97,8 @@
         "Rain;Surfer",
         "River;Surfer",
         "Perfume;Surfer",
-        "Surfing;Steamroller"
+        "Surfing;Steamroller",
+        "Water;Energy"
     ],
     "Plant": [
         "Water;Earth",
@@ -1383,7 +1384,8 @@
         "Pond;Sea",
         "Pond;Atlantis",
         "Pond;Poseidon",
-        "Whale;Sea"
+        "Whale;Sea",
+        "Water;Tide"
     ],
     "Cloud": [
         "Water;Steam",
@@ -1754,7 +1756,8 @@
         "Surfing;Tempest",
         "Surfing;Tea Storm",
         "Kite;Landslide",
-        "Kite;Earthquake"
+        "Kite;Earthquake",
+        "Water;Sneeze"
     ],
     "Swamp": [
         "Water;Plant",
@@ -3904,7 +3907,8 @@
         "Sushi;Amber",
         "Sushi;Shipwreck",
         "Sushi;Tea Party",
-        "Kite;Coral"
+        "Kite;Coral",
+        "Water;Fishbowl"
     ],
     "Rain": [
         "Water;Cloud",
@@ -4225,7 +4229,9 @@
         "Kelp;Glass",
         "Glass;Mermaid",
         "Glass;Prayer",
-        "Glass;Dandelion Patch"
+        "Glass;Dandelion Patch",
+        "Water;Holy Water",
+        "Water;Meade"
     ],
     "Oasis": [
         "Water;Sandstorm",
@@ -4304,7 +4310,8 @@
         "Dune;Geyser",
         "Dune;Palm Tree",
         "Dune;Lagoon",
-        "Dune;Palm"
+        "Dune;Palm",
+        "Water;Mirage"
     ],
     "Beach": [
         "Water;Sand",
@@ -4531,7 +4538,8 @@
         "Honey;Sandalwood",
         "Windmill;Sandalwood",
         "Flower;Amber",
-        "Flower;Genie"
+        "Flower;Genie",
+        "Water;Scent"
     ],
     "Honey": [
         "Water;Pollen",
@@ -4637,7 +4645,8 @@
         "Leaf;Thunder",
         "Flower;Thunder",
         "Surfing;Thunder",
-        "Kite;Thunder"
+        "Kite;Thunder",
+        "Water;Electricity"
     ],
     "Dragon": [
         "Fire;Swamp",
@@ -6117,7 +6126,8 @@
         "Flower;Boat",
         "Flower;Buddha",
         "Flower;Atlantis",
-        "Flower;Lagoon"
+        "Flower;Lagoon",
+        "Water;Water Lily"
     ],
     "Titanic": [
         "Steam;Tsunami",
@@ -6558,7 +6568,8 @@
         "Kelp;Sandcastle",
         "Flower;Sea",
         "Flower;Submarine",
-        "Flower;Shipwreck"
+        "Flower;Shipwreck",
+        "Water;Reef"
     ],
     "Venus Flytrap": [
         "Plant;Swamp",
@@ -9510,7 +9521,8 @@
     "Soup": [
         "Water;Mushroom",
         "Fire;Pond",
-        "Kelp;Teacup"
+        "Kelp;Teacup",
+        "Water;Soup"
     ],
     "Oil": [
         "Water;Fossil",
@@ -12810,7 +12822,8 @@
         "Glass;Flower",
         "Glass;Clay",
         "Glass;Statue",
-        "Flower;Clay"
+        "Flower;Clay",
+        "Water;Pottery"
     ],
     "Lawnmower": [
         "Ash;Tractor",
@@ -14241,7 +14254,8 @@
         "Whale;Sphinx",
         "Whale;Snake",
         "Dragon;Sea",
-        "Dragon;Poseidon"
+        "Dragon;Poseidon",
+        "Water;Sea Serpent"
     ],
     "Glasses": [
         "Whale;Glass",

@@ -1,10 +1,12 @@
+import sys
+
 import requests
 import json
 import os.path
 import time
 
 
-HISTORY: dict[str, int | list[str]] = {}
+HISTORY: dict[str, int | list[str] | list[int]] = {}
 RECIPES: dict[str, list[str]] = {}
 LEVELS: dict[str, int] = {}
 NULL_RECIPE_KEY = "%NULL%"
@@ -42,7 +44,12 @@ def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
     Ignores all combinations in which both numbers are below min_idx.
     """
     combos = []
-    for i in range(0, max_idx):
+
+    # Start right where we last left off.
+    for j in range(HISTORY["last_combo"][1], max_idx):
+        combos.append((HISTORY["last_combo"][0], j))
+
+    for i in range(HISTORY["last_combo"][0] + 1, max_idx):
         for j in range(max(i, min_idx), max_idx):
             combos.append((i, j))
     return combos
@@ -67,19 +74,27 @@ def produce_all_combinations(level: int, ignore_below=0, sleep=0.0) -> int:
 
         print(f"{e1} + {e2} = {result_key}")
 
-        if recipe_key not in RECIPES[result_key]:
+        # Update recipes
+        if result_key not in RECIPES:
+            RECIPES[result_key] = [recipe_key]
+        elif recipe_key not in RECIPES[result_key]:
             RECIPES[result_key].append(recipe_key)
 
+        # Update our history
         if result_key not in HISTORY["elements"]:
             HISTORY["elements"].append(result_key)
 
+        # Update Levels
         if result_json["result"] not in LEVELS:
             LEVELS[result_json["result"]] = level
 
+        # Keep track of new discoveries
         if result_json["isNew"]:
+            print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
             with open("newRecipes.txt", "a") as fp:
                 fp.write(result_key + "\n")
 
+        HISTORY["last_combo"] = list(combo)
         time.sleep(sleep)
 
     return batch_size
@@ -108,16 +123,16 @@ if __name__ == "__main__":
         SESSION = requests.session()
         SESSION.headers = rHEADERS
 
-        while True:
-            c = input("Continue? ")
-            if c == "N" or c == "n":
-                break
+        c = input("Continue? ")
+        if c == "N" or c == "n":
+            sys.exit(0)
 
-            start = time.time_ns()
-            last_batch_size = produce_all_combinations(level + 1, ignore_below=last_batch_size, sleep=0.1)
-            duration = (time.time_ns() - start) / 1000000000
-            level += 1  # Don't increase the level counter until we've completed the level
-            print(f"Level {level}: Duration - {duration} s;")
+        start = time.time_ns()
+        last_batch_size = produce_all_combinations(level + 1, ignore_below=last_batch_size, sleep=0.15)
+        duration = (time.time_ns() - start) / 1000000000
+        level += 1  # Don't increase the level counter until we've completed the level
+        print(f"Level {level}: Duration - {duration} s;")
+
     finally:
         HISTORY["last_level"] = level
         HISTORY["last_batch_size"] = last_batch_size
