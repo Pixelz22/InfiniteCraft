@@ -11,6 +11,7 @@ import os.path
 DRIVER: webdriver.Chrome | None = None
 
 RECIPES: dict[str, list[str]] = {}
+LEVELS: dict[str, int] = {}
 NULL_RECIPE_KEY = "%NULL%"
 
 def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
@@ -26,7 +27,7 @@ def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
 
 
 IGNORED_RECIPES = set()
-def produce_all_combinations(ignore_below=0) -> int:
+def produce_all_combinations(level: int, ignore_below=0) -> int:
     global IGNORED_RECIPES
 
     item_parent = DRIVER.find_element(By.CLASS_NAME, "mobile-items")
@@ -63,6 +64,9 @@ def produce_all_combinations(ignore_below=0) -> int:
             else:
                 IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found a recipe, ignore other versions
 
+            if crafted_key not in LEVELS:  # Update our lowest level if we haven't seen it
+                LEVELS[crafted_key] = level  # This isn't used by the code, just for research purposes
+
         except TimeoutException:
             print("NEW NULL RECIPE DISCOVERED: " + recipe_key)
             RECIPES[NULL_RECIPE_KEY].append(recipe_key)  # Recipe doesn't craft anything, add it to the null list
@@ -79,6 +83,11 @@ if __name__ == "__main__":
                 IGNORED_RECIPES.update(RECIPES[NULL_RECIPE_KEY])
             else:
                 RECIPES[NULL_RECIPE_KEY] = []  # Initialize it if it doesn't exist
+
+    # Load levels from JSON file
+    if os.path.exists("levels.json"):
+        with open("levels.json", "r") as fp:
+            LEVELS = json.load(fp)
 
     try:
         options = Options()
@@ -100,10 +109,12 @@ if __name__ == "__main__":
 
             level += 1
             start = time.time_ns()
-            ignore = produce_all_combinations(ignore_below=ignore)
+            ignore = produce_all_combinations(level, ignore_below=ignore)
             duration = (time.time_ns() - start) / 1000000000
             print(f"Level {level}: Duration - {duration} s;")
     finally:
         DRIVER.quit()
         with open("recipes.json", "w") as fp:
             json.dump(RECIPES, fp, indent=4)
+        with open("levels.json", "w") as fp:
+            json.dump(LEVELS, fp, indent=4)
