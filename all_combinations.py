@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common import NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
+from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 import json
 import os.path
@@ -44,9 +45,8 @@ def produce_all_combinations(ignore_below=0) -> int:
 
         wait.until(lambda d: e1.click() or True)
         wait.until(lambda d: e2.click() or True)
-        time.sleep(0.15)
+        time.sleep(0.12)
 
-        # Found this very helpful tag!
         try:
             wait.until(lambda d: item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile") or True)
 
@@ -58,9 +58,10 @@ def produce_all_combinations(ignore_below=0) -> int:
                 RECIPES[crafted_key] = [recipe_key]
             elif recipe_key not in RECIPES[crafted_key]:
                 RECIPES[crafted_key].append(recipe_key)
-
-            IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found it, make sure we ignore its other forms
-        except TimeoutError:
+                IGNORED_RECIPES.add(recipe_key)  # Only need to add this key, not re-add whole list
+            else:
+                IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found a recipe, ignore other versions
+        except TimeoutException:
             continue  # Couldn't find what it crafted, just move on
 
     return len(initial_elements)
@@ -101,4 +102,4 @@ if __name__ == "__main__":
     finally:
         DRIVER.quit()
         with open("recipes.json", "w") as fp:
-            json.dump(RECIPES, fp)
+            json.dump(RECIPES, fp, indent=4)

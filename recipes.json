@@ -1,1 +1,1292 @@
-{"Lake": ["Water;Water", "Water;Mountain", "Water;Mountain Range"], "Steam": ["Water;Fire", "Fire;Wave", "Water;Engine", "Fire;Ocean", "Fire;Engine", "Volcano;Engine", "Smoke;Engine"], "Wave": ["Water;Wind", "Water;Surf", "Lake;Surf"], "Plant": ["Water;Earth", "Earth;Incense"], "Volcano": ["Fire;Fire", "Fire;Lake", "Fire;Smoke", "Fire;Lava", "Fire;Tornado", "Fire;Mountain", "Wind;Lava", "Earth;Smoke", "Earth;Mountain", "Lake;Lava", "Steam;Lava", "Steam;Mountain", "Plant;Lava", "Smoke;Lava", "Smoke;Tornado", "Smoke;Mountain", "Lava;Lava", "Lava;Tornado", "Lava;Dust", "Lava;Mountain", "Tornado;Mountain", "Dust;Mountain", "Fire;Tsunami", "Fire;Storm", "Fire;Eruption", "Fire;Sandstorm", "Fire;Avalanche", "Fire;Island", "Fire;Fjord", "Fire;Surf", "Fire;Hurricane", "Fire;Mountain Range", "Wind;Eruption", "Earth;Eruption", "Earth;Mountain Range", "Lake;Eruption", "Plant;Eruption", "Smoke;Tsunami", "Smoke;Eruption", "Smoke;Planet", "Smoke;Island", "Smoke;Fjord"], "Smoke": ["Fire;Wind", "Fire;Plant", "Fire;Fog", "Fire;Incense", "Fire;Pollen", "Wind;Incense", "Lake;Incense", "Steam;Ash", "Steam;Incense", "Wave;Incense", "Plant;Incense", "Volcano;Incense"], "Lava": ["Fire;Earth", "Water;Volcano", "Fire;Volcano", "Earth;Volcano", "Steam;Volcano", "Wave;Volcano", "Plant;Volcano", "Volcano;Mountain", "Water;Eruption", "Fire;Stone", "Volcano;Swamp", "Volcano;Stone", "Volcano;Mud", "Volcano;Ash", "Volcano;Eruption", "Volcano;Tree", "Volcano;Lily", "Volcano;Tea"], "Tornado": ["Wind;Wind", "Wind;Tornado", "Steam;Tornado", "Wind;Storm", "Wind;Island", "Wind;Fjord", "Wind;Hurricane", "Wind;Dust Storm", "Earth;Storm", "Earth;Hurricane"], "Dust": ["Wind;Earth", "Earth;Tornado", "Plant;Tornado", "Smoke;Dust", "Wind;Mud", "Wind;Ash", "Lake;Dust Storm", "Smoke;Sandstorm"], "Mountain": ["Earth;Earth", "Volcano;Volcano"], "Ocean": ["Water;Lake", "Lake;Lake", "Water;Tsunami", "Water;Planet", "Lake;Tsunami", "Lake;Fjord"], "Cloud": ["Water;Steam", "Wind;Steam", "Wind;Smoke", "Lake;Steam", "Steam;Steam", "Steam;Smoke", "Steam;Dust", "Smoke;Smoke", "Wind;Fog", "Steam;Ocean", "Steam;Fog", "Steam;Tree", "Steam;Island", "Smoke;Fog"], "Tsunami": ["Water;Wave", "Water;Tornado", "Lake;Wave", "Lake;Tornado", "Wave;Wave", "Wave;Tornado", "Wave;Mountain", "Water;Hurricane", "Lake;Storm", "Lake;Hurricane", "Wave;Ocean", "Wave;Tsunami", "Wave;Swamp", "Wave;Engine", "Wave;Storm", "Wave;Eruption", "Wave;Sandstorm", "Wave;Avalanche", "Wave;Planet", "Wave;Fjord", "Wave;Tea", "Wave;Hurricane", "Wave;Dust Storm", "Wave;Mountain Range", "Plant;Tsunami", "Volcano;Hurricane"], "Swamp": ["Water;Plant", "Earth;Lake", "Water;Mud", "Lake;Mud", "Lake;Tree", "Steam;Mud", "Plant;Mud", "Smoke;Mud"], "Fog": ["Water;Smoke", "Lake;Smoke", "Smoke;Ocean", "Smoke;Cloud"], "Stone": ["Water;Lava", "Earth;Lava", "Wave;Lava"], "Mud": ["Water;Dust", "Earth;Steam", "Lake;Dust", "Water;Dust Storm", "Earth;Swamp"], "Engine": ["Fire;Steam"], "Ash": ["Fire;Dust", "Volcano;Dust", "Fire;Dandelion", "Fire;Tree"], "Storm": ["Wind;Lake", "Wind;Wave", "Wind;Ocean", "Wind;Cloud", "Wind;Planet"], "Dandelion": ["Wind;Plant"], "Eruption": ["Wind;Volcano", "Volcano;Smoke", "Volcano;Lava", "Volcano;Tornado", "Volcano;Fog", "Volcano;Storm", "Volcano;Sandstorm", "Volcano;Avalanche", "Volcano;Pollen", "Volcano;Dust Storm"], "Sandstorm": ["Wind;Dust", "Fire;Dust Storm"], "Avalanche": ["Wind;Mountain"], "Sand": ["Earth;Wave", "Wave;Dust", "Dust;Dust", "Wind;Stone", "Earth;Dust Storm", "Steam;Sandstorm", "Steam;Dust Storm"], "Tree": ["Earth;Plant", "Plant;Plant", "Plant;Mountain", "Plant;Storm", "Plant;Island", "Plant;Fjord"], "Planet": ["Earth;Dust"], "Lily": ["Lake;Plant"], "Island": ["Lake;Volcano", "Earth;Ocean", "Earth;Tsunami", "Lake;Island", "Volcano;Ocean"], "Fjord": ["Lake;Mountain", "Lake;Mountain Range"], "Surf": ["Steam;Wave", "Wave;Smoke", "Wave;Fog", "Wave;Ash", "Wave;Island", "Wave;Seaweed", "Wave;Pollen"], "Tea": ["Steam;Plant", "Water;Tea", "Steam;Dandelion", "Plant;Tea"], "Seaweed": ["Wave;Plant", "Lake;Seaweed", "Wave;Dandelion"], "Incense": ["Plant;Smoke", "Smoke;Lily"], "Pollen": ["Plant;Dust"], "Hurricane": ["Tornado;Tornado", "Wind;Tsunami"], "Dust Storm": ["Tornado;Dust", "Wind;Sandstorm"], "Mountain Range": ["Mountain;Mountain"], "Fish": ["Water;Ocean"], "Rain": ["Water;Cloud", "Water;Storm", "Earth;Cloud", "Lake;Cloud", "Steam;Cloud", "Steam;Storm", "Wave;Cloud", "Plant;Cloud", "Volcano;Cloud"], "Marsh": ["Water;Swamp", "Lake;Swamp"], "Ice": ["Water;Fog", "Water;Avalanche"], "Rock": ["Water;Stone", "Earth;Stone", "Wave;Stone"], "Puddle": ["Water;Ash"], "Wine": ["Water;Dandelion"], "Oasis": ["Water;Sandstorm", "Lake;Sandstorm"], "Beach": ["Water;Sand", "Earth;Surf", "Lake;Sand", "Wave;Mud", "Wave;Sand"], "River": ["Water;Tree"], "Pond": ["Water;Lily"], "Ship": ["Water;Island"], "Whale": ["Water;Fjord"], "Kelp": ["Water;Seaweed", "Earth;Seaweed", "Plant;Seaweed"], "Perfume": ["Water;Incense"], "Honey": ["Water;Pollen"], "Lightning": ["Fire;Cloud"], "Dragon": ["Fire;Swamp", "Steam;Swamp", "Smoke;Swamp"], "Brick": ["Fire;Mud"], "Phoenix": ["Fire;Ash", "Fire;Lily", "Lake;Ash"], "Glass": ["Fire;Sand", "Steam;Sand", "Volcano;Sand"], "Sun": ["Fire;Planet"], "Chai": ["Fire;Tea"], "Sushi": ["Fire;Seaweed", "Steam;Seaweed", "Volcano;Seaweed"], "Mist": ["Wind;Swamp", "Earth;Fog", "Lake;Fog"], "Windmill": ["Wind;Engine"], "Seed": ["Wind;Dandelion"], "Snow": ["Wind;Avalanche", "Steam;Avalanche", "Smoke;Avalanche"], "Dune": ["Wind;Sand", "Earth;Sandstorm"], "Leaf": ["Wind;Tree"], "Flower": ["Wind;Lily", "Earth;Dandelion", "Earth;Lily", "Earth;Pollen", "Steam;Lily", "Steam;Pollen", "Plant;Lily", "Plant;Pollen"], "Surfing": ["Wind;Surf", "Steam;Surf", "Volcano;Surf"], "Kite": ["Wind;Tea", "Wind;Seaweed"], "Allergy": ["Wind;Pollen"], "Aeolus": ["Wind;Mountain Range"], "Clay": ["Earth;Mud"], "Tractor": ["Earth;Engine"], "Soil": ["Earth;Ash"], "Landslide": ["Earth;Avalanche"], "Desert": ["Earth;Sand", "Smoke;Sand"], "Forest": ["Earth;Tree", "Plant;Tree", "Plant;Mountain Range"], "Moon": ["Earth;Planet"], "Continent": ["Earth;Island"], "Land": ["Earth;Fjord"], "Teapot": ["Earth;Tea", "Lake;Tea", "Steam;Tea"], "Sea": ["Lake;Ocean"], "Lighthouse": ["Lake;Stone"], "Boat": ["Lake;Engine"], "Wish": ["Lake;Dandelion"], "Iceberg": ["Lake;Avalanche"], "Earth": ["Lake;Planet", "Plant;Planet", "Volcano;Planet"], "Lotus": ["Lake;Lily", "Lake;Pollen"], "Titanic": ["Steam;Tsunami"], "Geysir": ["Steam;Stone"], "Train": ["Steam;Engine", "Steam;Mountain Range"], "Geyser": ["Steam;Eruption"], "Steampunk": ["Steam;Planet"], "Steamboat": ["Steam;Fjord", "Steam;Hurricane"], "Surfboard": ["Wave;Tree", "Plant;Surf"], "Mermaid": ["Wave;Lily"], "Surfer": ["Wave;Surf", "Smoke;Surf"], "Coral": ["Plant;Ocean"], "Venus Flytrap": ["Plant;Swamp"], "Mushroom": ["Plant;Fog"], "Fossil": ["Plant;Stone"], "Car": ["Plant;Engine"], "Tobacco": ["Plant;Ash"], "Weed": ["Plant;Dandelion"], "Cactus": ["Plant;Sandstorm", "Plant;Sand", "Plant;Dust Storm"], "Snowman": ["Plant;Avalanche"], "Palm Tree": ["Plant;Hurricane"], "Earthquake": ["Volcano;Tsunami"], "Fireworks": ["Volcano;Dandelion"], "Hawaii": ["Volcano;Island"], "Iceland": ["Volcano;Fjord"], "Yellowstone": ["Volcano;Mountain Range"], "Statue": ["Smoke;Stone"], "Fire": ["Smoke;Ash", "Smoke;Dandelion", "Smoke;Tree"], "Thunder": ["Smoke;Storm"]}
+{
+    "Lake": [
+        "Water;Water",
+        "Water;Mountain",
+        "Water;Mountain Range"
+    ],
+    "Steam": [
+        "Water;Fire",
+        "Fire;Wave",
+        "Water;Engine",
+        "Fire;Ocean",
+        "Fire;Engine",
+        "Volcano;Engine",
+        "Smoke;Engine",
+        "Fog;Engine",
+        "Engine;Ash",
+        "Engine;Incense"
+    ],
+    "Wave": [
+        "Water;Wind",
+        "Water;Surf",
+        "Lake;Surf",
+        "Mountain;Surf",
+        "Engine;Surf",
+        "Surf;Incense"
+    ],
+    "Plant": [
+        "Water;Earth",
+        "Earth;Incense"
+    ],
+    "Volcano": [
+        "Fire;Fire",
+        "Fire;Lake",
+        "Fire;Smoke",
+        "Fire;Lava",
+        "Fire;Tornado",
+        "Fire;Mountain",
+        "Wind;Lava",
+        "Earth;Smoke",
+        "Earth;Mountain",
+        "Lake;Lava",
+        "Steam;Lava",
+        "Steam;Mountain",
+        "Plant;Lava",
+        "Smoke;Lava",
+        "Smoke;Tornado",
+        "Smoke;Mountain",
+        "Lava;Lava",
+        "Lava;Tornado",
+        "Lava;Dust",
+        "Lava;Mountain",
+        "Tornado;Mountain",
+        "Dust;Mountain",
+        "Fire;Tsunami",
+        "Fire;Storm",
+        "Fire;Eruption",
+        "Fire;Sandstorm",
+        "Fire;Avalanche",
+        "Fire;Island",
+        "Fire;Fjord",
+        "Fire;Surf",
+        "Fire;Hurricane",
+        "Fire;Mountain Range",
+        "Wind;Eruption",
+        "Earth;Eruption",
+        "Earth;Mountain Range",
+        "Lake;Eruption",
+        "Plant;Eruption",
+        "Smoke;Tsunami",
+        "Smoke;Eruption",
+        "Smoke;Planet",
+        "Smoke;Island",
+        "Smoke;Fjord",
+        "Smoke;Hurricane",
+        "Smoke;Mountain Range",
+        "Lava;Cloud",
+        "Lava;Tsunami",
+        "Lava;Swamp",
+        "Lava;Fog",
+        "Lava;Engine",
+        "Lava;Ash",
+        "Lava;Storm",
+        "Lava;Eruption",
+        "Lava;Sandstorm",
+        "Lava;Avalanche",
+        "Lava;Tree",
+        "Lava;Lily",
+        "Lava;Island",
+        "Lava;Fjord",
+        "Lava;Tea",
+        "Lava;Incense",
+        "Lava;Pollen",
+        "Lava;Hurricane",
+        "Lava;Dust Storm",
+        "Lava;Mountain Range",
+        "Tornado;Eruption",
+        "Dust;Eruption",
+        "Mountain;Swamp",
+        "Mountain;Mud",
+        "Mountain;Ash",
+        "Mountain;Eruption",
+        "Mountain;Sandstorm",
+        "Mountain;Island",
+        "Mountain;Hurricane",
+        "Cloud;Mud",
+        "Cloud;Eruption",
+        "Tsunami;Ash",
+        "Tsunami;Eruption",
+        "Swamp;Eruption",
+        "Swamp;Mountain Range",
+        "Fog;Eruption",
+        "Stone;Eruption",
+        "Mud;Mountain Range",
+        "Engine;Eruption",
+        "Ash;Eruption",
+        "Ash;Planet",
+        "Ash;Island",
+        "Ash;Hurricane",
+        "Ash;Mountain Range",
+        "Storm;Eruption",
+        "Dandelion;Eruption",
+        "Eruption;Eruption",
+        "Eruption;Sandstorm",
+        "Eruption;Avalanche",
+        "Eruption;Tree",
+        "Eruption;Lily",
+        "Eruption;Island",
+        "Eruption;Tea",
+        "Eruption;Incense",
+        "Eruption;Pollen",
+        "Eruption;Hurricane",
+        "Eruption;Dust Storm",
+        "Eruption;Mountain Range",
+        "Island;Incense",
+        "Hurricane;Mountain Range"
+    ],
+    "Smoke": [
+        "Fire;Wind",
+        "Fire;Plant",
+        "Fire;Fog",
+        "Fire;Incense",
+        "Fire;Pollen",
+        "Wind;Incense",
+        "Lake;Incense",
+        "Steam;Ash",
+        "Steam;Incense",
+        "Wave;Incense",
+        "Plant;Incense",
+        "Volcano;Incense",
+        "Tornado;Incense",
+        "Cloud;Ash",
+        "Cloud;Incense",
+        "Fog;Ash",
+        "Fog;Incense",
+        "Ash;Incense",
+        "Tea;Incense",
+        "Incense;Hurricane",
+        "Incense;Mountain Range"
+    ],
+    "Lava": [
+        "Fire;Earth",
+        "Water;Volcano",
+        "Fire;Volcano",
+        "Earth;Volcano",
+        "Steam;Volcano",
+        "Wave;Volcano",
+        "Plant;Volcano",
+        "Volcano;Mountain",
+        "Water;Eruption",
+        "Fire;Stone",
+        "Volcano;Swamp",
+        "Volcano;Stone",
+        "Volcano;Mud",
+        "Volcano;Ash",
+        "Volcano;Eruption",
+        "Volcano;Tree",
+        "Volcano;Lily",
+        "Volcano;Tea"
+    ],
+    "Tornado": [
+        "Wind;Wind",
+        "Wind;Tornado",
+        "Steam;Tornado",
+        "Wind;Storm",
+        "Wind;Island",
+        "Wind;Fjord",
+        "Wind;Hurricane",
+        "Wind;Dust Storm",
+        "Earth;Storm",
+        "Earth;Hurricane",
+        "Tornado;Engine",
+        "Tornado;Lily",
+        "Dust;Storm",
+        "Dust;Sandstorm",
+        "Dust;Hurricane",
+        "Cloud;Hurricane",
+        "Cloud;Dust Storm",
+        "Tsunami;Storm",
+        "Tsunami;Sandstorm",
+        "Engine;Storm",
+        "Engine;Hurricane",
+        "Storm;Storm",
+        "Storm;Lily",
+        "Storm;Hurricane",
+        "Storm;Dust Storm",
+        "Sandstorm;Hurricane",
+        "Planet;Hurricane",
+        "Lily;Hurricane",
+        "Island;Hurricane",
+        "Island;Dust Storm",
+        "Fjord;Dust Storm",
+        "Hurricane;Hurricane",
+        "Hurricane;Dust Storm",
+        "Dust Storm;Dust Storm"
+    ],
+    "Dust": [
+        "Wind;Earth",
+        "Earth;Tornado",
+        "Plant;Tornado",
+        "Smoke;Dust",
+        "Wind;Mud",
+        "Wind;Ash",
+        "Lake;Dust Storm",
+        "Smoke;Sandstorm",
+        "Tornado;Mud",
+        "Tornado;Ash",
+        "Tornado;Sand",
+        "Cloud;Sandstorm",
+        "Mud;Sandstorm",
+        "Ash;Storm",
+        "Ash;Sandstorm",
+        "Dandelion;Sandstorm",
+        "Sandstorm;Lily",
+        "Sandstorm;Tea",
+        "Sandstorm;Pollen",
+        "Sand;Pollen"
+    ],
+    "Mountain": [
+        "Earth;Earth",
+        "Volcano;Volcano",
+        "Mountain Range;Mountain Range"
+    ],
+    "Ocean": [
+        "Water;Lake",
+        "Lake;Lake",
+        "Water;Tsunami",
+        "Water;Planet",
+        "Lake;Tsunami",
+        "Lake;Fjord",
+        "Surf;Surf"
+    ],
+    "Cloud": [
+        "Water;Steam",
+        "Wind;Steam",
+        "Wind;Smoke",
+        "Lake;Steam",
+        "Steam;Steam",
+        "Steam;Smoke",
+        "Steam;Dust",
+        "Smoke;Smoke",
+        "Wind;Fog",
+        "Steam;Ocean",
+        "Steam;Fog",
+        "Steam;Tree",
+        "Steam;Island",
+        "Smoke;Fog",
+        "Mountain;Fog",
+        "Fog;Fog",
+        "Fog;Mountain Range"
+    ],
+    "Tsunami": [
+        "Water;Wave",
+        "Water;Tornado",
+        "Lake;Wave",
+        "Lake;Tornado",
+        "Wave;Wave",
+        "Wave;Tornado",
+        "Wave;Mountain",
+        "Water;Hurricane",
+        "Lake;Storm",
+        "Lake;Hurricane",
+        "Wave;Ocean",
+        "Wave;Tsunami",
+        "Wave;Swamp",
+        "Wave;Engine",
+        "Wave;Storm",
+        "Wave;Eruption",
+        "Wave;Sandstorm",
+        "Wave;Avalanche",
+        "Wave;Planet",
+        "Wave;Fjord",
+        "Wave;Tea",
+        "Wave;Hurricane",
+        "Wave;Dust Storm",
+        "Wave;Mountain Range",
+        "Plant;Tsunami",
+        "Volcano;Hurricane",
+        "Tornado;Ocean",
+        "Tornado;Island",
+        "Tornado;Fjord",
+        "Tornado;Surf",
+        "Tornado;Seaweed",
+        "Tornado;Hurricane",
+        "Ocean;Tsunami",
+        "Ocean;Storm",
+        "Ocean;Sandstorm",
+        "Ocean;Avalanche",
+        "Ocean;Hurricane",
+        "Ocean;Dust Storm",
+        "Tsunami;Tsunami",
+        "Tsunami;Stone",
+        "Tsunami;Engine",
+        "Tsunami;Lily",
+        "Tsunami;Fjord",
+        "Tsunami;Mountain Range",
+        "Storm;Fjord",
+        "Storm;Seaweed",
+        "Eruption;Surf",
+        "Sandstorm;Fjord",
+        "Sandstorm;Surf",
+        "Sandstorm;Seaweed",
+        "Avalanche;Fjord",
+        "Avalanche;Surf",
+        "Avalanche;Hurricane",
+        "Fjord;Hurricane"
+    ],
+    "Swamp": [
+        "Water;Plant",
+        "Earth;Lake",
+        "Water;Mud",
+        "Lake;Mud",
+        "Lake;Tree",
+        "Steam;Mud",
+        "Plant;Mud",
+        "Smoke;Mud",
+        "Tsunami;Swamp",
+        "Fog;Mud",
+        "Mud;Tree",
+        "Mud;Island",
+        "Mud;Fjord"
+    ],
+    "Fog": [
+        "Water;Smoke",
+        "Lake;Smoke",
+        "Smoke;Ocean",
+        "Smoke;Cloud",
+        "Cloud;Swamp"
+    ],
+    "Stone": [
+        "Water;Lava",
+        "Earth;Lava",
+        "Wave;Lava",
+        "Lava;Ocean",
+        "Lava;Seaweed",
+        "Ash;Ash"
+    ],
+    "Mud": [
+        "Water;Dust",
+        "Earth;Steam",
+        "Lake;Dust",
+        "Water;Dust Storm",
+        "Earth;Swamp",
+        "Dust;Swamp",
+        "Swamp;Ash",
+        "Swamp;Dust Storm"
+    ],
+    "Engine": [
+        "Fire;Steam"
+    ],
+    "Ash": [
+        "Fire;Dust",
+        "Volcano;Dust",
+        "Fire;Dandelion",
+        "Fire;Tree"
+    ],
+    "Storm": [
+        "Wind;Lake",
+        "Wind;Wave",
+        "Wind;Ocean",
+        "Wind;Cloud",
+        "Wind;Planet",
+        "Tornado;Fog",
+        "Fog;Hurricane"
+    ],
+    "Dandelion": [
+        "Wind;Plant",
+        "Lily;Dust Storm"
+    ],
+    "Eruption": [
+        "Wind;Volcano",
+        "Volcano;Smoke",
+        "Volcano;Lava",
+        "Volcano;Tornado",
+        "Volcano;Fog",
+        "Volcano;Storm",
+        "Volcano;Sandstorm",
+        "Volcano;Avalanche",
+        "Volcano;Pollen",
+        "Volcano;Dust Storm"
+    ],
+    "Sandstorm": [
+        "Wind;Dust",
+        "Fire;Dust Storm",
+        "Smoke;Dust Storm",
+        "Dust;Sand",
+        "Dust;Dust Storm",
+        "Tsunami;Dust Storm",
+        "Fog;Dust Storm",
+        "Engine;Dust Storm",
+        "Ash;Dust Storm",
+        "Sand;Hurricane",
+        "Sand;Dust Storm"
+    ],
+    "Avalanche": [
+        "Wind;Mountain",
+        "Tornado;Stone",
+        "Tornado;Mountain Range",
+        "Mountain;Storm",
+        "Storm;Mountain Range"
+    ],
+    "Sand": [
+        "Earth;Wave",
+        "Wave;Dust",
+        "Dust;Dust",
+        "Wind;Stone",
+        "Earth;Dust Storm",
+        "Steam;Sandstorm",
+        "Steam;Dust Storm",
+        "Dust;Ocean",
+        "Dust;Tsunami",
+        "Dust;Stone",
+        "Dust;Island",
+        "Dust;Surf",
+        "Mountain;Dust Storm",
+        "Mud;Dust Storm",
+        "Engine;Sandstorm",
+        "Surf;Dust Storm"
+    ],
+    "Tree": [
+        "Earth;Plant",
+        "Plant;Plant",
+        "Plant;Mountain",
+        "Plant;Storm",
+        "Plant;Island",
+        "Plant;Fjord"
+    ],
+    "Planet": [
+        "Earth;Dust"
+    ],
+    "Lily": [
+        "Lake;Plant"
+    ],
+    "Island": [
+        "Lake;Volcano",
+        "Earth;Ocean",
+        "Earth;Tsunami",
+        "Lake;Island",
+        "Volcano;Ocean",
+        "Mountain;Ocean",
+        "Mountain;Tsunami",
+        "Ocean;Stone",
+        "Ocean;Eruption"
+    ],
+    "Fjord": [
+        "Lake;Mountain",
+        "Lake;Mountain Range"
+    ],
+    "Surf": [
+        "Steam;Wave",
+        "Wave;Smoke",
+        "Wave;Fog",
+        "Wave;Ash",
+        "Wave;Island",
+        "Wave;Seaweed",
+        "Wave;Pollen",
+        "Fjord;Surf"
+    ],
+    "Tea": [
+        "Steam;Plant",
+        "Water;Tea",
+        "Steam;Dandelion",
+        "Plant;Tea",
+        "Fog;Tea",
+        "Tea;Tea"
+    ],
+    "Seaweed": [
+        "Wave;Plant",
+        "Lake;Seaweed",
+        "Wave;Dandelion",
+        "Ocean;Dandelion"
+    ],
+    "Incense": [
+        "Plant;Smoke",
+        "Smoke;Lily"
+    ],
+    "Pollen": [
+        "Plant;Dust"
+    ],
+    "Hurricane": [
+        "Tornado;Tornado",
+        "Wind;Tsunami",
+        "Tornado;Storm",
+        "Storm;Planet"
+    ],
+    "Dust Storm": [
+        "Tornado;Dust",
+        "Wind;Sandstorm",
+        "Tornado;Sandstorm",
+        "Fog;Sandstorm",
+        "Storm;Sandstorm",
+        "Sandstorm;Sandstorm"
+    ],
+    "Mountain Range": [
+        "Mountain;Mountain",
+        "Mountain;Mountain Range"
+    ],
+    "Fish": [
+        "Water;Ocean",
+        "Ocean;Fog"
+    ],
+    "Rain": [
+        "Water;Cloud",
+        "Water;Storm",
+        "Earth;Cloud",
+        "Lake;Cloud",
+        "Steam;Cloud",
+        "Steam;Storm",
+        "Wave;Cloud",
+        "Plant;Cloud",
+        "Volcano;Cloud",
+        "Tornado;Cloud",
+        "Dust;Cloud",
+        "Ocean;Cloud",
+        "Cloud;Cloud",
+        "Cloud;Fog",
+        "Cloud;Stone",
+        "Cloud;Storm",
+        "Cloud;Dandelion",
+        "Cloud;Sand",
+        "Cloud;Tree",
+        "Cloud;Tea",
+        "Cloud;Pollen",
+        "Cloud;Mountain Range",
+        "Fog;Storm",
+        "Storm;Incense"
+    ],
+    "Marsh": [
+        "Water;Swamp",
+        "Lake;Swamp",
+        "Ocean;Swamp"
+    ],
+    "Ice": [
+        "Water;Fog",
+        "Water;Avalanche"
+    ],
+    "Rock": [
+        "Water;Stone",
+        "Earth;Stone",
+        "Wave;Stone",
+        "Mountain;Stone",
+        "Stone;Avalanche",
+        "Stone;Tree",
+        "Stone;Surf",
+        "Stone;Tea",
+        "Stone;Mountain Range",
+        "Avalanche;Mountain Range"
+    ],
+    "Puddle": [
+        "Water;Ash",
+        "Mud;Dandelion"
+    ],
+    "Wine": [
+        "Water;Dandelion",
+        "Dandelion;Tea"
+    ],
+    "Oasis": [
+        "Water;Sandstorm",
+        "Lake;Sandstorm",
+        "Swamp;Sandstorm"
+    ],
+    "Beach": [
+        "Water;Sand",
+        "Earth;Surf",
+        "Lake;Sand",
+        "Wave;Mud",
+        "Wave;Sand",
+        "Ocean;Mud",
+        "Ocean;Sand",
+        "Ocean;Mountain Range",
+        "Tsunami;Sand",
+        "Mud;Sand",
+        "Mud;Surf",
+        "Sand;Fjord",
+        "Sand;Surf",
+        "Sand;Seaweed",
+        "Surf;Mountain Range"
+    ],
+    "River": [
+        "Water;Tree"
+    ],
+    "Pond": [
+        "Water;Lily"
+    ],
+    "Ship": [
+        "Water;Island"
+    ],
+    "Whale": [
+        "Water;Fjord",
+        "Ocean;Fjord"
+    ],
+    "Kelp": [
+        "Water;Seaweed",
+        "Earth;Seaweed",
+        "Plant;Seaweed",
+        "Dust;Seaweed",
+        "Ocean;Seaweed",
+        "Fog;Seaweed",
+        "Ash;Seaweed",
+        "Dandelion;Seaweed",
+        "Eruption;Seaweed",
+        "Tree;Seaweed",
+        "Fjord;Seaweed",
+        "Seaweed;Pollen",
+        "Seaweed;Dust Storm",
+        "Seaweed;Mountain Range"
+    ],
+    "Perfume": [
+        "Water;Incense",
+        "Mud;Incense",
+        "Lily;Incense",
+        "Incense;Incense",
+        "Incense;Pollen"
+    ],
+    "Honey": [
+        "Water;Pollen",
+        "Mountain;Pollen",
+        "Tsunami;Pollen",
+        "Tea;Pollen"
+    ],
+    "Lightning": [
+        "Fire;Cloud",
+        "Storm;Tree"
+    ],
+    "Dragon": [
+        "Fire;Swamp",
+        "Steam;Swamp",
+        "Smoke;Swamp"
+    ],
+    "Brick": [
+        "Fire;Mud"
+    ],
+    "Phoenix": [
+        "Fire;Ash",
+        "Fire;Lily",
+        "Lake;Ash",
+        "Ash;Lily",
+        "Ash;Fjord"
+    ],
+    "Glass": [
+        "Fire;Sand",
+        "Steam;Sand",
+        "Volcano;Sand",
+        "Lava;Sand",
+        "Ash;Sand",
+        "Eruption;Sand"
+    ],
+    "Sun": [
+        "Fire;Planet",
+        "Dandelion;Planet"
+    ],
+    "Chai": [
+        "Fire;Tea"
+    ],
+    "Sushi": [
+        "Fire;Seaweed",
+        "Steam;Seaweed",
+        "Volcano;Seaweed",
+        "Smoke;Seaweed",
+        "Mountain;Seaweed",
+        "Cloud;Seaweed",
+        "Tsunami;Seaweed",
+        "Swamp;Seaweed",
+        "Island;Seaweed",
+        "Tea;Seaweed",
+        "Seaweed;Incense",
+        "Seaweed;Hurricane"
+    ],
+    "Mist": [
+        "Wind;Swamp",
+        "Earth;Fog",
+        "Lake;Fog",
+        "Tsunami;Fog",
+        "Fog;Fjord"
+    ],
+    "Windmill": [
+        "Wind;Engine"
+    ],
+    "Seed": [
+        "Wind;Dandelion",
+        "Tornado;Dandelion",
+        "Storm;Dandelion",
+        "Dandelion;Hurricane"
+    ],
+    "Snow": [
+        "Wind;Avalanche",
+        "Steam;Avalanche",
+        "Smoke;Avalanche",
+        "Dust;Avalanche",
+        "Mountain;Cloud",
+        "Mountain;Avalanche",
+        "Mountain;Lily",
+        "Cloud;Avalanche",
+        "Fog;Avalanche",
+        "Ash;Avalanche",
+        "Storm;Avalanche",
+        "Dandelion;Avalanche",
+        "Avalanche;Avalanche",
+        "Avalanche;Sand",
+        "Avalanche;Tea",
+        "Avalanche;Dust Storm"
+    ],
+    "Dune": [
+        "Wind;Sand",
+        "Earth;Sandstorm",
+        "Storm;Sand",
+        "Sandstorm;Mountain Range",
+        "Sand;Lily"
+    ],
+    "Leaf": [
+        "Wind;Tree"
+    ],
+    "Flower": [
+        "Wind;Lily",
+        "Earth;Dandelion",
+        "Earth;Lily",
+        "Earth;Pollen",
+        "Steam;Lily",
+        "Steam;Pollen",
+        "Plant;Lily",
+        "Plant;Pollen",
+        "Fog;Lily",
+        "Dandelion;Lily",
+        "Tree;Lily",
+        "Lily;Lily",
+        "Lily;Pollen",
+        "Fjord;Pollen",
+        "Pollen;Pollen"
+    ],
+    "Surfing": [
+        "Wind;Surf",
+        "Steam;Surf",
+        "Volcano;Surf",
+        "Lava;Surf",
+        "Cloud;Surf",
+        "Planet;Surf",
+        "Surf;Tea"
+    ],
+    "Kite": [
+        "Wind;Tea",
+        "Wind;Seaweed"
+    ],
+    "Allergy": [
+        "Wind;Pollen",
+        "Tornado;Pollen",
+        "Dust;Pollen",
+        "Swamp;Pollen",
+        "Fog;Pollen",
+        "Storm;Pollen",
+        "Dandelion;Pollen",
+        "Surf;Pollen",
+        "Pollen;Hurricane",
+        "Pollen;Dust Storm"
+    ],
+    "Aeolus": [
+        "Wind;Mountain Range"
+    ],
+    "Clay": [
+        "Earth;Mud",
+        "Lava;Mud",
+        "Dust;Mud",
+        "Stone;Mud",
+        "Mud;Mud",
+        "Mud;Ash",
+        "Mud;Eruption"
+    ],
+    "Tractor": [
+        "Earth;Engine",
+        "Mud;Engine"
+    ],
+    "Soil": [
+        "Earth;Ash"
+    ],
+    "Landslide": [
+        "Earth;Avalanche"
+    ],
+    "Desert": [
+        "Earth;Sand",
+        "Smoke;Sand",
+        "Dust;Mountain Range",
+        "Swamp;Sand",
+        "Fog;Sand",
+        "Sandstorm;Sand",
+        "Sandstorm;Island",
+        "Sand;Sand",
+        "Sand;Tree",
+        "Sand;Planet",
+        "Sand;Island",
+        "Sand;Mountain Range"
+    ],
+    "Forest": [
+        "Earth;Tree",
+        "Plant;Tree",
+        "Plant;Mountain Range",
+        "Mountain;Tree",
+        "Tsunami;Tree",
+        "Tree;Tree",
+        "Tree;Mountain Range"
+    ],
+    "Moon": [
+        "Earth;Planet",
+        "Mountain;Planet",
+        "Planet;Mountain Range"
+    ],
+    "Continent": [
+        "Earth;Island",
+        "Island;Island"
+    ],
+    "Land": [
+        "Earth;Fjord"
+    ],
+    "Teapot": [
+        "Earth;Tea",
+        "Lake;Tea",
+        "Steam;Tea",
+        "Engine;Tea",
+        "Tree;Tea",
+        "Island;Tea"
+    ],
+    "Sea": [
+        "Lake;Ocean",
+        "Ocean;Ocean",
+        "Ocean;Tea",
+        "Ocean;Incense"
+    ],
+    "Lighthouse": [
+        "Lake;Stone"
+    ],
+    "Boat": [
+        "Lake;Engine"
+    ],
+    "Wish": [
+        "Lake;Dandelion",
+        "Dust;Dandelion",
+        "Tsunami;Dandelion",
+        "Stone;Dandelion",
+        "Ash;Dandelion",
+        "Dandelion;Tree",
+        "Dandelion;Incense"
+    ],
+    "Iceberg": [
+        "Lake;Avalanche",
+        "Avalanche;Island"
+    ],
+    "Earth": [
+        "Lake;Planet",
+        "Plant;Planet",
+        "Volcano;Planet",
+        "Lava;Planet",
+        "Dust;Planet",
+        "Ocean;Planet",
+        "Swamp;Planet",
+        "Mud;Planet",
+        "Tree;Planet",
+        "Planet;Island",
+        "Planet;Fjord",
+        "Planet;Seaweed"
+    ],
+    "Lotus": [
+        "Lake;Lily",
+        "Lake;Pollen",
+        "Swamp;Lily",
+        "Mud;Lily",
+        "Mud;Pollen",
+        "Lily;Island"
+    ],
+    "Titanic": [
+        "Steam;Tsunami"
+    ],
+    "Geysir": [
+        "Steam;Stone",
+        "Eruption;Fjord"
+    ],
+    "Train": [
+        "Steam;Engine",
+        "Steam;Mountain Range",
+        "Mountain;Engine",
+        "Swamp;Engine",
+        "Engine;Island",
+        "Engine;Mountain Range"
+    ],
+    "Geyser": [
+        "Steam;Eruption"
+    ],
+    "Steampunk": [
+        "Steam;Planet"
+    ],
+    "Steamboat": [
+        "Steam;Fjord",
+        "Steam;Hurricane",
+        "Engine;Lily"
+    ],
+    "Surfboard": [
+        "Wave;Tree",
+        "Plant;Surf",
+        "Ash;Surf",
+        "Dandelion;Surf",
+        "Lily;Surf",
+        "Island;Surf"
+    ],
+    "Mermaid": [
+        "Wave;Lily",
+        "Ocean;Lily",
+        "Lily;Seaweed"
+    ],
+    "Surfer": [
+        "Wave;Surf",
+        "Smoke;Surf",
+        "Ocean;Surf",
+        "Tsunami;Surf",
+        "Fog;Surf",
+        "Storm;Surf",
+        "Surf;Seaweed",
+        "Surf;Hurricane"
+    ],
+    "Coral": [
+        "Plant;Ocean",
+        "Ocean;Tree",
+        "Ocean;Pollen",
+        "Stone;Seaweed",
+        "Seaweed;Seaweed"
+    ],
+    "Venus Flytrap": [
+        "Plant;Swamp"
+    ],
+    "Mushroom": [
+        "Plant;Fog"
+    ],
+    "Fossil": [
+        "Plant;Stone"
+    ],
+    "Car": [
+        "Plant;Engine"
+    ],
+    "Tobacco": [
+        "Plant;Ash"
+    ],
+    "Weed": [
+        "Plant;Dandelion"
+    ],
+    "Cactus": [
+        "Plant;Sandstorm",
+        "Plant;Sand",
+        "Plant;Dust Storm"
+    ],
+    "Snowman": [
+        "Plant;Avalanche",
+        "Avalanche;Seaweed",
+        "Avalanche;Incense"
+    ],
+    "Palm Tree": [
+        "Plant;Hurricane",
+        "Sandstorm;Tree"
+    ],
+    "Earthquake": [
+        "Volcano;Tsunami",
+        "Tsunami;Planet"
+    ],
+    "Fireworks": [
+        "Volcano;Dandelion"
+    ],
+    "Hawaii": [
+        "Volcano;Island",
+        "Island;Mountain Range"
+    ],
+    "Iceland": [
+        "Volcano;Fjord",
+        "Island;Fjord"
+    ],
+    "Yellowstone": [
+        "Volcano;Mountain Range",
+        "Dandelion;Mountain Range"
+    ],
+    "Statue": [
+        "Smoke;Stone",
+        "Swamp;Stone",
+        "Fog;Stone",
+        "Stone;Ash",
+        "Stone;Island",
+        "Stone;Hurricane"
+    ],
+    "Fire": [
+        "Smoke;Ash",
+        "Smoke;Dandelion",
+        "Smoke;Tree",
+        "Lava;Dandelion"
+    ],
+    "Thunder": [
+        "Smoke;Storm"
+    ],
+    "Prayer": [
+        "Smoke;Incense",
+        "Dust;Incense"
+    ],
+    "Bee": [
+        "Smoke;Pollen",
+        "Engine;Pollen",
+        "Tree;Pollen",
+        "Planet;Pollen",
+        "Island;Pollen"
+    ],
+    "Obsidian": [
+        "Lava;Stone"
+    ],
+    "Destruction": [
+        "Tornado;Tsunami"
+    ],
+    "Cyclone": [
+        "Tornado;Swamp",
+        "Tornado;Planet"
+    ],
+    "Blizzard": [
+        "Tornado;Avalanche"
+    ],
+    "Wood": [
+        "Tornado;Tree",
+        "Dust;Tree",
+        "Engine;Tree",
+        "Avalanche;Tree"
+    ],
+    "Teacup": [
+        "Tornado;Tea",
+        "Tea;Hurricane"
+    ],
+    "Dust Devil": [
+        "Tornado;Dust Storm"
+    ],
+    "Smog": [
+        "Dust;Fog"
+    ],
+    "Vacuum": [
+        "Dust;Engine"
+    ],
+    "Cinder": [
+        "Dust;Ash"
+    ],
+    "Angel": [
+        "Dust;Lily",
+        "Cloud;Lily"
+    ],
+    "Troll": [
+        "Dust;Fjord",
+        "Stone;Fjord"
+    ],
+    "Tea Bag": [
+        "Dust;Tea"
+    ],
+    "Mountain Dew": [
+        "Mountain;Dandelion",
+        "Mountain;Tea"
+    ],
+    "Pyramid": [
+        "Mountain;Sand",
+        "Stone;Sand"
+    ],
+    "Norway": [
+        "Mountain;Fjord",
+        "Fjord;Mountain Range"
+    ],
+    "Buddha": [
+        "Mountain;Incense",
+        "Stone;Incense"
+    ],
+    "Submarine": [
+        "Ocean;Engine",
+        "Engine;Fjord",
+        "Engine;Seaweed"
+    ],
+    "Salt": [
+        "Ocean;Ash"
+    ],
+    "Atlantis": [
+        "Ocean;Island",
+        "Tsunami;Island"
+    ],
+    "Rainbow": [
+        "Cloud;Tsunami",
+        "Cloud;Fjord"
+    ],
+    "Jet": [
+        "Cloud;Engine"
+    ],
+    "Sky": [
+        "Cloud;Planet",
+        "Cloud;Island"
+    ],
+    "Mudslide": [
+        "Tsunami;Mud",
+        "Swamp;Avalanche",
+        "Mud;Storm",
+        "Mud;Avalanche",
+        "Mud;Hurricane"
+    ],
+    "Disaster": [
+        "Tsunami;Avalanche",
+        "Tsunami;Hurricane"
+    ],
+    "Poseidon": [
+        "Tsunami;Incense",
+        "Tree;Incense"
+    ],
+    "Bog": [
+        "Swamp;Swamp",
+        "Swamp;Storm",
+        "Swamp;Fjord"
+    ],
+    "Ghost": [
+        "Swamp;Fog",
+        "Fog;Tree",
+        "Fog;Island"
+    ],
+    "Quagmire": [
+        "Swamp;Mud"
+    ],
+    "Frog": [
+        "Swamp;Dandelion"
+    ],
+    "Mangrove": [
+        "Swamp;Tree"
+    ],
+    "Loch Ness": [
+        "Swamp;Island"
+    ],
+    "Lagoon": [
+        "Swamp;Surf"
+    ],
+    "Mosquito": [
+        "Swamp;Incense"
+    ],
+    "Alligator": [
+        "Swamp;Hurricane"
+    ],
+    "Fairy": [
+        "Fog;Dandelion"
+    ],
+    "Venus": [
+        "Fog;Planet",
+        "Stone;Lily",
+        "Planet;Lily",
+        "Planet;Incense"
+    ],
+    "Boulder": [
+        "Stone;Stone"
+    ],
+    "Steamroller": [
+        "Stone;Engine"
+    ],
+    "Meteor": [
+        "Stone;Storm",
+        "Stone;Planet"
+    ],
+    "Sphinx": [
+        "Stone;Sandstorm",
+        "Stone;Dust Storm"
+    ],
+    "Amber": [
+        "Stone;Pollen"
+    ],
+    "Mudweed": [
+        "Mud;Seaweed"
+    ],
+    "Rocket": [
+        "Engine;Engine"
+    ],
+    "Helicopter": [
+        "Engine;Dandelion"
+    ],
+    "Snowmobile": [
+        "Engine;Avalanche"
+    ],
+    "Sandbox": [
+        "Engine;Sand"
+    ],
+    "Saturn": [
+        "Engine;Planet"
+    ],
+    "Pencil": [
+        "Ash;Tree"
+    ],
+    "Matcha": [
+        "Ash;Tea"
+    ],
+    "Cough": [
+        "Ash;Pollen"
+    ],
+    "Shipwreck": [
+        "Storm;Island"
+    ],
+    "Tempest": [
+        "Storm;Tea"
+    ],
+    "Dandelion Patch": [
+        "Dandelion;Dandelion"
+    ],
+    "Sandcastle": [
+        "Dandelion;Sand"
+    ],
+    "Viking": [
+        "Dandelion;Fjord",
+        "Fjord;Incense"
+    ],
+    "Dust Bunny": [
+        "Dandelion;Dust Storm"
+    ],
+    "Mars": [
+        "Eruption;Planet",
+        "Sandstorm;Planet",
+        "Planet;Dust Storm"
+    ],
+    "Snowstorm": [
+        "Sandstorm;Avalanche"
+    ],
+    "Genie": [
+        "Sandstorm;Incense"
+    ],
+    "Dust Bowl": [
+        "Sandstorm;Dust Storm"
+    ],
+    "Snowball": [
+        "Avalanche;Planet"
+    ],
+    "Snowflake": [
+        "Avalanche;Lily",
+        "Avalanche;Pollen"
+    ],
+    "Sandwich": [
+        "Sand;Tea"
+    ],
+    "Snake": [
+        "Sand;Incense"
+    ],
+    "Palm": [
+        "Tree;Island",
+        "Tree;Surf",
+        "Tree;Hurricane"
+    ],
+    "Pine": [
+        "Tree;Fjord"
+    ],
+    "Tumbleweed": [
+        "Tree;Dust Storm"
+    ],
+    "Star": [
+        "Planet;Planet"
+    ],
+    "Plantea": [
+        "Planet;Tea"
+    ],
+    "Nymph": [
+        "Lily;Fjord"
+    ],
+    "Himalayas": [
+        "Lily;Mountain Range"
+    ],
+    "Glacier": [
+        "Fjord;Fjord"
+    ],
+    "Tea Storm": [
+        "Tea;Dust Storm"
+    ],
+    "Tea Party": [
+        "Tea;Mountain Range"
+    ],
+    "Sandalwood": [
+        "Incense;Dust Storm"
+    ],
+    "Hay Fever": [
+        "Pollen;Mountain Range"
+    ],
+    "Sand Dunes": [
+        "Dust Storm;Mountain Range"
+    ]
+}
