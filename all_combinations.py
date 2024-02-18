@@ -1,12 +1,11 @@
-import threading
 import time
-import selenium.webdriver.remote.webelement
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common import NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
 from selenium.webdriver.support.wait import WebDriverWait
 import json
+import os.path
 
 DRIVER: webdriver.Chrome | None = None
 
@@ -24,59 +23,82 @@ def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
     return combos
 
 
+IGNORED_RECIPES = set()
 def produce_all_combinations(ignore_below=0) -> int:
-    ignored_recipes = set()
-    initial_elements = DRIVER.find_elements(By.XPATH, "//div[@class='mobile-items']//div[@class='item']")
+    global IGNORED_RECIPES
+
+    item_parent = DRIVER.find_element(By.CLASS_NAME, "mobile-items")
+    initial_elements = item_parent.find_elements(By.CLASS_NAME, "item")
 
     combos = all_combos(len(initial_elements), min_idx=ignore_below)
     wait = WebDriverWait(DRIVER, timeout=5, poll_frequency=0.01,
-                         ignored_exceptions=[ElementNotInteractableException, ElementClickInterceptedException])
+                         ignored_exceptions=[NoSuchElementException, ElementNotInteractableException,
+                                             ElementClickInterceptedException])
 
     for combo in combos:
         e1 = initial_elements[combo[0]]
         e2 = initial_elements[combo[1]]
-        recipe_key = e1.text.partition(" ")[2] + ";" + e2.text.partition(" ")[2]
-        if recipe_key in ignored_recipes:
+        recipe_key = e1.text.partition("\n")[2] + ";" + e2.text.partition("\n")[2]
+        if recipe_key in IGNORED_RECIPES:
             continue
 
         wait.until(lambda d: e1.click() or True)
         wait.until(lambda d: e2.click() or True)
-        # TODO: Need an efficient way of detecting if there was a new result,
-        # then need to find that result and use it to add to our recipes list.
         time.sleep(0.15)
+
+        # Found this very helpful tag!
+        try:
+            wait.until(lambda d: item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile") or True)
+
+            # If we find the resulting recipe, add it to our list
+            crafted = item_parent.find_element(By.CLASS_NAME, "item-crafted-mobile")
+            crafted_key = crafted.text.partition("\n")[2]
+            print(crafted_key)
+            if crafted_key not in RECIPES:
+                RECIPES[crafted_key] = [recipe_key]
+            elif recipe_key not in RECIPES[crafted_key]:
+                RECIPES[crafted_key].append(recipe_key)
+
+            IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found it, make sure we ignore its other forms
+        except TimeoutError:
+            continue  # Couldn't find what it crafted, just move on
 
     return len(initial_elements)
 
 
 if __name__ == "__main__":
-    with open("recipes.json", "r") as fp:
-        RECIPES = json.load(fp)
-
-    options = Options()
-    DRIVER = webdriver.Chrome(options)
-
-    DRIVER.implicitly_wait(1)
-
-    DRIVER.get("https://neal.fun/infinite-craft/")
-
+    if os.path.exists("recipes.json"):
+        with open("recipes.json", "r") as fp:
+            RECIPES = json.load(fp)
     try:
-        sidebar = DRIVER.find_element(By.CLASS_NAME, "sidebar")
+        options = Options()
+        DRIVER = webdriver.Chrome(options)
 
-        DRIVER.set_window_size(0, 1000)
-    except NoSuchElementException:
-        print("we're in small mode")
+        DRIVER.implicitly_wait(1)
 
-    ignore = 0
-    level = 0
-    while True:
-        c = input("Continue? ")
-        if c == "N" or c == "n":
-            break
+        DRIVER.get("https://neal.fun/infinite-craft/")
 
-        level += 1
-        start = time.time_ns()
-        ignore = produce_all_combinations(ignore_below=ignore)
-        duration = (time.time_ns() - start) / 1000000000
-        print(f"Level {level}: Duration - {duration} s;")
+        try:
+            sidebar = DRIVER.find_element(By.CLASS_NAME, "sidebar")
 
-    DRIVER.quit()
+            DRIVER.set_window_size(0, 1000)
+        except NoSuchElementException:
+            print("we're in small mode")
+
+        ignore = 0
+        level = 0
+        while True:
+            c = input("Continue? ")
+            if c == "N" or c == "n":
+                break
+
+            level += 1
+            start = time.time_ns()
+            ignore = produce_all_combinations(ignore_below=ignore)
+            duration = (time.time_ns() - start) / 1000000000
+            print(f"Level {level}: Duration - {duration} s;")
+            print(RECIPES)
+    finally:
+        DRIVER.quit()
+        with open("recipes.json", "w") as fp:
+            json.dump(RECIPES, fp)
