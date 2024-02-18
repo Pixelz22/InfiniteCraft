@@ -113,10 +113,10 @@ if __name__ == "__main__":
             if c == "N" or c == "n":
                 break
 
-            level += 1
             start = time.time_ns()
-            last_batch_size = produce_all_combinations(level, ignore_below=last_batch_size, sleep=0.1)
+            last_batch_size = produce_all_combinations(level + 1, ignore_below=last_batch_size, sleep=0.1)
             duration = (time.time_ns() - start) / 1000000000
+            level += 1  # Don't increase the level counter until we've completed the level
             print(f"Level {level}: Duration - {duration} s;")
     finally:
         HISTORY["last_level"] = level
