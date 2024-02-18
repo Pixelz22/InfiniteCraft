@@ -11,6 +11,7 @@ import os.path
 DRIVER: webdriver.Chrome | None = None
 
 RECIPES: dict[str, list[str]] = {}
+NULL_RECIPE_KEY = "%NULL%"
 
 def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
     """
@@ -32,7 +33,7 @@ def produce_all_combinations(ignore_below=0) -> int:
     initial_elements = item_parent.find_elements(By.CLASS_NAME, "item")
 
     combos = all_combos(len(initial_elements), min_idx=ignore_below)
-    wait = WebDriverWait(DRIVER, timeout=5, poll_frequency=0.01,
+    wait = WebDriverWait(DRIVER, timeout=1, poll_frequency=0.01,
                          ignored_exceptions=[NoSuchElementException, ElementNotInteractableException,
                                              ElementClickInterceptedException])
 
@@ -61,7 +62,7 @@ def produce_all_combinations(ignore_below=0) -> int:
             else:
                 IGNORED_RECIPES.update(RECIPES[crafted_key])  # Now that we've found a recipe, ignore other versions
         except TimeoutException:
-            continue  # Couldn't find what it crafted, just move on
+            RECIPES[NULL_RECIPE_KEY].append(recipe_key)  # Recipe doesn't craft anything, add it to the null list
 
     return len(initial_elements)
 
@@ -70,6 +71,8 @@ if __name__ == "__main__":
     if os.path.exists("recipes.json"):
         with open("recipes.json", "r") as fp:
             RECIPES = json.load(fp)
+            if NULL_RECIPE_KEY in RECIPES:  # Automatically ignore null recipes
+                IGNORED_RECIPES.update(RECIPES[NULL_RECIPE_KEY])
     try:
         options = Options()
         DRIVER = webdriver.Chrome(options)
