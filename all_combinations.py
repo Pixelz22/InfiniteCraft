@@ -128,7 +128,7 @@ if __name__ == "__main__":
         DRIVER.set_window_size(0, 1000)
 
         # Recover progress from last time
-        craft_existing_recipes(sleep=0.05)
+        # craft_existing_recipes(sleep=0.05)
 
         # Main Loop
         ignore = 0  # Keeps track of the highest index we haven't checked

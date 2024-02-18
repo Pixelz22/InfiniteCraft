@@ -48,7 +48,7 @@ def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
     return combos
 
 
-def produce_all_combinations(level: int, ignore_below=0) -> int:
+def produce_all_combinations(level: int, ignore_below=0, sleep=0.0) -> int:
     batch_size = len(HISTORY["elements"])
     combos = all_combos(batch_size, min_idx=ignore_below)
 
@@ -75,6 +75,12 @@ def produce_all_combinations(level: int, ignore_below=0) -> int:
 
         if result_json["result"] not in LEVELS:
             LEVELS[result_json["result"]] = level
+
+        if result_json["isNew"]:
+            with open("newRecipes.txt", "a") as fp:
+                fp.write(result_key + "\n")
+
+        time.sleep(sleep)
 
     return batch_size
 
@@ -109,7 +115,7 @@ if __name__ == "__main__":
 
             level += 1
             start = time.time_ns()
-            last_batch_size = produce_all_combinations(level, ignore_below=last_batch_size)
+            last_batch_size = produce_all_combinations(level, ignore_below=last_batch_size, sleep=0.1)
             duration = (time.time_ns() - start) / 1000000000
             print(f"Level {level}: Duration - {duration} s;")
     finally:
