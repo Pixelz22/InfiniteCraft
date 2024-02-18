@@ -4,10 +4,13 @@ import selenium.webdriver.remote.webelement
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.common import NoSuchElementException, ElementNotInteractableException
+from selenium.common import NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
 from selenium.webdriver.support.wait import WebDriverWait
+import json
 
 DRIVER: webdriver.Chrome | None = None
+
+RECIPES: dict[str, list[str]] = {}
 
 def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
     """
@@ -22,45 +25,33 @@ def all_combos(max_idx: int, min_idx=0, ) -> list[tuple[int, int]]:
 
 
 def produce_all_combinations(ignore_below=0) -> int:
+    ignored_recipes = set()
     initial_elements = DRIVER.find_elements(By.XPATH, "//div[@class='mobile-items']//div[@class='item']")
 
     combos = all_combos(len(initial_elements), min_idx=ignore_below)
+    wait = WebDriverWait(DRIVER, timeout=5, poll_frequency=0.01,
+                         ignored_exceptions=[ElementNotInteractableException, ElementClickInterceptedException])
 
     for combo in combos:
-        initial_elements[combo[0]].click()
-        initial_elements[combo[1]].click()
-        time.sleep(0.01)
+        e1 = initial_elements[combo[0]]
+        e2 = initial_elements[combo[1]]
+        recipe_key = e1.text.partition(" ")[2] + ";" + e2.text.partition(" ")[2]
+        if recipe_key in ignored_recipes:
+            continue
+
+        wait.until(lambda d: e1.click() or True)
+        wait.until(lambda d: e2.click() or True)
+        # TODO: Need an efficient way of detecting if there was a new result,
+        # then need to find that result and use it to add to our recipes list.
+        time.sleep(0.15)
 
     return len(initial_elements)
-
-
-def produce_all_combos_threading(ignore_below=0) -> int:
-    initial_elements = DRIVER.find_elements(By.XPATH, "//div[@class='mobile-items']//div[@class='item']")
-
-    combos = all_combos(len(initial_elements), min_idx=ignore_below)
-
-    split = len(combos) // 2
-
-    t1 = threading.Thread(target=pact_helper, args=(initial_elements, combos[:split]))
-    t2 = threading.Thread(target=pact_helper, args=(initial_elements, combos[split:]))
-
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
-
-    return len(initial_elements)
-
-
-def pact_helper(initial_elements, combos) -> None:
-    for combo in combos:
-        initial_elements[combo[0]].click()
-        initial_elements[combo[1]].click()
-        time.sleep(0.01)
 
 
 if __name__ == "__main__":
+    with open("recipes.json", "r") as fp:
+        RECIPES = json.load(fp)
+
     options = Options()
     DRIVER = webdriver.Chrome(options)
 
@@ -76,10 +67,16 @@ if __name__ == "__main__":
         print("we're in small mode")
 
     ignore = 0
+    level = 0
     while True:
-        c = input("Continue?")
+        c = input("Continue? ")
         if c == "N" or c == "n":
             break
+
+        level += 1
+        start = time.time_ns()
         ignore = produce_all_combinations(ignore_below=ignore)
+        duration = (time.time_ns() - start) / 1000000000
+        print(f"Level {level}: Duration - {duration} s;")
 
     DRIVER.quit()
