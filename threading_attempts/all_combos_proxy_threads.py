@@ -2,16 +2,18 @@ import requests
 import json
 import os.path
 import time
+import proxy
 
 from utilities import DelayedKeyboardInterrupt, to_percent
 
-HISTORY_FILE = "history.json"
+HISTORY_FILE = "../history.json"
 HISTORY: dict[str, int | list[any] | dict[str, int]] = {}
-RECIPE_FILE = "recipes-1.json"
+RECIPE_FILE = "../recipes-1.json"
 RECIPES: dict[str, list[str]] = {}
 NULL_RECIPE_KEY = "%NULL%"
 
 SESSION: requests.Session | None = None
+# SESSIONS: list[requests.Session] | None = None
 
 rHEADERS = {
     'User-Agent': 'BocketBot',
@@ -70,7 +72,7 @@ def process_partial_batch(batch: list[tuple[int, int]], sleep=0.0):
         # Keep track of new discoveries
         if result_json["isNew"]:
             print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
-            with open("newRecipes.txt", "a") as fp:
+            with open("../newRecipes.txt", "a") as fp:
                 fp.write(result_key + "\n")
 
         HISTORY["last_combo"] = list(combo)
@@ -80,7 +82,7 @@ def process_partial_batch(batch: list[tuple[int, int]], sleep=0.0):
 def progress(sleep=0.0):
     last_batch_partial = []
 
-    # Process patch
+    # Process batch
     for j in range(HISTORY["last_combo"][1], HISTORY["batch_size"]):
         last_batch_partial.append((HISTORY["last_combo"][0], j))  # Only check ones that came after our last combo
 
@@ -110,8 +112,13 @@ if __name__ == "__main__":
             if NULL_RECIPE_KEY not in RECIPES:
                 RECIPES[NULL_RECIPE_KEY] = []
 
+    # Inititalize proxies
+    proxy.update_proxies()
+    print("Proxies initialized")
+    # SESSIONS = proxy.get_proxy_sessions(rHEADERS)
     SESSION = requests.session()
     SESSION.headers = rHEADERS
+    print("Sessions initialized")
 
     try:
 
