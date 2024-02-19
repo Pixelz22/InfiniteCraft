@@ -5,7 +5,7 @@ import json
 import os.path
 import time
 
-from utilities import DelayedKeyboardInterrupt
+from utilities import DelayedKeyboardInterrupt, to_percent
 
 HISTORY_FILE = "history.json"
 HISTORY: dict[str, int | list[any] | dict[str, int]] = {}
@@ -41,7 +41,7 @@ def combine(one: str, two: str):
 
 
 def process_partial_batch(batch: list[tuple[int, int]], sleep=0.0):
-    for combo in batch:
+    for i, combo in enumerate(batch):
         e1 = HISTORY["elements"][combo[0]]
         e2 = HISTORY["elements"][combo[1]]
         recipe_key = e1 + ";" + e2
@@ -51,10 +51,10 @@ def process_partial_batch(batch: list[tuple[int, int]], sleep=0.0):
 
         if result_key == "Nothing":
             RECIPES[NULL_RECIPE_KEY].append(recipe_key)
-            print(f"NULL RECIPE: {e1} + {e2}")
+            print(f"Batch%: {to_percent(i / len(batch))}% -- NULL RECIPE: {e1} + {e2}")
             continue
 
-        print(f"{e1} + {e2} = {result_key}")
+        print(f"Batch%: {to_percent(i / len(batch))}% -- {e1} + {e2} = {result_key}")
 
         # Update recipes
         if result_key not in RECIPES:

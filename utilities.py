@@ -16,3 +16,7 @@ class DelayedKeyboardInterrupt:
         signal.signal(signal.SIGINT, self.old_handler)
         if self.signal_received:
             self.old_handler(*self.signal_received)
+
+
+def to_percent(p: float, places=2) -> float:
+    return round(p * (10 ** (2 + places))) / (10 ** places)
