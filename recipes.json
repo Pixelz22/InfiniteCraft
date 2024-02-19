@@ -24,7 +24,11 @@
         "River;River",
         "River;Pond",
         "Pond;Pond",
-        "Pond;Lagoon"
+        "Pond;Lagoon",
+        "River;Puddle",
+        "Pond;Fjord",
+        "Pond;Mountain Range",
+        "Pond;Puddle"
     ],
     "Steam": [
         "Water;Fire",
@@ -76,7 +80,8 @@
         "Windmill;Steampunk",
         "Aeolus;Steampunk",
         "Water;Geysers",
-        "Engine;Geysers"
+        "Engine;Geysers",
+        "Engine;Fog"
     ],
     "Wave": [
         "Water;Wind",
@@ -207,7 +212,11 @@
         "Leaf;Atlantis",
         "Leaf;Tumbleweed",
         "Flower;Soil",
-        "Earth;Bong"
+        "Earth;Bong",
+        "Seed;Planet",
+        "Seed;Dust Storm",
+        "Seed;Puddle",
+        "Train;Venus Flytrap"
     ],
     "Volcano": [
         "Fire;Fire",
@@ -871,7 +880,20 @@
         "Mountain Range;Kiln",
         "Rock;Energy",
         "Rock;Geysers",
-        "Oasis;Krakatoa"
+        "Oasis;Krakatoa",
+        "Eruption;Fog",
+        "Eruption;Stone",
+        "Eruption;Ash",
+        "Island;Ash",
+        "Marsh;Mountain Range",
+        "Lightning;Mountain Range",
+        "Dragon;Mountain Range",
+        "Phoenix;Mountain Range",
+        "Forest;Geyser",
+        "Forest;Earthquake",
+        "Continent;Geyser",
+        "Boat;Geyser",
+        "Titanic;Geyser"
     ],
     "Smoke": [
         "Fire;Wind",
@@ -984,7 +1006,19 @@
         "Fog;Bottle",
         "Ash;Mirage",
         "Incense;Electricity",
-        "Oasis;Chimney"
+        "Oasis;Chimney",
+        "Marsh;Incense",
+        "River;Incense",
+        "Kelp;Incense",
+        "Lightning;Incense",
+        "Dragon;Incense",
+        "Hurricane;Incense",
+        "Mist;Incense",
+        "Leaf;Incense",
+        "Forest;Incense",
+        "Sea;Incense",
+        "Titanic;Incense",
+        "Train;Incense"
     ],
     "Lava": [
         "Fire;Earth",
@@ -1066,7 +1100,8 @@
         "Volcano;Alcohol",
         "Volcano;Kiln",
         "Volcano;Bottle",
-        "Oasis;Magma"
+        "Oasis;Magma",
+        "Desert;Hawaii"
     ],
     "Tornado": [
         "Wind;Wind",
@@ -1326,7 +1361,19 @@
         "Hurricane;Vase",
         "Hurricane;Bottle",
         "Dust Storm;Energy",
-        "Oasis;Supervolcano"
+        "Oasis;Supervolcano",
+        "Wine;Hurricane",
+        "Dragon;Hurricane",
+        "Hurricane;Planet",
+        "Tractor;Dust Storm",
+        "Tractor;Tempest",
+        "Forest;Dust Storm",
+        "Forest;Cyclone",
+        "Forest;Tempest",
+        "Continent;Cyclone",
+        "Continent;Tempest",
+        "Teapot;Cyclone",
+        "Train;Cyclone"
     ],
     "Dust": [
         "Wind;Earth",
@@ -1474,7 +1521,12 @@
         "Sandstorm;Soup",
         "Sandstorm;Splash",
         "Sand;Sneeze",
-        "Dust Storm;Scent"
+        "Dust Storm;Scent",
+        "Storm;Ash",
+        "Lily;Sandstorm",
+        "Tea;Sandstorm",
+        "Phoenix;Sandstorm",
+        "Desert;Vacuum"
     ],
     "Mountain": [
         "Earth;Earth",
@@ -1507,7 +1559,8 @@
         "Flower;Mountain Dew",
         "Mountain;Leviathan",
         "Mountain Range;Cannon",
-        "Rock;Leviathan"
+        "Rock;Leviathan",
+        "Forest;Mountain Dew"
     ],
     "Ocean": [
         "Water;Lake",
@@ -1556,7 +1609,11 @@
         "Lake;Tide",
         "Planet;Splash",
         "Surf;Geysers",
-        "Puddle;Tide"
+        "Puddle;Tide",
+        "Sea;Sea",
+        "Sea;Fireworks",
+        "Sea;Lagoon",
+        "Sea;Puddle"
     ],
     "Cloud": [
         "Water;Steam",
@@ -1654,7 +1711,11 @@
         "Seed;Sky",
         "Snow;Sky",
         "Surfing;Sky",
-        "Steam;Holy Water"
+        "Steam;Holy Water",
+        "Mist;Mountain Range",
+        "Teapot;Sky",
+        "Boat;Sky",
+        "Titanic;Sky"
     ],
     "Tsunami": [
         "Water;Wave",
@@ -1986,7 +2047,22 @@
         "Dust Storm;Tide",
         "Fish;Tide",
         "Rain;Tide",
-        "Wine;Tide"
+        "Wine;Tide",
+        "Surf;Sandstorm",
+        "Surf;Avalanche",
+        "Seaweed;Sandstorm",
+        "Beach;Hurricane",
+        "Kelp;Sandstorm",
+        "Sushi;Hurricane",
+        "Hurricane;Fjord",
+        "Continent;Earthquake",
+        "Sea;Earthquake",
+        "Sea;Destruction",
+        "Sea;Cyclone",
+        "Sea;Mudslide",
+        "Sea;Tempest",
+        "Boat;Earthquake",
+        "Titanic;Earthquake"
     ],
     "Swamp": [
         "Water;Plant",
@@ -2319,7 +2395,41 @@
         "Marsh;Lens",
         "Marsh;Wasabi",
         "Marsh;Leviathan",
-        "Marsh;Vase"
+        "Marsh;Vase",
+        "Mud;Fog",
+        "Marsh;Ash",
+        "Marsh;Hurricane",
+        "Marsh;Fjord",
+        "Marsh;Pollen",
+        "Pond;Ash",
+        "Tractor;Bog",
+        "Tractor;Mangrove",
+        "Tractor;Lagoon",
+        "Tractor;Mudweed",
+        "Desert;Bog",
+        "Forest;Bog",
+        "Forest;Quagmire",
+        "Forest;Mangrove",
+        "Forest;Lagoon",
+        "Forest;Puddle",
+        "Forest;Mudweed",
+        "Continent;Bog",
+        "Continent;Quagmire",
+        "Continent;Mangrove",
+        "Teapot;Bog",
+        "Teapot;Mangrove",
+        "Sea;Bog",
+        "Sea;Quagmire",
+        "Boat;Bog",
+        "Boat;Quagmire",
+        "Boat;Mudweed",
+        "Lotus;Mudslide",
+        "Lotus;Bog",
+        "Lotus;Quagmire",
+        "Lotus;Mangrove",
+        "Lotus;Mudweed",
+        "Titanic;Bog",
+        "Titanic;Mangrove"
     ],
     "Fog": [
         "Water;Smoke",
@@ -2430,7 +2540,8 @@
         "Steam;Mirage",
         "Smoke;Tide",
         "Smoke;Soup",
-        "Cloud;Soup"
+        "Cloud;Soup",
+        "Mist;Puddle"
     ],
     "Stone": [
         "Water;Lava",
@@ -2635,7 +2746,17 @@
         "Mud;Holy Water",
         "Marsh;Geysers",
         "Puddle;Meade",
-        "Puddle;Geysers"
+        "Puddle;Geysers",
+        "Rain;Ash",
+        "Rain;Dust Storm",
+        "River;Dust Storm",
+        "Pond;Dust Storm",
+        "Brick;Puddle",
+        "Tractor;Puddle",
+        "Clay;Puddle",
+        "Teapot;Mudslide",
+        "Wish;Mudslide",
+        "Wish;Mudweed"
     ],
     "Engine": [
         "Fire;Steam",
@@ -2674,7 +2795,9 @@
         "Phoenix;Cinder",
         "Leaf;Destruction",
         "Leaf;Cinder",
-        "Flower;Cinder"
+        "Flower;Cinder",
+        "Glass;Phoenix",
+        "Phoenix;Puddle"
     ],
     "Storm": [
         "Wind;Lake",
@@ -2710,7 +2833,8 @@
         "Lightning;Genie",
         "Mist;Thunder",
         "Wind;Electricity",
-        "Cloud;Energy"
+        "Cloud;Energy",
+        "Lightning;Hurricane"
     ],
     "Dandelion": [
         "Wind;Plant",
@@ -2752,7 +2876,11 @@
         "Flower;Dust Bowl",
         "Clay;Dandelion Patch",
         "Dandelion;Cannon",
-        "Dandelion;Leviathan"
+        "Dandelion;Leviathan",
+        "Forest;Dandelion Patch",
+        "Continent;Dandelion Patch",
+        "Wish;Dandelion Patch",
+        "Lotus;Dandelion Patch"
     ],
     "Eruption": [
         "Wind;Volcano",
@@ -2915,7 +3043,22 @@
         "Dust Storm;Lens",
         "Dust Storm;Leviathan",
         "Dust Storm;Bottle",
-        "Oasis;Ice Tornado"
+        "Oasis;Ice Tornado",
+        "Wine;Sandstorm",
+        "Wine;Dust Storm",
+        "Beach;Dust Storm",
+        "Lightning;Dust Storm",
+        "Dragon;Dust Storm",
+        "Phoenix;Dust Storm",
+        "Chai;Dust Storm",
+        "Mist;Dust Storm",
+        "Windmill;Dust Storm",
+        "Dune;Dust Storm",
+        "Desert;Thunder",
+        "Desert;Dust Storm",
+        "Desert;Tempest",
+        "Boat;Dust Storm",
+        "Train;Dust Storm"
     ],
     "Avalanche": [
         "Wind;Mountain",
@@ -2992,7 +3135,8 @@
         "Snow;Helicopter",
         "Leaf;Landslide",
         "Flower;Landslide",
-        "Mountain;Sneeze"
+        "Mountain;Sneeze",
+        "Forest;Mudslide"
     ],
     "Sand": [
         "Earth;Wave",
@@ -3231,7 +3375,25 @@
         "Dust Storm;Oil",
         "Dust Storm;Splash",
         "Dust Storm;Vase",
-        "Oasis;Golem"
+        "Oasis;Golem",
+        "Beach;Ash",
+        "Brick;Dust Storm",
+        "Glass;Dust Storm",
+        "Dune;Snow",
+        "Tractor;Sandcastle",
+        "Clay;Dust Storm",
+        "Desert;Desert",
+        "Desert;Titanic",
+        "Desert;Train",
+        "Desert;Surfer",
+        "Desert;Earthquake",
+        "Desert;Fireworks",
+        "Desert;Destruction",
+        "Desert;Snow",
+        "Continent;Dust Storm",
+        "Teapot;Sandcastle",
+        "Sea;Dust Storm",
+        "Titanic;Dust Storm"
     ],
     "Tree": [
         "Earth;Plant",
@@ -3390,7 +3552,25 @@
         "Earth;Coconut",
         "Plant;Holy Water",
         "Plant;Coconut",
-        "Plant;Geysers"
+        "Plant;Geysers",
+        "Seed;Fjord",
+        "Seed;Incense",
+        "Seed;Mountain Range",
+        "Leaf;Planet",
+        "Leaf;Fjord",
+        "Leaf;Mountain Range",
+        "Forest;Wish",
+        "Forest;Train",
+        "Forest;Surfboard",
+        "Forest;Surfer",
+        "Forest;Car",
+        "Forest;Weed",
+        "Forest;Wood",
+        "Forest;Mountain Range",
+        "Forest;Atlantis",
+        "Forest;Steamboat",
+        "Forest;Palm",
+        "Wish;Mangrove"
     ],
     "Planet": [
         "Earth;Dust",
@@ -3403,7 +3583,8 @@
         "Sun;Saturn",
         "Sushi;Saturn",
         "Kite;Saturn",
-        "Earth;Solar"
+        "Earth;Solar",
+        "Continent;Sky"
     ],
     "Lily": [
         "Lake;Plant",
@@ -3489,7 +3670,14 @@
         "Whale;Boulder",
         "Seed;Shipwreck",
         "Volcano;Reef",
-        "Mountain;Reef"
+        "Mountain;Reef",
+        "Beach;Mountain Range",
+        "Forest;Sea",
+        "Continent;Sea",
+        "Continent;Mudslide",
+        "Continent;Lagoon",
+        "Continent;Palm",
+        "Boat;Lagoon"
     ],
     "Fjord": [
         "Lake;Mountain",
@@ -3521,7 +3709,9 @@
         "River;Norway",
         "Pond;Norway",
         "Chai;Norway",
-        "Mist;Norway"
+        "Mist;Norway",
+        "Beach;Fjord",
+        "River;Fjord"
     ],
     "Surf": [
         "Steam;Wave",
@@ -3590,7 +3780,10 @@
         "Wave;Meade",
         "Wave;Tide",
         "Wave;Reef",
-        "Wave;Oil"
+        "Wave;Oil",
+        "Surf;Fjord",
+        "Surfing;Fjord",
+        "Sea;Hawaii"
     ],
     "Tea": [
         "Steam;Plant",
@@ -3912,7 +4105,50 @@
         "Tea;Holy Water",
         "Tea;Alcohol",
         "Tea;Bottle",
-        "Oasis;Kettle"
+        "Oasis;Kettle",
+        "Tea;Fog",
+        "Chai;Sandstorm",
+        "Chai;Hurricane",
+        "Chai;Incense",
+        "Chai;Mountain Range",
+        "Chai;Puddle",
+        "Desert;Tea Bag",
+        "Forest;Teapot",
+        "Forest;Tea Bag",
+        "Continent;Tea Bag",
+        "Teapot;Sea",
+        "Teapot;Boat",
+        "Teapot;Lotus",
+        "Teapot;Geyser",
+        "Teapot;Surfboard",
+        "Teapot;Mermaid",
+        "Teapot;Surfer",
+        "Teapot;Incense",
+        "Teapot;Venus Flytrap",
+        "Teapot;Weed",
+        "Teapot;Cactus",
+        "Teapot;Fireworks",
+        "Teapot;Thunder",
+        "Teapot;Wood",
+        "Teapot;Teacup",
+        "Teapot;Tea Bag",
+        "Teapot;Mountain Range",
+        "Teapot;Pyramid",
+        "Teapot;Atlantis",
+        "Teapot;Jet",
+        "Teapot;Quagmire",
+        "Teapot;Lagoon",
+        "Teapot;Rocket",
+        "Teapot;Steamboat",
+        "Teapot;Shipwreck",
+        "Teapot;Dandelion Patch",
+        "Teapot;Puddle",
+        "Teapot;Mudweed",
+        "Teapot;Palm",
+        "Sea;Tea Bag",
+        "Boat;Tea Bag",
+        "Lotus;Teacup",
+        "Lotus;Tea Bag"
     ],
     "Seaweed": [
         "Wave;Plant",
@@ -4056,7 +4292,15 @@
         "Leaf;Submarine",
         "Leaf;Poseidon",
         "Plant;Tide",
-        "Ocean;Bong"
+        "Ocean;Bong",
+        "Kelp;Ash",
+        "Kelp;Hurricane",
+        "Kelp;Fjord",
+        "Kelp;Pollen",
+        "Kelp;Mountain Range",
+        "Kelp;Puddle",
+        "Sea;Weed",
+        "Sea;Mudweed"
     ],
     "Incense": [
         "Plant;Smoke",
@@ -4183,7 +4427,9 @@
         "Rain;Dust Bunny",
         "Aeolus;Dust Bunny",
         "Aeolus;Dust Bowl",
-        "Sandstorm;Alcohol"
+        "Sandstorm;Alcohol",
+        "Lightning;Sandstorm",
+        "Desert;Cyclone"
     ],
     "Mountain Range": [
         "Mountain;Mountain",
@@ -4251,7 +4497,10 @@
         "Seaweed;Fishbowl",
         "Hurricane;Fishbowl",
         "Oasis;Aquarium",
-        "Oasis;Fishing"
+        "Oasis;Fishing",
+        "Pond;Hurricane",
+        "Sea;Vacuum",
+        "Sea;Submarine"
     ],
     "Rain": [
         "Water;Cloud",
@@ -4385,7 +4634,8 @@
         "Fog;Splash",
         "Storm;Scent",
         "Storm;Splash",
-        "Tree;Splash"
+        "Tree;Splash",
+        "Storm;Fog"
     ],
     "Marsh": [
         "Water;Swamp",
@@ -4471,7 +4721,8 @@
         "Snow;Obsidian",
         "Snow;Salt",
         "Snow;Amber",
-        "Clay;Glacier"
+        "Clay;Glacier",
+        "Lotus;Snow"
     ],
     "Rock": [
         "Water;Stone",
@@ -4521,7 +4772,10 @@
         "Kite;Boulder",
         "Stone;Energy",
         "Stone;Bong",
-        "Stone;Leviathan"
+        "Stone;Leviathan",
+        "Tree;Stone",
+        "Surf;Stone",
+        "Tea;Stone"
     ],
     "Puddle": [
         "Water;Ash",
@@ -4593,7 +4847,14 @@
         "Puddle;Alcohol",
         "Puddle;Solar",
         "Puddle;Bottle",
-        "Dandelion;Mud"
+        "Dandelion;Mud",
+        "Wine;Puddle",
+        "Beach;Puddle",
+        "Pond;Planet",
+        "Dragon;Puddle",
+        "Sushi;Puddle",
+        "Kite;Puddle",
+        "Boat;Puddle"
     ],
     "Wine": [
         "Water;Dandelion",
@@ -4723,7 +4984,29 @@
         "Oasis;Electricity",
         "Oasis;Smell",
         "Oasis;Flying",
-        "Oasis;Vulcan"
+        "Oasis;Vulcan",
+        "Pond;Sandstorm",
+        "Dune;Puddle",
+        "Desert;Forest",
+        "Desert;Teapot",
+        "Desert;Fjord",
+        "Desert;Sea",
+        "Desert;Boat",
+        "Desert;Lotus",
+        "Desert;Geyser",
+        "Desert;Mermaid",
+        "Desert;Cactus",
+        "Desert;Teacup",
+        "Desert;Mountain Dew",
+        "Desert;Rainbow",
+        "Desert;Mudslide",
+        "Desert;Quagmire",
+        "Desert;Mangrove",
+        "Desert;Lagoon",
+        "Desert;Helicopter",
+        "Desert;Puddle",
+        "Desert;Sandcastle",
+        "Desert;Palm"
     ],
     "Beach": [
         "Water;Sand",
@@ -4814,11 +5097,14 @@
         "Sand;Splash",
         "Island;Tide",
         "Mountain Range;Tide",
-        "Rock;Tide"
+        "Rock;Tide",
+        "Sea;Mountain Range",
+        "Sea;Sandbox"
     ],
     "River": [
         "Water;Tree",
-        "Oasis;Steamboat"
+        "Oasis;Steamboat",
+        "Desert;Steamboat"
     ],
     "Pond": [
         "Water;Lily",
@@ -4847,7 +5133,11 @@
         "Puddle;Fishbowl",
         "Puddle;Holy Water",
         "Puddle;Energy",
-        "Puddle;Cannon"
+        "Puddle;Cannon",
+        "Lightning;Puddle",
+        "Leaf;Puddle",
+        "Flower;Puddle",
+        "Continent;Puddle"
     ],
     "Ship": [
         "Water;Island",
@@ -4877,7 +5167,14 @@
         "Lake;Cannon",
         "Ocean;Bottle",
         "Tsunami;Vase",
-        "Oasis;Sail"
+        "Oasis;Sail",
+        "Continent;Boat",
+        "Sea;Boat",
+        "Boat;Boat",
+        "Boat;Train",
+        "Boat;Wood",
+        "Boat;Submarine",
+        "Boat;Sandcastle"
     ],
     "Whale": [
         "Water;Fjord",
@@ -4904,7 +5201,8 @@
         "Fish;Cannon",
         "Fish;Leviathan",
         "Puddle;Leviathan",
-        "Wine;Leviathan"
+        "Wine;Leviathan",
+        "Sea;Geyser"
     ],
     "Kelp": [
         "Water;Seaweed",
@@ -4958,7 +5256,10 @@
         "Seaweed;Tide",
         "Seaweed;Water Lily",
         "Seaweed;Bong",
-        "Seaweed;Splash"
+        "Seaweed;Splash",
+        "Seaweed;Fog",
+        "Seaweed;Ash",
+        "Seaweed;Fjord"
     ],
     "Perfume": [
         "Water;Incense",
@@ -5025,7 +5326,10 @@
         "Rain;Scent",
         "Rock;Scent",
         "Wine;Scent",
-        "Oasis;Scent"
+        "Oasis;Scent",
+        "Rain;Incense",
+        "Glass;Incense",
+        "Flower;Incense"
     ],
     "Honey": [
         "Water;Pollen",
@@ -5093,7 +5397,11 @@
         "Mountain;Meade",
         "Tree;Meade",
         "Pollen;Meade",
-        "Pollen;Bottle"
+        "Pollen;Bottle",
+        "Wine;Pollen",
+        "Glass;Pollen",
+        "Chai;Pollen",
+        "Teapot;Pollen"
     ],
     "Lightning": [
         "Fire;Cloud",
@@ -5170,7 +5478,9 @@
         "Mountain Range;Electricity",
         "Rain;Electricity",
         "Rain;Energy",
-        "Wine;Electricity"
+        "Wine;Electricity",
+        "Forest;Thunder",
+        "Train;Thunder"
     ],
     "Dragon": [
         "Fire;Swamp",
@@ -5228,7 +5538,8 @@
         "Steam;Sea Serpent",
         "Smoke;Sea Serpent",
         "Smoke;Leviathan",
-        "Lava;Sea Serpent"
+        "Lava;Sea Serpent",
+        "Kite;Fjord"
     ],
     "Brick": [
         "Fire;Mud",
@@ -5304,7 +5615,10 @@
         "Oasis;Fire Breath",
         "Oasis;Firebird",
         "Oasis;Salamander",
-        "Oasis;Eagle"
+        "Oasis;Eagle",
+        "Lily;Ash",
+        "River;Ash",
+        "Ship;Ash"
     ],
     "Glass": [
         "Fire;Sand",
@@ -5363,7 +5677,8 @@
         "Sand;Kiln",
         "Sand;Lens",
         "Sand;Solar",
-        "Ice;Kiln"
+        "Ice;Kiln",
+        "Sand;Ash"
     ],
     "Sun": [
         "Fire;Planet",
@@ -5419,7 +5734,10 @@
         "Mountain Range;Solar",
         "Marsh;Solar",
         "Wine;Solar",
-        "Oasis;Solar"
+        "Oasis;Solar",
+        "Beach;Incense",
+        "Lightning;Planet",
+        "Phoenix;Planet"
     ],
     "Chai": [
         "Fire;Tea",
@@ -5427,7 +5745,8 @@
         "Tea;Himalayas",
         "Tea;Sandalwood",
         "Dune;Tea Bag",
-        "Tea;Energy"
+        "Tea;Energy",
+        "Train;Tea Bag"
     ],
     "Sushi": [
         "Fire;Seaweed",
@@ -5558,7 +5877,10 @@
         "Wine;Wasabi",
         "Oasis;Wasabi",
         "Oasis;Rice",
-        "Oasis;Sashimi"
+        "Oasis;Sashimi",
+        "Fish;Ash",
+        "Fish;Incense",
+        "Fish;Pollen"
     ],
     "Mist": [
         "Wind;Swamp",
@@ -5612,7 +5934,8 @@
         "Dandelion;Tempest",
         "Hurricane;Dandelion Patch",
         "Windmill;Dandelion Patch",
-        "Kite;Dandelion Patch"
+        "Kite;Dandelion Patch",
+        "Boat;Dandelion Patch"
     ],
     "Snow": [
         "Wind;Avalanche",
@@ -5771,7 +6094,13 @@
         "Avalanche;Sneeze",
         "Avalanche;Oil",
         "Ice;Electricity",
-        "Ice;Geysers"
+        "Ice;Geysers",
+        "Sand;Avalanche",
+        "Tea;Avalanche",
+        "Wine;Avalanche",
+        "Beach;Avalanche",
+        "Lightning;Avalanche",
+        "Chai;Avalanche"
     ],
     "Dune": [
         "Wind;Sand",
@@ -5882,7 +6211,16 @@
         "Lily;Vase",
         "Pollen;Scent",
         "Pollen;Vase",
-        "Rain;Vase"
+        "Rain;Vase",
+        "Lily;Fog",
+        "Rain;Pollen",
+        "Phoenix;Pollen",
+        "Seed;Pollen",
+        "Lotus;Pollen",
+        "Lotus;Coral",
+        "Lotus;Venus Flytrap",
+        "Lotus;Car",
+        "Lotus;Vacuum"
     ],
     "Surfing": [
         "Wind;Surf",
@@ -5980,7 +6318,15 @@
         "Surfing;Plantea",
         "Kite;Surfer",
         "Surf;Holy Water",
-        "Surf;Tide"
+        "Surf;Tide",
+        "Surf;Planet",
+        "Surfing;Planet",
+        "Surfing;Mountain Range",
+        "Surfing;Puddle",
+        "Boat;Surfboard",
+        "Titanic;Surfboard",
+        "Train;Surfboard",
+        "Train;Surfer"
     ],
     "Kite": [
         "Wind;Tea",
@@ -6065,7 +6411,14 @@
         "Pollen;Soup",
         "Dust Storm;Sneeze",
         "Marsh;Sneeze",
-        "Oasis;Sneeze"
+        "Oasis;Sneeze",
+        "Beach;Pollen",
+        "Hurricane;Pollen",
+        "Mist;Pollen",
+        "Leaf;Pollen",
+        "Surfing;Pollen",
+        "Forest;Pollen",
+        "Wish;Pollen"
     ],
     "Aeolus": [
         "Wind;Mountain Range"
@@ -6099,7 +6452,8 @@
         "Rain;Kiln",
         "Puddle;Pottery",
         "Puddle;Kiln",
-        "Eruption;Mud"
+        "Eruption;Mud",
+        "Mud;Stone"
     ],
     "Tractor": [
         "Earth;Engine",
@@ -6143,7 +6497,13 @@
         "Tractor;Cinder",
         "Tractor;Salt",
         "Tractor;Atlantis",
-        "Engine;Mud"
+        "Engine;Mud",
+        "Tractor;Fjord",
+        "Tractor;Incense",
+        "Tractor;Frog",
+        "Tractor;Quagmire",
+        "Tractor;Helicopter",
+        "Tractor;Shipwreck"
     ],
     "Soil": [
         "Earth;Ash",
@@ -6360,7 +6720,18 @@
         "Oasis;Dust Bowl",
         "Oasis;Oil Spill",
         "Oasis;Rose",
-        "Oasis;Bulldozer"
+        "Oasis;Bulldozer",
+        "Sand;Fog",
+        "Sand;Sandstorm",
+        "Island;Sandstorm",
+        "Beach;Sandstorm",
+        "Sushi;Sandstorm",
+        "Dune;Fjord",
+        "Dune;Mountain Range",
+        "Forest;Cactus",
+        "Forest;Sandbox",
+        "Continent;Sandbox",
+        "Titanic;Cactus"
     ],
     "Forest": [
         "Earth;Tree",
@@ -6426,7 +6797,8 @@
         "Planet;Bong",
         "Planet;Cannon",
         "Oasis;Lunar Eclipse",
-        "Oasis;Lunar"
+        "Oasis;Lunar",
+        "Continent;Rocket"
     ],
     "Continent": [
         "Earth;Island",
@@ -6508,7 +6880,15 @@
         "Tea;Water Lily",
         "Tea;Reef",
         "Tea;Oil",
-        "Tea;Bong"
+        "Tea;Bong",
+        "Forest;Teacup",
+        "Teapot;Teapot",
+        "Teapot;Hawaii",
+        "Teapot;Submarine",
+        "Teapot;Helicopter",
+        "Sea;Teacup",
+        "Boat;Teacup",
+        "Train;Teacup"
     ],
     "Sea": [
         "Lake;Ocean",
@@ -6552,7 +6932,11 @@
         "Ship;Wood",
         "Ship;Buddha",
         "Ship;Submarine",
-        "Kelp;Wood"
+        "Kelp;Wood",
+        "Continent;Wood",
+        "Sea;Car",
+        "Sea;Wood",
+        "Titanic;Wood"
     ],
     "Wish": [
         "Lake;Dandelion",
@@ -6583,7 +6967,10 @@
         "Sushi;Genie",
         "Kite;Genie",
         "Dandelion;Tide",
-        "Dandelion;Splash"
+        "Dandelion;Splash",
+        "Dandelion;Stone",
+        "Dandelion;Ash",
+        "Sea;Dandelion Patch"
     ],
     "Iceberg": [
         "Lake;Avalanche",
@@ -6737,7 +7124,32 @@
         "Ice;Tide",
         "Ice;Reef",
         "Ice;Cannon",
-        "Ice;Leviathan"
+        "Ice;Leviathan",
+        "Island;Avalanche",
+        "Pond;Avalanche",
+        "Ship;Avalanche",
+        "Teapot;Titanic",
+        "Sea;Titanic",
+        "Sea;Snow",
+        "Boat;Titanic",
+        "Boat;Snow",
+        "Titanic;Car",
+        "Titanic;Destruction",
+        "Titanic;Cyclone",
+        "Titanic;Teacup",
+        "Titanic;Angel",
+        "Titanic;Tea Bag",
+        "Titanic;Mountain Range",
+        "Titanic;Snow",
+        "Titanic;Submarine",
+        "Titanic;Jet",
+        "Titanic;Quagmire",
+        "Titanic;Rocket",
+        "Titanic;Steamboat",
+        "Titanic;Shipwreck",
+        "Titanic;Tempest",
+        "Titanic;Dandelion Patch",
+        "Titanic;Puddle"
     ],
     "Earth": [
         "Lake;Planet",
@@ -6812,7 +7224,16 @@
         "Planet;Oil",
         "Planet;Coconut",
         "Planet;Leviathan",
-        "Planet;Bottle"
+        "Planet;Bottle",
+        "Island;Planet",
+        "Seaweed;Planet",
+        "Fish;Planet",
+        "Rain;Planet",
+        "Beach;Planet",
+        "River;Planet",
+        "Kelp;Planet",
+        "Dragon;Planet",
+        "Flower;Planet"
     ],
     "Lotus": [
         "Lake;Lily",
@@ -6899,7 +7320,9 @@
         "Puddle;Water Lily",
         "Wine;Water Lily",
         "Oasis;Water Lily",
-        "Oasis;Lily Pad"
+        "Oasis;Lily Pad",
+        "Pond;Incense",
+        "Pond;Pollen"
     ],
     "Titanic": [
         "Steam;Tsunami",
@@ -6944,7 +7367,14 @@
         "Surfing;Iceberg",
         "Kite;Iceberg",
         "Tractor;Iceberg",
-        "Tsunami;Leviathan"
+        "Tsunami;Leviathan",
+        "Ship;Mountain Range",
+        "Titanic;Titanic",
+        "Titanic;Weed",
+        "Titanic;Fireworks",
+        "Titanic;Mudslide",
+        "Titanic;Helicopter",
+        "Titanic;Mudweed"
     ],
     "Geysir": [
         "Steam;Stone",
@@ -7000,7 +7430,8 @@
         "Steam;Electricity",
         "Steam;Sneeze",
         "Oasis;Steam Engine",
-        "Oasis;Locomotive"
+        "Oasis;Locomotive",
+        "Train;Car"
     ],
     "Geyser": [
         "Steam;Eruption",
@@ -7063,7 +7494,8 @@
         "Steam;Coconut",
         "Steam;Cannon",
         "Steam;Bottle",
-        "Engine;Water Lily"
+        "Engine;Water Lily",
+        "Boat;Steamboat"
     ],
     "Surfboard": [
         "Wave;Tree",
@@ -7137,7 +7569,9 @@
         "Surf;Cannon",
         "Surf;Lens",
         "Surf;Vase",
-        "Surf;Bottle"
+        "Surf;Bottle",
+        "Surf;Ash",
+        "Boat;Surfer"
     ],
     "Mermaid": [
         "Wave;Lily",
@@ -7273,7 +7707,16 @@
         "Oasis;Sea Serpent",
         "Oasis;Flying Fish",
         "Oasis;Ariel",
-        "Oasis;Starfish"
+        "Oasis;Starfish",
+        "Sea;Wish",
+        "Sea;Lotus",
+        "Sea;Venus Flytrap",
+        "Sea;Angel",
+        "Sea;Rainbow",
+        "Wish;Surfer",
+        "Wish;Coral",
+        "Wish;Atlantis",
+        "Wish;Lagoon"
     ],
     "Surfer": [
         "Wave;Surf",
@@ -7357,7 +7800,9 @@
         "Wave;Coconut",
         "Surf;Reef",
         "Surf;Bong",
-        "Surf;Alcohol"
+        "Surf;Alcohol",
+        "Surf;Fog",
+        "Sea;Surfboard"
     ],
     "Coral": [
         "Plant;Ocean",
@@ -7419,7 +7864,10 @@
         "Rock;Reef",
         "Puddle;Reef",
         "Wine;Reef",
-        "Oasis;Reef"
+        "Oasis;Reef",
+        "Seaweed;Stone",
+        "Sea;Pollen",
+        "Sea;Cactus"
     ],
     "Venus Flytrap": [
         "Plant;Swamp",
@@ -7627,7 +8075,14 @@
         "Oasis;Prickly Pear",
         "Oasis;Saguaro",
         "Oasis;Spore",
-        "Oasis;Fire Flower"
+        "Oasis;Fire Flower",
+        "Dune;Pollen",
+        "Flower;Dust Storm",
+        "Desert;Pollen",
+        "Desert;Coral",
+        "Desert;Venus Flytrap",
+        "Desert;Weed",
+        "Desert;Mudweed"
     ],
     "Snowman": [
         "Plant;Avalanche",
@@ -7855,7 +8310,17 @@
         "Avalanche;Wasabi",
         "Avalanche;Vase",
         "Avalanche;Bottle",
-        "Oasis;Frost"
+        "Oasis;Frost",
+        "Seaweed;Avalanche",
+        "Marsh;Avalanche",
+        "Kelp;Avalanche",
+        "Brick;Avalanche",
+        "Phoenix;Avalanche",
+        "Sushi;Avalanche",
+        "Kite;Snow",
+        "Clay;Snow",
+        "Teapot;Snow",
+        "Wish;Snow"
     ],
     "Palm Tree": [
         "Plant;Hurricane",
@@ -7874,7 +8339,8 @@
         "Sushi;Palm",
         "Pollen;Coconut",
         "Oasis;Coconut",
-        "Oasis;Christmas Tree"
+        "Oasis;Christmas Tree",
+        "Tree;Sandstorm"
     ],
     "Earthquake": [
         "Volcano;Tsunami",
@@ -7907,7 +8373,8 @@
         "Island;Flower",
         "Island;Hawaii",
         "Island;Sandwich",
-        "Oasis;Hula"
+        "Oasis;Hula",
+        "Continent;Hawaii"
     ],
     "Iceland": [
         "Volcano;Fjord",
@@ -7996,7 +8463,8 @@
         "Stone;Oil",
         "Stone;Alcohol",
         "Stone;Vase",
-        "Rock;Vase"
+        "Rock;Vase",
+        "Island;Stone"
     ],
     "Fire": [
         "Smoke;Ash",
@@ -8055,7 +8523,10 @@
         "Smoke;Oil",
         "Smoke;Splash",
         "Smoke;Alcohol",
-        "Oasis;Fire Trap"
+        "Oasis;Fire Trap",
+        "Phoenix;Incense",
+        "Forest;Fireworks",
+        "Forest;Destruction"
     ],
     "Thunder": [
         "Smoke;Storm",
@@ -8087,7 +8558,9 @@
         "Incense;Angel",
         "Incense;Palm",
         "Sushi;Prayer",
-        "Incense;Energy"
+        "Incense;Energy",
+        "Windmill;Incense",
+        "Kite;Incense"
     ],
     "Bee": [
         "Smoke;Pollen",
@@ -8222,7 +8695,20 @@
         "Pollen;Splash",
         "Pollen;Cannon",
         "Pollen;Kiln",
-        "Pollen;Leviathan"
+        "Pollen;Leviathan",
+        "River;Pollen",
+        "Ship;Pollen",
+        "Lightning;Pollen",
+        "Dragon;Pollen",
+        "Brick;Pollen",
+        "Windmill;Pollen",
+        "Flower;Pollen",
+        "Kite;Pollen",
+        "Tractor;Pollen",
+        "Continent;Pollen",
+        "Boat;Pollen",
+        "Titanic;Pollen",
+        "Train;Pollen"
     ],
     "Obsidian": [
         "Lava;Stone",
@@ -8299,7 +8785,8 @@
         "Tree;Tempest",
         "Tree;Viking",
         "Tree;Energy",
-        "Tree;Cannon"
+        "Tree;Cannon",
+        "Tree;Avalanche"
     ],
     "Teacup": [
         "Tornado;Tea",
@@ -8313,7 +8800,11 @@
         "Hurricane;Teapot",
         "Hurricane;Teacup",
         "Glass;Teapot",
-        "Surfing;Teacup"
+        "Surfing;Teacup",
+        "Teapot;Coral",
+        "Teapot;Car",
+        "Teapot;Earthquake",
+        "Teapot;Destruction"
     ],
     "Dust Devil": [
         "Tornado;Dust Storm",
@@ -8407,7 +8898,11 @@
         "Clay;Norway",
         "Tractor;Norway",
         "Fjord;Mirage",
-        "Fjord;Energy"
+        "Fjord;Energy",
+        "Mist;Fjord",
+        "Windmill;Fjord",
+        "Flower;Fjord",
+        "Forest;Fjord"
     ],
     "Tea Bag": [
         "Dust;Tea",
@@ -8448,7 +8943,10 @@
         "Windmill;Mountain Dew",
         "Snow;Mountain Dew",
         "Leaf;Mountain Dew",
-        "Kite;Mountain Dew"
+        "Kite;Mountain Dew",
+        "Continent;Mountain Dew",
+        "Sea;Mountain Dew",
+        "Lotus;Mountain Dew"
     ],
     "Pyramid": [
         "Mountain;Sand",
@@ -8497,7 +8995,10 @@
         "Dune;Boulder",
         "Dune;Sphinx",
         "Clay;Sphinx",
-        "Clay;Sand Dunes"
+        "Clay;Sand Dunes",
+        "Sand;Stone",
+        "Desert;Wood",
+        "Desert;Mountain Range"
     ],
     "Norway": [
         "Mountain;Fjord",
@@ -8548,7 +9049,27 @@
         "Kite;Lotus",
         "Clay;Lotus",
         "Incense;Fishbowl",
-        "Incense;Vase"
+        "Incense;Vase",
+        "Sushi;Incense",
+        "Forest;Lotus",
+        "Wish;Lotus",
+        "Lotus;Surfer",
+        "Lotus;Incense",
+        "Lotus;Earthquake",
+        "Lotus;Fireworks",
+        "Lotus;Thunder",
+        "Lotus;Destruction",
+        "Lotus;Cyclone",
+        "Lotus;Angel",
+        "Lotus;Rainbow",
+        "Lotus;Jet",
+        "Lotus;Sky",
+        "Lotus;Helicopter",
+        "Lotus;Steamboat",
+        "Lotus;Shipwreck",
+        "Lotus;Sandcastle",
+        "Lotus;Sandwich",
+        "Lotus;Palm"
     ],
     "Submarine": [
         "Ocean;Engine",
@@ -8594,7 +9115,13 @@
         "Tractor;Sea",
         "Ocean;Cannon",
         "Engine;Sea Serpent",
-        "Engine;Leviathan"
+        "Engine;Leviathan",
+        "Sea;Train",
+        "Sea;Rocket",
+        "Sea;Helicopter",
+        "Sea;Sandwich",
+        "Boat;Helicopter",
+        "Boat;Sandwich"
     ],
     "Salt": [
         "Ocean;Ash",
@@ -8687,7 +9214,22 @@
         "Island;Leviathan",
         "Island;Vase",
         "Oasis;Coral Reef",
-        "Oasis;Pompeii"
+        "Oasis;Pompeii",
+        "Continent;Wish",
+        "Continent;Titanic",
+        "Continent;Mermaid",
+        "Continent;Destruction",
+        "Continent;Submarine",
+        "Continent;Shipwreck",
+        "Continent;Sandcastle",
+        "Sea;Pyramid",
+        "Lotus;Titanic",
+        "Lotus;Submarine",
+        "Titanic;Coral",
+        "Titanic;Hawaii",
+        "Titanic;Atlantis",
+        "Titanic;Lagoon",
+        "Titanic;Sandcastle"
     ],
     "Rainbow": [
         "Cloud;Tsunami",
@@ -8819,7 +9361,8 @@
         "Rain;Cannon",
         "Rain;Lens",
         "Rain;Solar",
-        "Rain;Bottle"
+        "Rain;Bottle",
+        "Forest;Sky"
     ],
     "Jet": [
         "Cloud;Engine",
@@ -8850,7 +9393,8 @@
         "Wine;Mudslide",
         "Perfume;Landslide",
         "Chai;Landslide",
-        "Storm;Mud"
+        "Storm;Mud",
+        "Rain;Avalanche"
     ],
     "Disaster": [
         "Tsunami;Avalanche",
@@ -8908,7 +9452,11 @@
         "Wave;Sea Serpent",
         "Ocean;Meade",
         "Ocean;Leviathan",
-        "Surf;Sea Serpent"
+        "Surf;Sea Serpent",
+        "Sea;Thunder",
+        "Sea;Atlantis",
+        "Boat;Atlantis",
+        "Lotus;Atlantis"
     ],
     "Bog": [
         "Swamp;Swamp",
@@ -8933,7 +9481,9 @@
         "Fog;Angel",
         "Fog;Shipwreck",
         "Fog;Tumbleweed",
-        "Mist;Tumbleweed"
+        "Mist;Tumbleweed",
+        "Tree;Fog",
+        "Island;Fog"
     ],
     "Quagmire": [
         "Swamp;Mud",
@@ -9028,7 +9578,9 @@
         "Dragon;Nymph",
         "Windmill;Cinder",
         "Flower;Wish",
-        "Flower;Fairy"
+        "Flower;Fairy",
+        "Dandelion;Fog",
+        "Forest;Angel"
     ],
     "Venus": [
         "Fog;Planet",
@@ -9065,7 +9617,10 @@
         "Flower;Statue",
         "Flower;Frog",
         "Planet;Water Lily",
-        "Oasis;Aphrodite"
+        "Oasis;Aphrodite",
+        "Lily;Stone",
+        "Lily;Planet",
+        "Mist;Planet"
     ],
     "Boulder": [
         "Stone;Stone",
@@ -9086,7 +9641,8 @@
         "Fog;Steamroller",
         "Engine;Steamroller",
         "Rock;Steamboat",
-        "Lightning;Steamroller"
+        "Lightning;Steamroller",
+        "Engine;Stone"
     ],
     "Meteor": [
         "Stone;Storm",
@@ -9117,7 +9673,8 @@
         "Stone;Solar",
         "Rock;Cannon",
         "Rock;Solar",
-        "Oasis;Comet"
+        "Oasis;Comet",
+        "Storm;Stone"
     ],
     "Sphinx": [
         "Stone;Sandstorm",
@@ -9184,7 +9741,10 @@
         "Kite;Sphinx",
         "Aeolus;Pyramid",
         "Stone;Mirage",
-        "Oasis;Ozymandias"
+        "Oasis;Ozymandias",
+        "Desert;Pyramid",
+        "Boat;Pyramid",
+        "Titanic;Pyramid"
     ],
     "Amber": [
         "Stone;Pollen",
@@ -9237,7 +9797,8 @@
         "Snow;Train",
         "Snow;Car",
         "Snow;Jet",
-        "Leaf;Snowmobile"
+        "Leaf;Snowmobile",
+        "Train;Snow"
     ],
     "Sandbox": [
         "Engine;Sand",
@@ -9256,20 +9817,23 @@
         "Planet;Snake",
         "Surf;Saturn",
         "Surfing;Saturn",
-        "Planet;Electricity"
+        "Planet;Electricity",
+        "Kite;Planet"
     ],
     "Pencil": [
         "Ash;Tree",
         "Water;Pencil",
         "Lake;Pencil",
         "Dragon;Pencil",
-        "Kite;Pencil"
+        "Kite;Pencil",
+        "Tree;Ash"
     ],
     "Matcha": [
         "Ash;Tea",
         "Fire;Matcha",
         "Engine;Matcha",
-        "Incense;Matcha"
+        "Incense;Matcha",
+        "Tea;Ash"
     ],
     "Cough": [
         "Ash;Pollen",
@@ -9290,7 +9854,10 @@
         "Hurricane;Lighthouse",
         "Hurricane;Boat",
         "Fish;Iceberg",
-        "Beach;Lighthouse"
+        "Beach;Lighthouse",
+        "Boat;Destruction",
+        "Boat;Cyclone",
+        "Boat;Tempest"
     ],
     "Tempest": [
         "Storm;Tea"
@@ -9327,7 +9894,10 @@
         "Kite;Sandbox",
         "Sandstorm;Bong",
         "Sand;Bong",
-        "Sand;Cannon"
+        "Sand;Cannon",
+        "Desert;Sandbox",
+        "Teapot;Sandbox",
+        "Boat;Sandbox"
     ],
     "Viking": [
         "Dandelion;Fjord",
@@ -9382,7 +9952,11 @@
         "Fjord;Alcohol",
         "Fjord;Cannon",
         "Fjord;Vase",
-        "Fjord;Bottle"
+        "Fjord;Bottle",
+        "Wine;Fjord",
+        "Ship;Fjord",
+        "Chai;Fjord",
+        "Teapot;Fjord"
     ],
     "Dust Bunny": [
         "Dandelion;Dust Storm",
@@ -9429,7 +10003,11 @@
         "Dragon;Mars",
         "Dune;Mars",
         "Clay;Mars",
-        "Dust Storm;Geysers"
+        "Dust Storm;Geysers",
+        "Marsh;Planet",
+        "Brick;Planet",
+        "Chai;Planet",
+        "Desert;Rocket"
     ],
     "Snowstorm": [
         "Sandstorm;Avalanche",
@@ -9518,7 +10096,48 @@
         "Oasis;Urn",
         "Oasis;Lava Lamp",
         "Oasis;Djinn",
-        "Oasis;Lamp"
+        "Oasis;Lamp",
+        "Desert;Wish",
+        "Teapot;Wish",
+        "Teapot;Dust Storm",
+        "Boat;Wish",
+        "Wish;Titanic",
+        "Wish;Train",
+        "Wish;Geyser",
+        "Wish;Surfboard",
+        "Wish;Mermaid",
+        "Wish;Incense",
+        "Wish;Venus Flytrap",
+        "Wish;Car",
+        "Wish;Weed",
+        "Wish;Cactus",
+        "Wish;Earthquake",
+        "Wish;Fireworks",
+        "Wish;Thunder",
+        "Wish;Dust Storm",
+        "Wish;Destruction",
+        "Wish;Cyclone",
+        "Wish;Teacup",
+        "Wish;Angel",
+        "Wish;Tea Bag",
+        "Wish;Mountain Range",
+        "Wish;Mountain Dew",
+        "Wish;Submarine",
+        "Wish;Rainbow",
+        "Wish;Jet",
+        "Wish;Sky",
+        "Wish;Bog",
+        "Wish;Quagmire",
+        "Wish;Rocket",
+        "Wish;Helicopter",
+        "Wish;Sandbox",
+        "Wish;Steamboat",
+        "Wish;Shipwreck",
+        "Wish;Tempest",
+        "Wish;Puddle",
+        "Wish;Sandcastle",
+        "Wish;Sandwich",
+        "Wish;Palm"
     ],
     "Dust Bowl": [
         "Sandstorm;Dust Storm",
@@ -9536,7 +10155,8 @@
         "Dust Storm;Dandelion Patch",
         "Dust Storm;Dust Bowl",
         "Dust Storm;Meade",
-        "Dust Storm;Soup"
+        "Dust Storm;Soup",
+        "Marsh;Dust Storm"
     ],
     "Snowball": [
         "Avalanche;Planet",
@@ -9602,7 +10222,12 @@
         "Flower;Snowball",
         "Flower;Glacier",
         "Avalanche;Water Lily",
-        "Avalanche;Lens"
+        "Avalanche;Lens",
+        "Lily;Avalanche",
+        "Fish;Avalanche",
+        "Glass;Avalanche",
+        "Leaf;Snow",
+        "Flower;Snow"
     ],
     "Sandwich": [
         "Sand;Tea",
@@ -9653,7 +10278,11 @@
         "Sand;Meade",
         "Sand;Soup",
         "Sand;Oil",
-        "Sand;Wasabi"
+        "Sand;Wasabi",
+        "Sushi;Dust Storm",
+        "Kite;Dust Storm",
+        "Desert;Submarine",
+        "Desert;Sandwich"
     ],
     "Snake": [
         "Sand;Incense",
@@ -9707,16 +10336,21 @@
         "Dust Storm;Cactus",
         "Leaf;Dust Devil",
         "Tractor;Cactus",
-        "Dust Storm;Coconut"
+        "Dust Storm;Coconut",
+        "Kelp;Dust Storm",
+        "Leaf;Dust Storm",
+        "Desert;Dandelion Patch"
     ],
     "Star": [
         "Planet;Planet",
         "Ash;Saturn",
         "Planet;Sky",
-        "Dust;Energy"
+        "Dust;Energy",
+        "Wish;Wish"
     ],
     "Plantea": [
-        "Planet;Tea"
+        "Planet;Tea",
+        "Tea;Planet"
     ],
     "Nymph": [
         "Lily;Fjord",
@@ -9727,13 +10361,16 @@
         "Lily;Fairy",
         "Flower;Poseidon",
         "Lily;Leviathan",
-        "Fjord;Water Lily"
+        "Fjord;Water Lily",
+        "Lotus;Mermaid"
     ],
     "Himalayas": [
         "Lily;Mountain Range",
         "Mountain Range;Honey",
         "Mountain Range;Continent",
-        "Mountain Range;Lotus"
+        "Mountain Range;Lotus",
+        "Continent;Mountain Range",
+        "Lotus;Mountain Range"
     ],
     "Glacier": [
         "Fjord;Fjord",
@@ -10043,7 +10680,81 @@
         "Swamp;Tea",
         "Dandelion;Island",
         "Mud;Tea",
-        "Lily;Tea"
+        "Lily;Tea",
+        "Plant;Mountain Dew",
+        "Volcano;Mountain Dew",
+        "Smoke;Sushi",
+        "Smoke;Tractor",
+        "Dust;Rainbow",
+        "Mountain;Venus Flytrap",
+        "Tsunami;Sushi",
+        "Swamp;Sushi",
+        "Engine;Rainbow",
+        "Dandelion;Wine",
+        "Mud;Geyser",
+        "Tree;Dragon",
+        "Tree;Sandwich",
+        "Lily;Surfing",
+        "Lily;Mountain Dew",
+        "Lily;Sandwich",
+        "Surf;Tractor",
+        "Tea;Pond",
+        "Tea;Dragon",
+        "Tea;Chai",
+        "Tea;Leaf",
+        "Tea;Surfing",
+        "Tea;Fjord",
+        "Tea;Surfer",
+        "Tea;Coral",
+        "Tea;Palm",
+        "Fish;Sandwich",
+        "Wine;Surfing",
+        "Wine;Rainbow",
+        "Wine;Palm",
+        "River;Mountain Dew",
+        "Pond;Mountain Dew",
+        "Dragon;Surfing",
+        "Dragon;Kite",
+        "Dragon;Boat",
+        "Dragon;Train",
+        "Dragon;Surfer",
+        "Dragon;Car",
+        "Dragon;Weed",
+        "Dragon;Thunder",
+        "Dragon;Angel",
+        "Dragon;Rainbow",
+        "Brick;Rainbow",
+        "Phoenix;Surfing",
+        "Phoenix;Rainbow",
+        "Phoenix;Sandwich",
+        "Chai;Mountain Dew",
+        "Sushi;Kite",
+        "Sushi;Jet",
+        "Sushi;Mudweed",
+        "Sushi;Sandwich",
+        "Avalanche;Mountain Dew",
+        "Flower;Surfing",
+        "Flower;Train",
+        "Flower;Cactus",
+        "Surfing;Titanic",
+        "Surfing;Train",
+        "Surfing;Venus Flytrap",
+        "Surfing;Car",
+        "Surfing;Cactus",
+        "Surfing;Vacuum",
+        "Surfing;Submarine",
+        "Surfing;Bog",
+        "Surfing;Mangrove",
+        "Kite;Tractor",
+        "Kite;Angel",
+        "Planet;Mountain Dew",
+        "Tractor;Train",
+        "Tractor;Rainbow",
+        "Tractor;Sandwich",
+        "Fjord;Mountain Dew",
+        "Titanic;Train",
+        "Train;Mermaid",
+        "Train;Vacuum"
     ],
     "Fishbowl": [
         "Water;Fish",
@@ -10133,7 +10844,10 @@
         "Oasis;Snowstorm",
         "Oasis;Dustbin",
         "Oasis;Canyon",
-        "Oasis;Crystal"
+        "Oasis;Crystal",
+        "Desert;Angel",
+        "Desert;Jet",
+        "Desert;Sky"
     ],
     "Scent": [
         "Water;Perfume",
@@ -10399,7 +11113,9 @@
         "Aeolus;Himalayas",
         "Aeolus;Glacier",
         "Aeolus;Tea Party",
-        "Oasis;Fan"
+        "Oasis;Fan",
+        "Windmill;Planet",
+        "Windmill;Puddle"
     ],
     "Sneeze": [
         "Water;Allergy",
@@ -10669,7 +11385,8 @@
         "Marsh;Kiln",
         "Rock;Kiln",
         "Oasis;Kiln",
-        "Oasis;Ceramic"
+        "Oasis;Ceramic",
+        "Clay;Incense"
     ],
     "Tide": [
         "Water;Moon",
@@ -10693,7 +11410,10 @@
         "Lily;Bong",
         "Lily;Splash",
         "Lily;Geysers",
-        "Surf;Water Lily"
+        "Surf;Water Lily",
+        "Lotus;Geyser",
+        "Lotus;Lagoon",
+        "Lotus;Puddle"
     ],
     "Reef": [
         "Water;Coral",
@@ -10744,7 +11464,12 @@
         "Surfing;Coral",
         "Allergy;Coral",
         "Clay;Coral",
-        "Tractor;Coral"
+        "Tractor;Coral",
+        "Forest;Coral",
+        "Continent;Coral",
+        "Sea;Coral",
+        "Boat;Coral",
+        "Train;Coral"
     ],
     "Soup": [
         "Water;Mushroom",
@@ -10857,7 +11582,9 @@
         "Tractor;Palm Tree",
         "Fire;Coconut",
         "Wind;Coconut",
-        "Ocean;Coconut"
+        "Ocean;Coconut",
+        "Tractor;Palm",
+        "Sea;Palm"
     ],
     "Splash": [
         "Water;Fireworks",
@@ -10898,7 +11625,8 @@
         "Leaf;Steamroller",
         "Kite;Wood",
         "Kite;Steamroller",
-        "Tree;Kiln"
+        "Tree;Kiln",
+        "Lotus;Wood"
     ],
     "Acid Rain": [
         "Water;Smog",
@@ -10929,7 +11657,8 @@
         "Brick;Pyramid",
         "Brick;Amber",
         "Tractor;Pyramid",
-        "Oasis;Mummy"
+        "Oasis;Mummy",
+        "Forest;Pyramid"
     ],
     "Brine": [
         "Water;Salt",
@@ -10957,7 +11686,10 @@
         "Leaf;Jet",
         "Kite;Jet",
         "Clay;Jet",
-        "Tractor;Sky"
+        "Tractor;Sky",
+        "Forest;Jet",
+        "Continent;Jet",
+        "Sea;Jet"
     ],
     "Tadpole": [
         "Water;Frog",
@@ -11031,7 +11763,14 @@
         "Flower;Loch Ness",
         "Allergy;Loch Ness",
         "Aeolus;Loch Ness",
-        "Clay;Loch Ness"
+        "Clay;Loch Ness",
+        "Desert;Loch Ness",
+        "Forest;Loch Ness",
+        "Teapot;Loch Ness",
+        "Sea;Loch Ness",
+        "Boat;Loch Ness",
+        "Wish;Loch Ness",
+        "Titanic;Loch Ness"
     ],
     "Malaria": [
         "Water;Mosquito",
@@ -11144,7 +11883,9 @@
         "River;Earthquake",
         "River;Boulder",
         "Pond;Angel",
-        "Mountain Range;Splash"
+        "Mountain Range;Splash",
+        "Rain;Fjord",
+        "Rain;Mountain Range"
     ],
     "Meteorite": [
         "Water;Meteor",
@@ -11341,7 +12082,8 @@
         "Sushi;Salt",
         "Sushi;Ghost",
         "Sushi;Cough",
-        "Sushi;Hay Fever"
+        "Sushi;Hay Fever",
+        "Sushi;Pollen"
     ],
     "Eclipse": [
         "Fire;Moon",
@@ -11377,7 +12119,8 @@
         "Windmill;Steamboat",
         "Steam;Meade",
         "Steam;Alcohol",
-        "Engine;Kiln"
+        "Engine;Kiln",
+        "Train;Geyser"
     ],
     "Siren": [
         "Fire;Mermaid",
@@ -11405,7 +12148,8 @@
         "Sun;Mermaid",
         "Mist;Mermaid",
         "Flower;Mermaid",
-        "Surfing;Mermaid"
+        "Surfing;Mermaid",
+        "Forest;Mermaid"
     ],
     "Fire Trap": [
         "Fire;Venus Flytrap"
@@ -11558,7 +12302,9 @@
         "Lightning;Vacuum",
         "Sun;Vacuum",
         "Chai;Vacuum",
-        "Kite;Vacuum"
+        "Kite;Vacuum",
+        "Wish;Vacuum",
+        "Titanic;Vacuum"
     ],
     "Mummy": [
         "Fire;Pyramid",
@@ -11579,7 +12325,10 @@
         "Brick;Sandalwood",
         "Leaf;Pyramid",
         "Clay;Pyramid",
-        "Oasis;Dust Trap"
+        "Oasis;Dust Trap",
+        "Desert;Incense",
+        "Wish;Pyramid",
+        "Lotus;Dust Storm"
     ],
     "Enlightenment": [
         "Fire;Buddha",
@@ -11722,7 +12471,22 @@
         "Kite;Shipwreck",
         "Fog;Cannon",
         "Island;Alcohol",
-        "Island;Cannon"
+        "Island;Cannon",
+        "Ship;Sandstorm",
+        "Ship;Hurricane",
+        "Ship;Incense",
+        "Ship;Dust Storm",
+        "Desert;Shipwreck",
+        "Forest;Boat",
+        "Forest;Shipwreck",
+        "Sea;Steamboat",
+        "Boat;Mermaid",
+        "Boat;Incense",
+        "Boat;Weed",
+        "Boat;Cactus",
+        "Boat;Fireworks",
+        "Boat;Shipwreck",
+        "Boat;Palm"
     ],
     "Thor": [
         "Fire;Viking",
@@ -11748,7 +12512,8 @@
         "Lightning;Viking",
         "Leaf;Viking",
         "Flower;Viking",
-        "Clay;Viking"
+        "Clay;Viking",
+        "Lightning;Fjord"
     ],
     "Toast": [
         "Fire;Sandwich"
@@ -11847,7 +12612,9 @@
         "Brick;Dust Bowl",
         "Brick;Palm",
         "Brick;Pine",
-        "Brick;Tumbleweed"
+        "Brick;Tumbleweed",
+        "Brick;Sandstorm",
+        "Brick;Hurricane"
     ],
     "Window": [
         "Wind;Glass",
@@ -11878,7 +12645,9 @@
         "Glass;Boulder",
         "Glass;Helicopter",
         "Glass;Palm",
-        "Glass;Hay Fever"
+        "Glass;Hay Fever",
+        "Glass;Fjord",
+        "Glass;Mountain Range"
     ],
     "Sunflower": [
         "Wind;Sun",
@@ -11957,7 +12726,8 @@
         "Ship;Lotus",
         "Ship;Dandelion Patch",
         "Windmill;Sea",
-        "Windmill;Boat"
+        "Windmill;Boat",
+        "Ship;Puddle"
     ],
     "Ariel": [
         "Wind;Mermaid",
@@ -11967,7 +12737,9 @@
         "Fish;Mermaid",
         "Whale;Mermaid",
         "Whale;Cinder",
-        "Perfume;Mermaid"
+        "Perfume;Mermaid",
+        "Sea;Mermaid",
+        "Titanic;Mermaid"
     ],
     "Coral Reef": [
         "Wind;Coral",
@@ -11983,7 +12755,10 @@
         "Seed;Mushroom"
     ],
     "Hula": [
-        "Wind;Hawaii"
+        "Wind;Hawaii",
+        "Forest;Hawaii",
+        "Lotus;Hawaii",
+        "Train;Hawaii"
     ],
     "Spirit": [
         "Wind;Prayer",
@@ -12030,7 +12805,14 @@
         "Dune;Frog",
         "Leaf;Frog",
         "Surfing;Frog",
-        "Kite;Frog"
+        "Kite;Frog",
+        "Desert;Frog",
+        "Forest;Frog",
+        "Teapot;Frog",
+        "Boat;Frog",
+        "Wish;Frog",
+        "Lotus;Frog",
+        "Titanic;Frog"
     ],
     "Comet": [
         "Wind;Meteor",
@@ -12064,7 +12846,8 @@
         "Wine;Soil",
         "Wine;Land",
         "Wine;Helicopter",
-        "Earth;Alcohol"
+        "Earth;Alcohol",
+        "Wine;Mountain Range"
     ],
     "Delta": [
         "Earth;River",
@@ -12099,7 +12882,9 @@
         "Tractor;Soil",
         "Tractor;Land",
         "Tractor;Buddha",
-        "Oasis;Plow"
+        "Oasis;Plow",
+        "Tractor;Mountain Range",
+        "Tractor;Sandbox"
     ],
     "Robot": [
         "Earth;Steampunk",
@@ -12190,7 +12975,9 @@
         "Clay;Snake",
         "Clay;Plantea",
         "Clay;Nymph",
-        "Clay;Sandalwood"
+        "Clay;Sandalwood",
+        "Clay;Fjord",
+        "Clay;Mountain Range"
     ],
     "Diamond": [
         "Earth;Obsidian",
@@ -12247,7 +13034,10 @@
         "Earth;Leviathan",
         "Mountain Range;Leviathan",
         "Oasis;Leviathan",
-        "Oasis;Titanado"
+        "Oasis;Titanado",
+        "Forest;Titanic",
+        "Titanic;Thunder",
+        "Titanic;Palm"
     ],
     "Drawing": [
         "Earth;Pencil",
@@ -12349,7 +13139,8 @@
         "Snow;Himalayas",
         "Leaf;Himalayas",
         "Flower;Himalayas",
-        "Clay;Himalayas"
+        "Clay;Himalayas",
+        "Dragon;Avalanche"
     ],
     "Fishing": [
         "Lake;Fish",
@@ -12382,7 +13173,8 @@
         "Mud;Leviathan",
         "Mountain Range;Sea Serpent",
         "Marsh;Sea Serpent",
-        "Puddle;Sea Serpent"
+        "Puddle;Sea Serpent",
+        "Dragon;Fjord"
     ],
     "Firebird": [
         "Lake;Phoenix",
@@ -12419,7 +13211,9 @@
         "Phoenix;Cough",
         "Phoenix;Shipwreck",
         "Phoenix;Tempest",
-        "Phoenix;Hay Fever"
+        "Phoenix;Hay Fever",
+        "Phoenix;Hurricane",
+        "Phoenix;Fjord"
     ],
     "Mirror": [
         "Lake;Glass",
@@ -12444,7 +13238,8 @@
         "Glass;Tumbleweed",
         "Glass;Nymph",
         "Lake;Lens",
-        "Smoke;Lens"
+        "Smoke;Lens",
+        "Glass;Puddle"
     ],
     "Sunset": [
         "Lake;Sun",
@@ -12458,7 +13253,13 @@
     "America": [
         "Lake;Continent",
         "Perfume;Continent",
-        "Clay;Continent"
+        "Clay;Continent",
+        "Continent;Car",
+        "Continent;Cactus",
+        "Continent;Fireworks",
+        "Continent;Angel",
+        "Continent;Rainbow",
+        "Continent;Steamboat"
     ],
     "Hot Spring": [
         "Lake;Geysir",
@@ -12487,7 +13288,10 @@
         "Leaf;Loch Ness",
         "Surfing;Loch Ness",
         "Kite;Loch Ness",
-        "Oasis;Loch Ness Monster"
+        "Oasis;Loch Ness Monster",
+        "Tractor;Loch Ness",
+        "Continent;Loch Ness",
+        "Lotus;Loch Ness"
     ],
     "Pipe": [
         "Lake;Tobacco",
@@ -12552,7 +13356,10 @@
         "Chai;Rainbow",
         "Sushi;Rainbow",
         "Mist;Rainbow",
-        "Surfing;Rainbow"
+        "Surfing;Rainbow",
+        "Forest;Rainbow",
+        "Teapot;Rainbow",
+        "Titanic;Rainbow"
     ],
     "Seaplane": [
         "Lake;Jet",
@@ -12587,7 +13394,10 @@
         "Pond;Rocket",
         "Kelp;Rocket",
         "Leaf;Rocket",
-        "Kite;Rocket"
+        "Kite;Rocket",
+        "Forest;Rocket",
+        "Continent;Vacuum",
+        "Lotus;Rocket"
     ],
     "Green Tea": [
         "Lake;Matcha",
@@ -12612,7 +13422,8 @@
         "Pond;Shipwreck",
         "Dragon;Shipwreck",
         "Brick;Shipwreck",
-        "Oasis;Pirate"
+        "Oasis;Pirate",
+        "Sea;Shipwreck"
     ],
     "Duck": [
         "Lake;Dandelion Patch",
@@ -12698,7 +13509,8 @@
         "Whale;Tobacco",
         "Dune;Tobacco",
         "Aeolus;Tobacco",
-        "Tractor;Tobacco"
+        "Tractor;Tobacco",
+        "Wine;Ash"
     ],
     "Vaporizer": [
         "Steam;Weed",
@@ -12830,7 +13642,8 @@
         "Clay;Cinder",
         "Earth;Vase",
         "Planet;Vase",
-        "Tea;Vase"
+        "Tea;Vase",
+        "Clay;Pollen"
     ],
     "Raft": [
         "Plant;Boat",
@@ -12879,7 +13692,8 @@
     "Carnivorous Plant": [
         "Plant;Venus Flytrap",
         "Fog;Venus Flytrap",
-        "Flower;Venus Flytrap"
+        "Flower;Venus Flytrap",
+        "Forest;Venus Flytrap"
     ],
     "Fire Flower": [
         "Plant;Fireworks",
@@ -12915,7 +13729,8 @@
     ],
     "Potato": [
         "Plant;Mars",
-        "Clay;Tractor"
+        "Clay;Tractor",
+        "Tractor;Clay"
     ],
     "Salad": [
         "Plant;Sandwich",
@@ -13017,7 +13832,8 @@
     "Turtle": [
         "Volcano;Mangrove",
         "Ocean;Buddha",
-        "Ocean;Frog"
+        "Ocean;Frog",
+        "Sea;Frog"
     ],
     "Vulcan": [
         "Volcano;Venus",
@@ -13116,7 +13932,8 @@
         "Dust;Vacuum",
         "Tsunami;Vacuum",
         "Swamp;Vacuum",
-        "Mud;Vacuum"
+        "Mud;Vacuum",
+        "Forest;Vacuum"
     ],
     "Periscope": [
         "Smoke;Submarine",
@@ -13181,7 +13998,12 @@
         "River;Cyclone",
         "River;Disaster",
         "River;Tempest",
-        "Rain;Leviathan"
+        "Rain;Leviathan",
+        "Rain;Sandstorm",
+        "Rain;Hurricane",
+        "River;Sandstorm",
+        "River;Avalanche",
+        "River;Hurricane"
     ],
     "Whirlpool": [
         "Tornado;Pond",
@@ -13193,7 +14015,8 @@
         "Hurricane;Glass",
         "Glass;Earthquake",
         "Glass;Disaster",
-        "Glass;Cough"
+        "Glass;Cough",
+        "Glass;Hurricane"
     ],
     "Solar Flare": [
         "Tornado;Sun"
@@ -13219,7 +14042,10 @@
         "Beach;Whale",
         "Beach;Fossil",
         "Whale;Car",
-        "Allergy;Sea"
+        "Allergy;Sea",
+        "Fish;Sandstorm",
+        "Fish;Hurricane",
+        "Sea;Surfer"
     ],
     "Lunar Eclipse": [
         "Tornado;Moon",
@@ -13231,7 +14057,9 @@
     "Wreck": [
         "Tornado;Train",
         "Engine;Destruction",
-        "Storm;Train"
+        "Storm;Train",
+        "Train;Earthquake",
+        "Train;Destruction"
     ],
     "Tesla": [
         "Tornado;Steampunk",
@@ -13336,7 +14164,8 @@
         "Fjord;Lens",
         "Hurricane;Lens",
         "Mountain Range;Lens",
-        "Rock;Lens"
+        "Rock;Lens",
+        "Glass;Planet"
     ],
     "Flour": [
         "Dust;Windmill",
@@ -13401,7 +14230,8 @@
         "Mountain Range;River",
         "Mountain Range;Soil",
         "Mountain Range;Landslide",
-        "River;Landslide"
+        "River;Landslide",
+        "River;Mountain Range"
     ],
     "Bear": [
         "Mountain;Honey",
@@ -13435,7 +14265,8 @@
         "Mountain;Kite",
         "Mountain;Angel",
         "Mountain Range;Kite",
-        "Kite;Himalayas"
+        "Kite;Himalayas",
+        "Kite;Mountain Range"
     ],
     "Bulldozer": [
         "Mountain;Tractor",
@@ -13450,7 +14281,11 @@
         "Ash;Continent",
         "Tea;Continent",
         "Incense;Continent",
-        "Chai;Continent"
+        "Chai;Continent",
+        "Continent;Teapot",
+        "Continent;Lotus",
+        "Continent;Incense",
+        "Continent;Teacup"
     ],
     "Everest": [
         "Mountain;Titanic",
@@ -13461,7 +14296,8 @@
         "Mountain;Train",
         "Mountain;Car",
         "Fjord;Train",
-        "Mountain Range;Train"
+        "Mountain Range;Train",
+        "Train;Mountain Range"
     ],
     "Snowboard": [
         "Mountain;Surfboard",
@@ -13540,13 +14376,15 @@
         "Ocean;Steampunk"
     ],
     "Boom": [
-        "Ocean;Fireworks"
+        "Ocean;Fireworks",
+        "Train;Fireworks"
     ],
     "Mountain Dew Ocean Blast": [
         "Ocean;Mountain Dew"
     ],
     "Horizon": [
-        "Ocean;Sky"
+        "Ocean;Sky",
+        "Sea;Sky"
     ],
     "Squito": [
         "Ocean;Mosquito"
@@ -13629,7 +14467,9 @@
         "Aeolus;Titanic",
         "Aeolus;Rocket",
         "Aeolus;Saturn",
-        "Cloud;Meade"
+        "Cloud;Meade",
+        "Continent;Thunder",
+        "Boat;Thunder"
     ],
     "Nirvana": [
         "Cloud;Buddha",
@@ -13711,7 +14551,8 @@
     "Ruins": [
         "Tsunami;Sandcastle",
         "Storm;Sandcastle",
-        "Lightning;Sandcastle"
+        "Lightning;Sandcastle",
+        "Sea;Sandcastle"
     ],
     "Dust Tsunami": [
         "Tsunami;Dust Bunny"
@@ -13765,7 +14606,8 @@
         "Swamp;Car"
     ],
     "Africa": [
-        "Swamp;Continent"
+        "Swamp;Continent",
+        "Continent;Frog"
     ],
     "Witch": [
         "Swamp;Teapot",
@@ -13780,7 +14622,8 @@
         "Swamp;Weed",
         "Pollen;Weed",
         "Windmill;Weed",
-        "Leaf;Mudweed"
+        "Leaf;Mudweed",
+        "Continent;Weed"
     ],
     "Sinkhole": [
         "Swamp;Earthquake"
@@ -13798,7 +14641,8 @@
         "Sandstorm;Bog",
         "Sand;Bog",
         "Sand;Quagmire",
-        "Marsh;Sandbox"
+        "Marsh;Sandbox",
+        "Marsh;Sandstorm"
     ],
     "Quasar": [
         "Swamp;Star"
@@ -13815,7 +14659,8 @@
     "Tractor Beam": [
         "Fog;Tractor",
         "Planet;Tractor",
-        "Tractor;Lighthouse"
+        "Tractor;Lighthouse",
+        "Tractor;Rocket"
     ],
     "Ghost Ship": [
         "Fog;Boat"
@@ -13834,7 +14679,8 @@
         "Fog;Hawaii",
         "Marsh;Hawaii",
         "Beach;Hawaii",
-        "Tractor;Hawaii"
+        "Tractor;Hawaii",
+        "Boat;Hawaii"
     ],
     "Bjork": [
         "Fog;Iceland",
@@ -13900,7 +14746,8 @@
         "Incense;Pine",
         "Snow;Forest",
         "Snow;Pine",
-        "Kite;Pine"
+        "Kite;Pine",
+        "Forest;Snow"
     ],
     "Mad Hatter": [
         "Fog;Tea Party",
@@ -13952,7 +14799,10 @@
         "Dandelion;Continent",
         "Fish;Continent",
         "Rock;Continent",
-        "Whale;Continent"
+        "Whale;Continent",
+        "Continent;Continent",
+        "Continent;Atlantis",
+        "Continent;Mudweed"
     ],
     "Anchor": [
         "Stone;Boat"
@@ -14155,7 +15005,8 @@
     "Jet Ski": [
         "Engine;Surfboard",
         "Engine;Surfer",
-        "Fish;Jet"
+        "Fish;Jet",
+        "Boat;Jet"
     ],
     "Carnivore": [
         "Engine;Venus Flytrap",
@@ -14184,7 +15035,8 @@
         "Engine;Viking"
     ],
     "Space Ship": [
-        "Engine;Rocket"
+        "Engine;Rocket",
+        "Boat;Rocket"
     ],
     "Piston": [
         "Engine;Pencil"
@@ -14192,7 +15044,9 @@
     "Choo Choo": [
         "Engine;Cough",
         "Chai;Train",
-        "Seed;Train"
+        "Seed;Train",
+        "Teapot;Train",
+        "Train;Angel"
     ],
     "Sandwitch": [
         "Engine;Sandwich"
@@ -14284,7 +15138,8 @@
     ],
     "Kali": [
         "Storm;Lotus",
-        "Hurricane;Lotus"
+        "Hurricane;Lotus",
+        "Lotus;Tempest"
     ],
     "Battery": [
         "Storm;Salt",
@@ -14313,7 +15168,8 @@
     "Lawn": [
         "Dandelion;Tractor",
         "Dandelion;Steamroller",
-        "Kelp;Steamroller"
+        "Kelp;Steamroller",
+        "Tractor;Dandelion Patch"
     ],
     "Field": [
         "Dandelion;Land"
@@ -14325,7 +15181,8 @@
         "Oasis;Weed",
         "Sun;Weed",
         "Leaf;Weed",
-        "Flower;Weed"
+        "Flower;Weed",
+        "Lotus;Weed"
     ],
     "Lei": [
         "Dandelion;Hawaii",
@@ -14377,7 +15234,8 @@
     "Sand Dragon": [
         "Sandstorm;Dragon",
         "Dragon;Sandbox",
-        "Dragon;Sandcastle"
+        "Dragon;Sandcastle",
+        "Dragon;Sandstorm"
     ],
     "Hourglass": [
         "Sandstorm;Glass",
@@ -14389,7 +15247,8 @@
         "Glass;Sand Dunes",
         "Sandstorm;Vase",
         "Sand;Vase",
-        "Sand;Bottle"
+        "Sand;Bottle",
+        "Glass;Sandstorm"
     ],
     "Sandboarding": [
         "Sandstorm;Surfing",
@@ -14397,7 +15256,8 @@
     ],
     "Sandboard": [
         "Sandstorm;Surfboard",
-        "Dust Storm;Surfboard"
+        "Dust Storm;Surfboard",
+        "Desert;Surfboard"
     ],
     "Sandman": [
         "Sandstorm;Surfer",
@@ -14412,7 +15272,8 @@
     ],
     "Dune Buggy": [
         "Sandstorm;Car",
-        "Sand;Car"
+        "Sand;Car",
+        "Desert;Car"
     ],
     "Sand Angel": [
         "Sandstorm;Angel"
@@ -14440,12 +15301,14 @@
         "Surfing;Snowstorm",
         "Surfing;Snowball",
         "Surfing;Snowflake",
-        "Surfing;Himalayas"
+        "Surfing;Himalayas",
+        "Surfing;Snow"
     ],
     "Snowplow": [
         "Avalanche;Tractor",
         "Snow;Tractor",
-        "Tractor;Snowman"
+        "Tractor;Snowman",
+        "Tractor;Snow"
     ],
     "Ice Age": [
         "Avalanche;Continent"
@@ -14486,7 +15349,13 @@
         "Oasis;Lotus",
         "Oasis;Pyramid",
         "Sushi;Pyramid",
-        "Oasis;Delta"
+        "Oasis;Delta",
+        "Desert;Continent",
+        "Desert;Atlantis",
+        "Continent;Pyramid",
+        "Boat;Lotus",
+        "Lotus;Pyramid",
+        "Lotus;Sandbox"
     ],
     "Sandpunk": [
         "Sand;Steampunk"
@@ -14574,7 +15443,8 @@
         "Tree;Steamboat"
     ],
     "Treehouse": [
-        "Tree;Obsidian"
+        "Tree;Obsidian",
+        "Forest;Sandcastle"
     ],
     "Firewood": [
         "Tree;Cinder"
@@ -14634,13 +15504,16 @@
         "Clay;Saturn",
         "Planet;Meade",
         "Planet;Soup",
-        "Planet;Alcohol"
+        "Planet;Alcohol",
+        "Wine;Planet",
+        "Sushi;Planet"
     ],
     "Spaceship": [
         "Planet;Ship",
         "Ship;Rocket",
         "Ship;Mars",
-        "Dragon;Rocket"
+        "Dragon;Rocket",
+        "Ship;Planet"
     ],
     "Solar System": [
         "Planet;Sun",
@@ -14654,7 +15527,8 @@
         "Planet;Dune",
         "Dune;Atlantis",
         "Planet;Mirage",
-        "Oasis;Captain Nemo"
+        "Oasis;Captain Nemo",
+        "Dune;Planet"
     ],
     "Jupiter": [
         "Planet;Aeolus",
@@ -14702,7 +15576,8 @@
     "Bullet Train": [
         "Lily;Train",
         "Kelp;Train",
-        "Sushi;Train"
+        "Sushi;Train",
+        "Lotus;Train"
     ],
     "Lily Flytrap": [
         "Lily;Venus Flytrap"
@@ -14805,7 +15680,8 @@
         "Fjord;Car",
         "Mountain Range;Boat",
         "River;Boat",
-        "River;Car"
+        "River;Car",
+        "Boat;Mountain Range"
     ],
     "Parking": [
         "Island;Car"
@@ -14837,7 +15713,10 @@
         "River;Sushi",
         "River;Salt",
         "Kelp;Norway",
-        "Sushi;Norway"
+        "Sushi;Norway",
+        "Fish;Fjord",
+        "Fish;Mountain Range",
+        "Sushi;Fjord"
     ],
     "Mead": [
         "Fjord;Honey",
@@ -14855,7 +15734,8 @@
         "Brick;Norway",
         "Brick;Pencil",
         "Brick;Viking",
-        "Brick;Star"
+        "Brick;Star",
+        "Brick;Fjord"
     ],
     "Fertile": [
         "Fjord;Soil"
@@ -14865,7 +15745,8 @@
         "Wine;Continent",
         "Dragon;Continent",
         "Allergy;Continent",
-        "Aeolus;Continent"
+        "Aeolus;Continent",
+        "Continent;Fjord"
     ],
     "Fjord Flytrap": [
         "Fjord;Venus Flytrap"
@@ -14892,7 +15773,8 @@
         "Perfume;Cough"
     ],
     "Sub": [
-        "Fjord;Sandwich"
+        "Fjord;Sandwich",
+        "Continent;Sandwich"
     ],
     "Tiki": [
         "Fjord;Palm"
@@ -14915,7 +15797,11 @@
     "Australia": [
         "Surf;Continent",
         "Surfing;Continent",
-        "Kite;Continent"
+        "Kite;Continent",
+        "Continent;Surfboard",
+        "Continent;Surfer",
+        "Continent;Venus Flytrap",
+        "Continent;Helicopter"
     ],
     "Steam Surf": [
         "Surf;Steampunk"
@@ -15011,10 +15897,12 @@
     "Cupid": [
         "Tea;Angel",
         "Chai;Venus",
-        "Clay;Venus"
+        "Clay;Venus",
+        "Teapot;Angel"
     ],
     "Mountain Tea": [
-        "Tea;Mountain Dew"
+        "Tea;Mountain Dew",
+        "Teapot;Mountain Dew"
     ],
     "Sweet": [
         "Tea;Salt",
@@ -15085,7 +15973,9 @@
         "Sushi;Palm Tree",
         "Sushi;Mangrove",
         "Sandstorm;Reef",
-        "Oasis;Krill"
+        "Oasis;Krill",
+        "Sea;Mangrove",
+        "Boat;Mangrove"
     ],
     "Kale": [
         "Seaweed;Weed"
@@ -15103,21 +15993,24 @@
         "Seaweed;Dandelion Patch"
     ],
     "Sacrifice": [
-        "Incense;Wine"
+        "Incense;Wine",
+        "Wine;Incense"
     ],
     "Offering": [
         "Incense;Honey"
     ],
     "Temple": [
         "Incense;Brick",
-        "Brick;Buddha"
+        "Brick;Buddha",
+        "Brick;Incense"
     ],
     "Sunrise": [
         "Incense;Sun",
         "Sun;Lighthouse"
     ],
     "Frank Herbert": [
-        "Incense;Dune"
+        "Incense;Dune",
+        "Dune;Incense"
     ],
     "Yoga": [
         "Incense;Surfing",
@@ -15125,7 +16018,9 @@
         "Incense;Himalayas",
         "Whale;Lotus",
         "Chai;Prayer",
-        "Surfing;Lotus"
+        "Surfing;Lotus",
+        "Surfing;Incense",
+        "Lotus;Surfboard"
     ],
     "Sage": [
         "Incense;Land"
@@ -15177,7 +16072,8 @@
         "Perfume;Train"
     ],
     "Sand Shark": [
-        "Dust Storm;Fish"
+        "Dust Storm;Fish",
+        "Fish;Dust Storm"
     ],
     "Dust Whale": [
         "Dust Storm;Whale",
@@ -15186,7 +16082,8 @@
     "Sand Surfing": [
         "Dust Storm;Surfing",
         "Surfing;Dust Devil",
-        "Surfing;Sand Dunes"
+        "Surfing;Sand Dunes",
+        "Surfing;Dust Storm"
     ],
     "Dust Allergy": [
         "Dust Storm;Allergy"
@@ -15226,20 +16123,24 @@
         "Snow;Sandalwood"
     ],
     "Great Wall of China": [
-        "Mountain Range;Brick"
+        "Mountain Range;Brick",
+        "Brick;Mountain Range"
     ],
     "Mt. Fuji": [
         "Mountain Range;Sushi",
-        "Mountain Range;Wasabi"
+        "Mountain Range;Wasabi",
+        "Sushi;Mountain Range"
     ],
     "Wind Farm": [
         "Mountain Range;Windmill",
-        "Windmill;Windmill"
+        "Windmill;Windmill",
+        "Windmill;Mountain Range"
     ],
     "Alps": [
         "Mountain Range;Flower",
         "Mountain Range;Allergy",
-        "Mountain Range;Hay Fever"
+        "Mountain Range;Hay Fever",
+        "Flower;Mountain Range"
     ],
     "Moon Mountain": [
         "Mountain Range;Moon"
@@ -15340,7 +16241,8 @@
     ],
     "Piranha Plant": [
         "Fish;Venus Flytrap",
-        "Ship;Venus Flytrap"
+        "Ship;Venus Flytrap",
+        "Boat;Venus Flytrap"
     ],
     "Snowfish": [
         "Fish;Snowman"
@@ -15442,7 +16344,8 @@
     ],
     "Antarctica": [
         "Ice;Continent",
-        "Snow;Continent"
+        "Snow;Continent",
+        "Continent;Snow"
     ],
     "Ice Trap": [
         "Ice;Venus Flytrap"
@@ -15617,7 +16520,8 @@
         "Wine;Dust Bowl"
     ],
     "Picnic": [
-        "Wine;Sandwich"
+        "Wine;Sandwich",
+        "Forest;Sandwich"
     ],
     "Sherpa": [
         "Wine;Himalayas"
@@ -15636,7 +16540,8 @@
         "Whale;Dust Bowl"
     ],
     "Jungle": [
-        "Oasis;Forest"
+        "Oasis;Forest",
+        "Forest;Forest"
     ],
     "Spring": [
         "Oasis;Geyser"
@@ -15677,7 +16582,8 @@
     ],
     "Amazon": [
         "River;Continent",
-        "River;Venus Flytrap"
+        "River;Venus Flytrap",
+        "Forest;Continent"
     ],
     "Mark Twain": [
         "River;Steamboat"
@@ -15734,13 +16640,16 @@
     "Ark": [
         "Ship;Prayer",
         "Ship;Dust Bowl",
-        "Brick;Boat"
+        "Brick;Boat",
+        "Boat;Mudslide"
     ],
     "Black Pearl": [
         "Ship;Obsidian"
     ],
     "Noah": [
-        "Ship;Angel"
+        "Ship;Angel",
+        "Boat;Angel",
+        "Boat;Rainbow"
     ],
     "Cargo": [
         "Ship;Salt"
@@ -15821,7 +16730,8 @@
         "Whale;Helicopter"
     ],
     "Pinocchio": [
-        "Whale;Pine"
+        "Whale;Pine",
+        "Wish;Wood"
     ],
     "Soda": [
         "Kelp;Geyser"
@@ -16162,7 +17072,8 @@
         "Chai;Blizzard"
     ],
     "Tea Sandwich": [
-        "Chai;Sandwich"
+        "Chai;Sandwich",
+        "Teapot;Sandwich"
     ],
     "Itchy": [
         "Sushi;Allergy"
@@ -16292,7 +17203,8 @@
         "Leaf;Cactus"
     ],
     "Aloha": [
-        "Leaf;Hawaii"
+        "Leaf;Hawaii",
+        "Wish;Hawaii"
     ],
     "Maple": [
         "Leaf;Norway",
@@ -16797,5 +17709,60 @@
     ],
     "Panda": [
         "Oasis;Bear"
+    ],
+    "Trees": [
+        "Forest;Submarine"
+    ],
+    "Logging": [
+        "Forest;Helicopter"
+    ],
+    "Transcontinental Railroad": [
+        "Continent;Train"
+    ],
+    "Clean Teapot": [
+        "Teapot;Vacuum"
+    ],
+    "Tea Tempest": [
+        "Teapot;Tempest"
+    ],
+    "Amphicar": [
+        "Boat;Car"
+    ],
+    "Hoover Dam": [
+        "Boat;Vacuum"
+    ],
+    "Mountain Boat": [
+        "Boat;Mountain Dew"
+    ],
+    "Lotus Flower": [
+        "Lotus;Lotus"
+    ],
+    "Cattail": [
+        "Lotus;Cactus"
+    ],
+    "Jack": [
+        "Titanic;Surfer"
+    ],
+    "Titanic Flytrap": [
+        "Titanic;Venus Flytrap"
+    ],
+    "Sunk": [
+        "Titanic;Mountain Dew"
+    ],
+    "Sandtitanic": [
+        "Titanic;Sandbox",
+        "Titanic;Sandwich"
+    ],
+    "Train Station": [
+        "Train;Train"
+    ],
+    "Trainwreck": [
+        "Train;Weed"
+    ],
+    "Cactrain": [
+        "Train;Cactus"
+    ],
+    "Track": [
+        "Train;Wood"
     ]
 }

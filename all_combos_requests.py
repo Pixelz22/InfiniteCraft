@@ -5,8 +5,9 @@ import json
 import os.path
 import time
 
-
+HISTORY_FILE = "history.json"
 HISTORY: dict[str, int | list[str] | list[int]] = {}
+RECIPE_FILE = "recipes-1.json"
 RECIPES: dict[str, list[str]] = {}
 NULL_RECIPE_KEY = "%NULL%"
 
@@ -104,19 +105,16 @@ def produce_all_combinations(sleep=0.0) -> int:
 
 if __name__ == "__main__":
     # Load history from JSON file
-    if os.path.exists("history.json"):
-        with open("history.json", "r") as fp:
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, "r") as fp:
             HISTORY = json.load(fp)
 
     # Load recipes from JSON file
-    if os.path.exists("recipes.json"):
-        with open("recipes.json", "r") as fp:
+    if os.path.exists(RECIPE_FILE):
+        with open(RECIPE_FILE, "r") as fp:
             RECIPES = json.load(fp)
-
-    # Load levels from JSON file
-    if os.path.exists("levels.json"):
-        with open("levels.json", "r") as fp:
-            LEVELS = json.load(fp)
+            if NULL_RECIPE_KEY not in RECIPES:
+                RECIPES[NULL_RECIPE_KEY] = []
 
     try:
         SESSION = requests.session()
@@ -128,7 +126,8 @@ if __name__ == "__main__":
         print(f"Duration - {duration} s;")
 
     finally:
-        with open("history.json", "w") as fp:
+        SESSION.close()
+        with open(HISTORY_FILE, "w") as fp:
             json.dump(HISTORY, fp, indent=4)
-        with open("recipes.json", "w") as fp:
+        with open(RECIPE_FILE, "w") as fp:
             json.dump(RECIPES, fp, indent=4)
