@@ -1,9 +1,8 @@
-import sys
-
 import requests
 import json
 import os.path
 import time
+import proxy
 
 from utilities import DelayedKeyboardInterrupt, to_percent
 
@@ -13,7 +12,8 @@ RECIPE_FILE = "recipes-1.json"
 RECIPES: dict[str, list[str]] = {}
 NULL_RECIPE_KEY = "%NULL%"
 
-SESSION: requests.sessions.Session | None = None
+SESSION: requests.Session | None = None
+# SESSIONS: list[requests.Session] | None = None
 
 rHEADERS = {
     'User-Agent': 'BocketBot',
@@ -36,6 +36,9 @@ def combine(one: str, two: str):
     }
 
     response = SESSION.get('https://neal.fun/api/infinite-craft/pair', params=params)
+    # s = SESSIONS.pop(0)
+    # SESSIONS.append(s)
+    # response = s.get('https://neal.fun/api/infinite-craft/pair', params=params)
 
     return json.loads(response.content.decode('utf-8'))
 
@@ -112,9 +115,15 @@ if __name__ == "__main__":
             if NULL_RECIPE_KEY not in RECIPES:
                 RECIPES[NULL_RECIPE_KEY] = []
 
+    # Inititalize proxies
+    proxy.update_proxies()
+    print("Proxies initialized")
+    # SESSIONS = proxy.get_proxy_sessions(rHEADERS)
+    SESSION = requests.session()
+    SESSION.headers = rHEADERS
+    print("Sessions initialized")
+
     try:
-        SESSION = requests.session()
-        SESSION.headers = rHEADERS
 
         while True:
             start = time.time_ns()
@@ -131,7 +140,9 @@ if __name__ == "__main__":
                 json.dump(RECIPES, fp, indent=4)
 
     finally:
-        SESSION.close()
+        # SESSION.close()
+        for s in SESSIONS:
+            s.close()
         with open(HISTORY_FILE, "w") as fp:
             json.dump(HISTORY, fp, indent=4)
         with open(RECIPE_FILE, "w") as fp:

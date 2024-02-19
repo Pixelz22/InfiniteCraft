@@ -4,7 +4,7 @@
     "last_batch_size": 199,
     "last_combo": [
         0,
-        199
+        235
     ],
     "elements": [
         "Water",
@@ -1687,7 +1687,10 @@
         "Ice Snake",
         "Tea Nymph",
         "Tea Party Storm",
-        "Lawrence of Arabia"
+        "Lawrence of Arabia",
+        "Emulsion",
+        "Bubbles",
+        "Salt Water"
     ],
     "levels": {
         "Lake": 1,
@@ -3370,6 +3373,9 @@
         "Ice Snake": 4,
         "Tea Nymph": 4,
         "Tea Party Storm": 4,
-        "Lawrence of Arabia": 4
+        "Lawrence of Arabia": 4,
+        "Emulsion": 5,
+        "Bubbles": 5,
+        "Salt Water": 5
     }
 }
