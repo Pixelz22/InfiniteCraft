@@ -96,6 +96,7 @@ def progress(sleep=0.0):
         HISTORY["last_batch_size"] = HISTORY["batch_size"]
         HISTORY["batch_size"] = len(HISTORY["elements"])
         HISTORY["level"] += 1
+        HISTORY["last_combo"] = [0, HISTORY["last_batch_size"]]
 
 
 if __name__ == "__main__":
