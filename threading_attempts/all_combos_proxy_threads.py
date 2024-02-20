@@ -5,7 +5,7 @@ import data
 import time
 import proxy
 from custom_threads import CrafterThread, IPBlockException
-from utilities import DelayedKeyboardInterrupt
+from utilities import DelayedKeyboardInterrupt, verbose_sleep
 
 SESSION: requests.Session | None = None
 SESSIONS: list[requests.Session] | None = None
@@ -125,12 +125,7 @@ if __name__ == "__main__":
                 data.dump()
             except IPBlockException as ipe:
                 print(str(ipe) + " Beginning sleep...")
-                delay = ipe.retry_time
-                decrement = 5 * 60
-                while delay > 0:
-                    print(f"About {delay // 60} minutes left...")
-                    time.sleep(min(delay, decrement))
-                    delay -= decrement
+                verbose_sleep(ipe.retry_time, 5 * 60)
                 print("Sleep over, continuing...")
 
     finally:

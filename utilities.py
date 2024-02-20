@@ -1,5 +1,6 @@
 import signal
 import logging
+import time
 
 
 class DelayedKeyboardInterrupt:
@@ -20,3 +21,10 @@ class DelayedKeyboardInterrupt:
 
 def to_percent(p: float, places=2) -> float:
     return round(p * (10 ** (2 + places))) / (10 ** places)
+
+
+def verbose_sleep(delay: float, interval: float):
+    while delay > 0:
+        print(f"About {delay // 60} minutes left...")
+        time.sleep(min(delay, interval))
+        delay -= interval
