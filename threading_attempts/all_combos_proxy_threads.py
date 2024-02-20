@@ -27,6 +27,10 @@ def store_thread_results(thread: CrafterThread):
                 if combo not in data.RECIPES[recipe]:
                     data.RECIPES[recipe].append(combo)
 
+    with open("../newRecipes.txt", 'a') as fp:
+        for element in thread.new_recipes:
+            fp.write(element)
+
 def regenerate_thread_data(num_threads):
     new_threads: list[dict[str, any]] = []
 
@@ -104,7 +108,7 @@ if __name__ == "__main__":
 
         while True:
             start = time.time()
-            evolve(num_threads=10, sleep=0.15)
+            evolve(num_threads=20, sleep=0.15)
             duration = time.time() - start
             print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
