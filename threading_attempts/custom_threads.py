@@ -5,6 +5,12 @@ import json
 from json.decoder import JSONDecodeError
 from data import NULL_RECIPE_KEY
 
+class IPBlockException(RuntimeError):
+    def __init__(self, retry_time: int):
+        super().__init__(f"Infinite Craft has temporarily IP-blocked this session. "
+                         f"Can retry in {retry_time} seconds.", )
+        self.retry_time = retry_time
+
 class CrafterThread(threading.Thread):
     def __init__(self, session: requests.Session, history: dict[str, any], start_combo: tuple[int, int],
                  min_idx: int, max_idx: int, sleep=0.0):
@@ -29,7 +35,7 @@ class CrafterThread(threading.Thread):
         self.sleep = sleep
         self.batch: list[tuple[int, int]] = []
         self.crafted: list[str] = []
-        self.recipes: dict[str, list[str]] = {}
+        self.recipes: dict[str, list[str]] = {NULL_RECIPE_KEY: []}
         self.levels: dict[str, int] = {}
         self.new_recipes: list[str] = []
         self.cancel = False
@@ -59,8 +65,7 @@ class CrafterThread(threading.Thread):
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
             if "Retry-After" in response.headers:
-                raise RuntimeError(f"Infinite Craft has temporarily IP-blocked this session. "
-                                   f"Can retry in {response.headers['Retry-After']} seconds.") from None
+                raise IPBlockException(int(response.headers["Retry-After"])) from None
 
     def kill(self):
         self.cancel = True

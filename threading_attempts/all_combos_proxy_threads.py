@@ -1,8 +1,10 @@
+import math
+
 import requests
 import data
 import time
 import proxy
-from custom_threads import CrafterThread
+from custom_threads import CrafterThread, IPBlockException
 from utilities import DelayedKeyboardInterrupt
 
 SESSION: requests.Session | None = None
@@ -38,8 +40,32 @@ def store_thread_results(thread: CrafterThread):
                 if combo not in data.RECIPES[recipe]:
                     data.RECIPES[recipe].append(combo)
 
+def regenerate_thread_data(num_threads):
+    new_threads: list[dict[str, any]] = []
+
+    min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
+    while min_thread_size < 1:  # Lower the number of threads if we have too many
+        num_threads -= 1
+        min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
+
+    # Prepare the next set of thread data to be processed
+    for i in range(data.HISTORY["last_batch_size"], data.HISTORY["batch_size"] - min_thread_size + 1,
+                   min_thread_size):
+        min_idx = i
+        if i + 2 * min_thread_size > data.HISTORY["batch_size"]:
+            max_idx = data.HISTORY["batch_size"]
+        else:
+            max_idx = i + min_thread_size
+
+        start_combo = 0, min_idx
+
+        new_threads.append({"min": min_idx, "max": max_idx, "start": start_combo})
+    data.THREAD_DATA = new_threads
+
 
 def evolve(num_threads=1, sleep=0.0):
+    if len(data.THREAD_DATA) == 0:  # Quick catch in case threads were deleted
+        regenerate_thread_data(num_threads)
 
     threads = []
     for i, thread_data in enumerate(data.THREAD_DATA):
@@ -54,14 +80,17 @@ def evolve(num_threads=1, sleep=0.0):
             while t.is_alive():  # Can't use straight up t.join(), cause then it doesn't let KeyboardInterrupts through
                 t.join(0.1)
             store_thread_results(t)
-    except Exception as e:
+    except BaseException as e:
         print("Exception raised while processing threads, closing threads safely...")
+        new_thread_data = []
         for i, t in enumerate(threads):
             t.kill()  # Safely kill threads
             t.join(ignore_exceptions=True)
             store_thread_results(t)
             if not t.success:  # Store thread progress so we can restart at same place
-                data.THREAD_DATA[i] = {"min": t.min_idx, "max": t.max_idx, "start": t.start_combo}
+                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
+        data.THREAD_DATA = new_thread_data
+        data.dump()
         print("Threads closed safely")
         raise e
 
@@ -69,27 +98,7 @@ def evolve(num_threads=1, sleep=0.0):
         data.HISTORY["last_batch_size"] = data.HISTORY["batch_size"]
         data.HISTORY["batch_size"] = len(data.HISTORY["elements"])
         data.HISTORY["level"] += 1
-
-        new_threads: list[dict[str, any]] = []
-
-        min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
-        while min_thread_size < 1:  # Lower the number of threads if we have too many
-            num_threads -= 1
-            min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
-
-        # Prepare the next set of thread data to be processed
-        for i in range(data.HISTORY["last_batch_size"], data.HISTORY["batch_size"] - min_thread_size + 1,
-                       min_thread_size):
-            min_idx = i
-            if i + 2 * min_thread_size > data.HISTORY["batch_size"]:
-                max_idx = data.HISTORY["batch_size"]
-            else:
-                max_idx = i + min_thread_size
-
-            start_combo = 0, min_idx
-
-            new_threads.append({"min": min_idx, "max": max_idx, "start": start_combo})
-        data.THREAD_DATA = new_threads
+        regenerate_thread_data(num_threads)
 
 
 if __name__ == "__main__":
@@ -104,13 +113,25 @@ if __name__ == "__main__":
     print("Sessions initialized")
 
     try:
-        start = time.time_ns()
-        evolve(num_threads=10, sleep=0.5)
-        duration = (time.time_ns() - start) / 1000000000
-        print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
-              f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
-        print("---------------")
-        data.dump()
+
+        while True:
+            try:
+                start = time.time()
+                evolve(num_threads=5, sleep=1)
+                duration = time.time() - start
+                print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
+                      f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
+                print("---------------")
+                data.dump()
+            except IPBlockException as ipe:
+                print(str(ipe) + " Beginning sleep...")
+                delay = ipe.retry_time
+                decrement = 5 * 60
+                while delay > 0:
+                    print(f"About {delay // 60} minutes left...")
+                    time.sleep(min(delay, decrement))
+                    delay -= decrement
+                print("Sleep over, continuing...")
 
     finally:
         # for s in SESSIONS:
