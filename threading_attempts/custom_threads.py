@@ -82,7 +82,7 @@ class CrafterThread(threading.Thread):
 
         try:
             response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=10)
-        except requests.exceptions.ConnectTimeout | requests.exceptions.ReadTimeout:
+        except requests.exceptions.Timeout:
             # If a proxy timed out, try it with our default setup
             self.cycle_proxy()
             return self.combine(one, two)

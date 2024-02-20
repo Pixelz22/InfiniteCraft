@@ -1390,7 +1390,22 @@
         "Fragrance",
         "Stinky",
         "Stonewall",
-        "Moat"
+        "Moat",
+        "Colossus",
+        "Cultivator",
+        "Moon Buggy",
+        "Steam Tractor",
+        "Ambergris",
+        "Carpenter",
+        "Pirate Ship",
+        "Rainbow Tree",
+        "Tiki Bar",
+        "Space Palm",
+        "Tea Devil",
+        "Chia Pet",
+        "Light",
+        "Water Nymph",
+        "Angel Falls"
     ],
     "levels": {
         "Lake": 1,
@@ -2780,6 +2795,21 @@
         "Fragrance": 4,
         "Stinky": 4,
         "Stonewall": 4,
-        "Moat": 4
+        "Moat": 4,
+        "Colossus": 4,
+        "Cultivator": 4,
+        "Moon Buggy": 4,
+        "Steam Tractor": 4,
+        "Ambergris": 4,
+        "Carpenter": 4,
+        "Pirate Ship": 4,
+        "Rainbow Tree": 4,
+        "Tiki Bar": 4,
+        "Space Palm": 4,
+        "Tea Devil": 4,
+        "Chia Pet": 4,
+        "Light": 4,
+        "Water Nymph": 4,
+        "Angel Falls": 4
     }
 }
