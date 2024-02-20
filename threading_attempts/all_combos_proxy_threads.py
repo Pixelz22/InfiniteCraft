@@ -1,19 +1,12 @@
 import requests
-import json
-import os.path
+import data
 import time
 import proxy
-
-from utilities import DelayedKeyboardInterrupt, to_percent
-
-HISTORY_FILE = "../history.json"
-HISTORY: dict[str, int | list[any] | dict[str, int]] = {}
-RECIPE_FILE = "../recipes-1.json"
-RECIPES: dict[str, list[str]] = {}
-NULL_RECIPE_KEY = "%NULL%"
+from custom_threads import CrafterThread
+from utilities import DelayedKeyboardInterrupt
 
 SESSION: requests.Session | None = None
-# SESSIONS: list[requests.Session] | None = None
+SESSIONS: list[requests.Session] | None = None
 
 rHEADERS = {
     'User-Agent': 'BocketBot',
@@ -28,92 +21,82 @@ rHEADERS = {
     'Sec-GPC': '1',
 }
 
-def combine(one: str, two: str):
+def store_thread_results(thread: CrafterThread):
+    for element in thread.crafted:
+        if element not in data.HISTORY["elements"]:
+            data.HISTORY["elements"].append(element)
 
-    params = {
-        'first': one,
-        'second': two,
-    }
+    for element in thread.levels:
+        if element not in data.HISTORY["levels"]:
+            data.HISTORY["levels"][element] = thread.levels[element]
 
-    response = SESSION.get('https://neal.fun/api/infinite-craft/pair', params=params)
-
-    return json.loads(response.content.decode('utf-8'))
-
-
-def process_partial_batch(batch: list[tuple[int, int]], sleep=0.0):
-    for i, combo in enumerate(batch):
-        e1 = HISTORY["elements"][combo[0]]
-        e2 = HISTORY["elements"][combo[1]]
-        recipe_key = e1 + ";" + e2
-
-        result_json = combine(e1, e2)
-        result_key = result_json["result"]
-
-        if result_key == "Nothing":
-            RECIPES[NULL_RECIPE_KEY].append(recipe_key)
-            print(f"Batch%: {to_percent(i / len(batch))}% -- NULL RECIPE: {e1} + {e2}")
-            continue
-
-        print(f"Batch%: {to_percent(i / len(batch))}% -- {e1} + {e2} = {result_key}")
-
-        # Update recipes
-        if result_key not in RECIPES:
-            RECIPES[result_key] = [recipe_key]
-        elif recipe_key not in RECIPES[result_key]:
-            RECIPES[result_key].append(recipe_key)
-
-        # Update our history
-        if result_key not in HISTORY["elements"]:
-            HISTORY["elements"].append(result_key)
-
-        if result_key not in HISTORY["levels"]:
-            HISTORY["levels"][result_key] = HISTORY["level"]
-
-        # Keep track of new discoveries
-        if result_json["isNew"]:
-            print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
-            with open("../newRecipes.txt", "a") as fp:
-                fp.write(result_key + "\n")
-
-        HISTORY["last_combo"] = list(combo)
-        time.sleep(sleep)
+    for recipe in thread.recipes:
+        if recipe not in data.RECIPES:
+            data.RECIPES[recipe] = thread.recipes[recipe]
+        else:
+            for combo in thread.recipes:
+                if combo not in data.RECIPES[recipe]:
+                    data.RECIPES[recipe].append(combo)
 
 
-def progress(sleep=0.0):
-    last_batch_partial = []
+def evolve(num_threads=1, sleep=0.0):
 
-    # Process batch
-    for j in range(HISTORY["last_combo"][1], HISTORY["batch_size"]):
-        last_batch_partial.append((HISTORY["last_combo"][0], j))  # Only check ones that came after our last combo
+    threads = []
+    for i, thread_data in enumerate(data.THREAD_DATA):
+        t = CrafterThread(SESSION, data.HISTORY, thread_data["start"],
+                          thread_data["min"], thread_data["max"], sleep=sleep)
+        t.start()
+        threads.append(t)
 
-    for i in range(HISTORY["last_combo"][0] + 1, HISTORY["batch_size"]):
-        for j in range(max(i, HISTORY["last_batch_size"]), HISTORY["batch_size"]):
-            last_batch_partial.append((i, j))  # Only check ones that came after our last combo
-
-    process_partial_batch(last_batch_partial, sleep=sleep)
+    # Rejoin with threads once they finish
+    try:
+        for t in threads:
+            while t.is_alive():  # Can't use straight up t.join(), cause then it doesn't let KeyboardInterrupts through
+                t.join(0.1)
+            store_thread_results(t)
+    except Exception as e:
+        print("Exception raised while processing threads, closing threads safely...")
+        for i, t in enumerate(threads):
+            t.kill()  # Safely kill threads
+            t.join()
+            store_thread_results(t)
+            # Store thread progress so we can restart at same place
+            data.THREAD_DATA[i] = {"min": t.min_idx, "max": t.max_idx, "start": t.start_combo}
+        print("Threads closed safely")
+        raise e
 
     with DelayedKeyboardInterrupt():  # Ensures we don't accidentally exit the code while updating crucial data
-        HISTORY["last_batch_size"] = HISTORY["batch_size"]
-        HISTORY["batch_size"] = len(HISTORY["elements"])
-        HISTORY["level"] += 1
-        HISTORY["last_combo"] = [0, HISTORY["last_batch_size"]]
+        data.HISTORY["last_batch_size"] = data.HISTORY["batch_size"]
+        data.HISTORY["batch_size"] = len(data.HISTORY["elements"])
+        data.HISTORY["level"] += 1
+
+        new_threads: list[dict[str, any]] = []
+
+        min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
+        while min_thread_size < 1:  # Lower the number of threads if we have too many
+            num_threads -= 1
+            min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
+
+        # Prepare the next set of thread data to be processed
+        for i in range(data.HISTORY["last_batch_size"], data.HISTORY["batch_size"] - min_thread_size + 1,
+                       min_thread_size):
+            min_idx = i
+            if i + 2 * min_thread_size > data.HISTORY["batch_size"]:
+                max_idx = data.HISTORY["batch_size"]
+            else:
+                max_idx = i + min_thread_size
+
+            start_combo = 0, min_idx
+
+            new_threads.append({"min": min_idx, "max": max_idx, "start": start_combo})
+        data.THREAD_DATA = new_threads
 
 
 if __name__ == "__main__":
-    # Load history from JSON file
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE, "r") as fp:
-            HISTORY = json.load(fp)
+    data.load()
 
-    # Load recipes from JSON file
-    if os.path.exists(RECIPE_FILE):
-        with open(RECIPE_FILE, "r") as fp:
-            RECIPES = json.load(fp)
-            if NULL_RECIPE_KEY not in RECIPES:
-                RECIPES[NULL_RECIPE_KEY] = []
-
-    # Inititalize proxies
-    proxy.update_proxies()
+    # Initialize proxies
+    # proxy.update_proxies()
     print("Proxies initialized")
     # SESSIONS = proxy.get_proxy_sessions(rHEADERS)
     SESSION = requests.session()
@@ -121,26 +104,17 @@ if __name__ == "__main__":
     print("Sessions initialized")
 
     try:
-
-        while True:
-            start = time.time_ns()
-            progress(sleep=0.125)
-            duration = (time.time_ns() - start) / 1000000000
-            print(f"LEVEL {HISTORY['level'] - 1}: Duration - {duration} s; "
-                  f"Found {HISTORY['batch_size'] - HISTORY['last_batch_size']} new crafts")
-            print("---------------")
-
-            # Save data after each level
-            with open(HISTORY_FILE, "w") as fp:
-                json.dump(HISTORY, fp, indent=4)
-            with open(RECIPE_FILE, "w") as fp:
-                json.dump(RECIPES, fp, indent=4)
+        start = time.time_ns()
+        evolve(num_threads=10, sleep=0.5)
+        duration = (time.time_ns() - start) / 1000000000
+        print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
+              f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
+        print("---------------")
+        data.dump()
 
     finally:
-        SESSION.close()
         # for s in SESSIONS:
         #    s.close()
-        with open(HISTORY_FILE, "w") as fp:
-            json.dump(HISTORY, fp, indent=4)
-        with open(RECIPE_FILE, "w") as fp:
-            json.dump(RECIPES, fp, indent=4)
+        SESSION.close()
+        data.dump()
+        print("Data saved")

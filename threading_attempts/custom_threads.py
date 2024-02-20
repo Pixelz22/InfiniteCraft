@@ -1,8 +1,8 @@
 import threading
 import requests
 import time
-from all_combos_proxy_threads import NULL_RECIPE_KEY
 import json
+from data import NULL_RECIPE_KEY
 
 class CrafterThread(threading.Thread):
     def __init__(self, session: requests.Session, history: dict[str, any], start_combo: tuple[int, int],
@@ -61,7 +61,6 @@ class CrafterThread(threading.Thread):
         """The function that runs during the thread. Automatically stops if self.cancel is true."""
         for i, combo in enumerate(self.batch):
             if self.cancel:
-                self.start_combo = combo
                 return
 
             e1 = self.history["elements"][combo[0]]
@@ -89,11 +88,12 @@ class CrafterThread(threading.Thread):
                 self.crafted.append(result_key)
 
             if result_key not in self.levels:
-                self.levels[result_key] = self.history["elements"]
+                self.levels[result_key] = self.history["level"]
 
             # Keep track of new discoveries
             if result_json["isNew"]:
                 print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
                 self.new_recipes.append(result_key)
 
+            self.start_combo = combo  # Update start combo
             time.sleep(self.sleep)
