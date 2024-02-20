@@ -2,6 +2,7 @@ import threading
 import requests
 import time
 import json
+from json.decoder import JSONDecodeError
 from data import NULL_RECIPE_KEY
 
 class CrafterThread(threading.Thread):
@@ -53,7 +54,10 @@ class CrafterThread(threading.Thread):
         }
 
         response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params)
-        return json.loads(response.content.decode('utf-8'))
+        try:
+            return json.loads(response.content.decode('utf-8'))
+        except JSONDecodeError:
+            raise RuntimeError("Infinite Craft has IP-blocked this session") from None
 
     def kill(self):
         self.cancel = True
