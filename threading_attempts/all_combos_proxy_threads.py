@@ -23,7 +23,7 @@ def store_thread_results(thread: CrafterThread):
         if recipe not in data.RECIPES:
             data.RECIPES[recipe] = thread.recipes[recipe]
         else:
-            for combo in thread.recipes:
+            for combo in thread.recipes[recipe]:
                 if combo not in data.RECIPES[recipe]:
                     data.RECIPES[recipe].append(combo)
 

@@ -70,7 +70,7 @@ class CrafterThread(threading.Thread):
             self.session.proxies = {'https': self.proxy["parsed"]}
         proxy.PROXIES.put(self.proxy)
 
-    def combine(self, one: str, two: str):
+    def combine(self, one: str, two: str) -> dict[str, any]:
         """
         Constructs a HTTP GET request emulating combining the two elements,
         sends it to neal.fun, and returns the result.
@@ -90,11 +90,10 @@ class CrafterThread(threading.Thread):
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
-            if "Retry-After" in response.headers:
-                self.log(f"InfiniteCraft has temporarily IP-blocked this proxy: {self.proxy} - "
-                         f"Switching proxies...")
-                self.cycle_proxy()
-                return self.combine(one, two)  # Retry the message with the cycled proxy
+            self.log(f"InfiniteCraft has temporarily IP-blocked this proxy: {self.proxy} - "
+                     f"Switching proxies...")
+            self.cycle_proxy()
+            return self.combine(one, two)  # Retry the message with the cycled proxy
 
     def kill(self):
         self.cancel = True
