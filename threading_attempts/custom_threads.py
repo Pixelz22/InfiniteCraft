@@ -34,6 +34,7 @@ class CrafterThread(threading.Thread):
         self.new_recipes: list[str] = []
         self.cancel = False
         self.exception: Exception | None = None
+        self.success = False
 
         # Process batch
         for j in range(start_combo[1], max_idx):
@@ -57,7 +58,9 @@ class CrafterThread(threading.Thread):
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
-            raise RuntimeError("Infinite Craft has IP-blocked this session") from None
+            if "Retry-After" in response.headers:
+                raise RuntimeError(f"Infinite Craft has temporarily IP-blocked this session. "
+                                   f"Can retry in {response.headers['Retry-After']} seconds.") from None
 
     def kill(self):
         self.cancel = True
@@ -72,6 +75,7 @@ class CrafterThread(threading.Thread):
         try:
             for i, combo in enumerate(self.batch):
                 if self.cancel:
+                    self.success = False
                     return
 
                 e1 = self.history["elements"][combo[0]]
@@ -108,5 +112,8 @@ class CrafterThread(threading.Thread):
 
                 self.start_combo = combo  # Update start combo
                 time.sleep(self.sleep)
+
+            # we only get here if we complete everything
+            self.success = True
         except Exception as e:
             self.exception = e
