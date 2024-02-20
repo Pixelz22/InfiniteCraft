@@ -1,28 +1,14 @@
-import math
 import warnings
-
 import requests
 import data
 import time
 import proxy
-from custom_threads import CrafterThread, IPBlockException
-from utilities import DelayedKeyboardInterrupt, verbose_sleep
+from custom_threads import CrafterThread
+from utilities import DelayedKeyboardInterrupt
 
 SESSION: requests.Session | None = None
 SESSIONS: list[requests.Session] | None = None
 
-rHEADERS = {
-    'User-Agent': 'BocketBot',
-    'Accept': '/',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'Referer': 'https://neal.fun/infinite-craft/',
-    'DNT': '1',
-    'Connection': 'keep-alive',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-GPC': '1',
-}
 
 def store_thread_results(thread: CrafterThread):
     for element in thread.crafted:
@@ -70,7 +56,7 @@ def evolve(num_threads=1, sleep=0.0):
 
     threads = []
     for i, thread_data in enumerate(data.THREAD_DATA):
-        t = CrafterThread(SESSIONS[i % len(SESSIONS)], data.HISTORY, thread_data["start"],
+        t = CrafterThread(data.HISTORY, thread_data["start"],
                           thread_data["min"], thread_data["max"], sleep=sleep, id=i)
         t.start()
         threads.append(t)
@@ -111,12 +97,8 @@ if __name__ == "__main__":
         warnings.filterwarnings("ignore")
         proxy.update_proxies()
         print("Proxies initialized")
-        SESSIONS = proxy.get_proxy_sessions(rHEADERS)
-    finally:
-        SESSION = requests.Session()
-        SESSION.headers = rHEADERS
-        SESSIONS.insert(0, SESSION)
-    print("Sessions initialized")
+    except:
+        print("Proxies failed")
 
     try:
 
@@ -128,10 +110,8 @@ if __name__ == "__main__":
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
             print("---------------")
             data.dump()
-
+    except KeyboardInterrupt:
+        pass
     finally:
-        # for s in SESSIONS:
-        #    s.close()
-        SESSION.close()
         data.dump()
         print("Data saved")

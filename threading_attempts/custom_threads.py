@@ -4,21 +4,28 @@ import time
 import json
 from json.decoder import JSONDecodeError
 from data import NULL_RECIPE_KEY
+import proxy
 
-class IPBlockException(RuntimeError):
-    def __init__(self, retry_time: int):
-        super().__init__(f"Infinite Craft has temporarily IP-blocked this session. "
-                         f"Can retry in {retry_time} seconds.", )
-        self.retry_time = retry_time
 
+rHEADERS = {
+    'User-Agent': 'BocketBot',
+    'Accept': '/',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Referer': 'https://neal.fun/infinite-craft/',
+    'DNT': '1',
+    'Connection': 'keep-alive',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-GPC': '1',
+}
 class CrafterThread(threading.Thread):
-    def __init__(self, session: requests.Session, history: dict[str, any], start_combo: tuple[int, int],
+    def __init__(self, history: dict[str, any], start_combo: tuple[int, int],
                  min_idx: int, max_idx: int, sleep=0.0, id: int | None = None):
         """
         Creates a CrafterThread object, and automatically generates the combinations it
         will try from the given points.
 
-        :param session: the session used by the thread
         :param history: the history object to use for datakeeping
         :param start_combo: the combination to start with. Also determines lower,
         inclusive limit for the first combinee
@@ -28,7 +35,12 @@ class CrafterThread(threading.Thread):
         :param id: the ID of the thread
         """
         super().__init__(target=self.process)
-        self.session = session
+        self.session = requests.sessions.Session()
+        self.session.headers = rHEADERS
+        self.session.verify = False
+        self.proxy = None
+        self.cycle_proxy()
+
         self.history = history
         self.start_combo = start_combo
         self.min_idx = min_idx
@@ -52,6 +64,12 @@ class CrafterThread(threading.Thread):
             for j in range(max(i, min_idx), max_idx):
                 self.batch.append((i, j))  # Only check ones that came after our last combo
 
+    def cycle_proxy(self):
+        self.proxy = proxy.PROXIES.get()
+        if self.proxy is not None:
+            self.session.proxies = {'https': self.proxy["parsed"]}
+        proxy.PROXIES.put(self.proxy)
+
     def combine(self, one: str, two: str):
         """
         Constructs a HTTP GET request emulating combining the two elements,
@@ -63,21 +81,27 @@ class CrafterThread(threading.Thread):
         }
 
         try:
-            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params)
+            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=10)
         except requests.exceptions.ConnectTimeout:  # If a proxy timed out, try it with our default setup
-            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, proxies=None)
+            self.cycle_proxy()
+            return self.combine(one, two)
 
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
             if "Retry-After" in response.headers:
-                raise IPBlockException(int(response.headers["Retry-After"])) from None
+                self.log(f"InfiniteCraft has temporarily IP-blocked this proxy: {self.proxy} - "
+                         f"Switching proxies...")
+                self.cycle_proxy()
+                return self.combine(one, two)  # Retry the message with the cycled proxy
 
     def kill(self):
         self.cancel = True
 
     def join(self, timeout: float | None = None, ignore_exceptions=False) -> None:
         super().join(timeout)
+        if self.session is not None:
+            self.session.close()
         if not ignore_exceptions and self.exception is not None:
             raise self.exception
 

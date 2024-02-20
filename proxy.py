@@ -4,10 +4,11 @@ import js2py
 import requests
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
+from queue import Queue
 
 ua = UserAgent()
 
-PROXIES: list[dict[str, any]] = []
+PROXIES: Queue[dict[str, any] | None] = Queue()
 
 # Retrieve latest proxies
 def update_proxies():
@@ -26,6 +27,8 @@ def update_proxies():
     This is what you get.
     :return:
     """
+    PROXIES.put(None)  # Add our first proxy
+
     proxies_doc = requests.get('https://spys.one/en/socks-proxy-list', headers={"User-Agent": ua.random, "Content-Type": "application/x-www-form-urlencoded"}).text
     soup = BeautifulSoup(proxies_doc, 'html.parser')
     tables = list(soup.find_all("table"))  # Get ALL the tables
@@ -58,17 +61,6 @@ def update_proxies():
             second_variable = variables[partial_port.split("^")[1]]
             port += "("+str(first_variable) + "^" + str(second_variable) + ")+"
         port = js2py.eval_js('function f() {return "" + ' + port[:-1] + '}')()
-        PROXIES.append({"ip": address.get_text(), "port": port, "parsed": f"socks5h://{address.get_text()}:{port}"})
+        PROXIES.put({"ip": address.get_text(), "port": port, "parsed": f"socks5h://{address.get_text()}:{port}"})
     return PROXIES
-
-
-def get_proxy_sessions(headers: typing.Any | None = None) -> list[requests.Session]:
-    sessions = []
-    for proxy in PROXIES:
-        s = requests.session()
-        s.headers = headers
-        s.proxies = {"https": proxy['parsed']}
-        s.verify = False
-        sessions.append(s)
-    return sessions
 
