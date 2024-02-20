@@ -1,4 +1,5 @@
 import math
+import warnings
 
 import requests
 import data
@@ -69,8 +70,8 @@ def evolve(num_threads=1, sleep=0.0):
 
     threads = []
     for i, thread_data in enumerate(data.THREAD_DATA):
-        t = CrafterThread(SESSION, data.HISTORY, thread_data["start"],
-                          thread_data["min"], thread_data["max"], sleep=sleep)
+        t = CrafterThread(SESSIONS[i % len(SESSIONS)], data.HISTORY, thread_data["start"],
+                          thread_data["min"], thread_data["max"], sleep=sleep, id=i)
         t.start()
         threads.append(t)
 
@@ -86,6 +87,7 @@ def evolve(num_threads=1, sleep=0.0):
         for i, t in enumerate(threads):
             t.kill()  # Safely kill threads
             t.join(ignore_exceptions=True)
+            print(f"THREAD #{t.ID} CLOSED")
             store_thread_results(t)
             if not t.success:  # Store thread progress so we can restart at same place
                 new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
@@ -105,28 +107,27 @@ if __name__ == "__main__":
     data.load()
 
     # Initialize proxies
-    # proxy.update_proxies()
-    print("Proxies initialized")
-    # SESSIONS = proxy.get_proxy_sessions(rHEADERS)
-    SESSION = requests.session()
-    SESSION.headers = rHEADERS
+    try:
+        warnings.filterwarnings("ignore")
+        proxy.update_proxies()
+        print("Proxies initialized")
+        SESSIONS = proxy.get_proxy_sessions(rHEADERS)
+    finally:
+        SESSION = requests.Session()
+        SESSION.headers = rHEADERS
+        SESSIONS.insert(0, SESSION)
     print("Sessions initialized")
 
     try:
 
         while True:
-            try:
-                start = time.time()
-                evolve(num_threads=5, sleep=1)
-                duration = time.time() - start
-                print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
-                      f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
-                print("---------------")
-                data.dump()
-            except IPBlockException as ipe:
-                print(str(ipe) + " Beginning sleep...")
-                verbose_sleep(ipe.retry_time, 5 * 60)
-                print("Sleep over, continuing...")
+            start = time.time()
+            evolve(num_threads=10, sleep=0.15)
+            duration = time.time() - start
+            print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
+                  f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
+            print("---------------")
+            data.dump()
 
     finally:
         # for s in SESSIONS:

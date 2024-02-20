@@ -13,7 +13,7 @@ class IPBlockException(RuntimeError):
 
 class CrafterThread(threading.Thread):
     def __init__(self, session: requests.Session, history: dict[str, any], start_combo: tuple[int, int],
-                 min_idx: int, max_idx: int, sleep=0.0):
+                 min_idx: int, max_idx: int, sleep=0.0, id: int | None = None):
         """
         Creates a CrafterThread object, and automatically generates the combinations it
         will try from the given points.
@@ -25,6 +25,7 @@ class CrafterThread(threading.Thread):
         :param min_idx: the lower, inclusive limit for the second combinee
         :param max_idx: the upper, exclusive limit for the combinees
         :param sleep: the time between trying combinations
+        :param id: the ID of the thread
         """
         super().__init__(target=self.process)
         self.session = session
@@ -41,6 +42,7 @@ class CrafterThread(threading.Thread):
         self.cancel = False
         self.exception: Exception | None = None
         self.success = False
+        self.ID = id
 
         # Process batch
         for j in range(start_combo[1], max_idx):
@@ -60,7 +62,11 @@ class CrafterThread(threading.Thread):
             'second': two,
         }
 
-        response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params)
+        try:
+            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params)
+        except requests.exceptions.ConnectTimeout:  # If a proxy timed out, try it with our default setup
+            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, proxies=None)
+
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
@@ -74,6 +80,9 @@ class CrafterThread(threading.Thread):
         super().join(timeout)
         if not ignore_exceptions and self.exception is not None:
             raise self.exception
+
+    def log(self, msg: str):
+        print(f"[Thread #{self.ID}] {msg}")
 
     def process(self):
         """The function that runs during the thread. Automatically stops if self.cancel is true."""
@@ -92,10 +101,10 @@ class CrafterThread(threading.Thread):
 
                 if result_key == "Nothing":
                     self.recipes[NULL_RECIPE_KEY].append(recipe_key)
-                    print(f"NULL RECIPE: {e1} + {e2}")
+                    self.log(f"NULL RECIPE: {e1} + {e2}")
                     continue
 
-                print(f"{e1} + {e2} = {result_key}")
+                self.log(f"{e1} + {e2} = {result_key}")
 
                 # Update recipes
                 if result_key not in self.recipes:
@@ -112,7 +121,7 @@ class CrafterThread(threading.Thread):
 
                 # Keep track of new discoveries
                 if result_json["isNew"]:
-                    print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
+                    self.log(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
                     self.new_recipes.append(result_key)
 
                 self.start_combo = combo  # Update start combo
