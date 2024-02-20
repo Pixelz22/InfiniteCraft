@@ -58,7 +58,7 @@ def evolve(num_threads=1, sleep=0.0):
         print("Exception raised while processing threads, closing threads safely...")
         for i, t in enumerate(threads):
             t.kill()  # Safely kill threads
-            t.join()
+            t.join(ignore_exceptions=True)
             store_thread_results(t)
             # Store thread progress so we can restart at same place
             data.THREAD_DATA[i] = {"min": t.min_idx, "max": t.max_idx, "start": t.start_combo}

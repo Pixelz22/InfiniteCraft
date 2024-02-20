@@ -32,6 +32,7 @@ class CrafterThread(threading.Thread):
         self.levels: dict[str, int] = {}
         self.new_recipes: list[str] = []
         self.cancel = False
+        self.exception: Exception | None = None
 
         # Process batch
         for j in range(start_combo[1], max_idx):
@@ -57,43 +58,51 @@ class CrafterThread(threading.Thread):
     def kill(self):
         self.cancel = True
 
+    def join(self, timeout: float | None = None, ignore_exceptions=False) -> None:
+        super().join(timeout)
+        if not ignore_exceptions and self.exception is not None:
+            raise self.exception
+
     def process(self):
         """The function that runs during the thread. Automatically stops if self.cancel is true."""
-        for i, combo in enumerate(self.batch):
-            if self.cancel:
-                return
+        try:
+            for i, combo in enumerate(self.batch):
+                if self.cancel:
+                    return
 
-            e1 = self.history["elements"][combo[0]]
-            e2 = self.history["elements"][combo[1]]
-            recipe_key = e1 + ";" + e2
+                e1 = self.history["elements"][combo[0]]
+                e2 = self.history["elements"][combo[1]]
+                recipe_key = e1 + ";" + e2
 
-            result_json = self.combine(e1, e2)
-            result_key = result_json["result"]
+                result_json = self.combine(e1, e2)
+                result_key = result_json["result"]
 
-            if result_key == "Nothing":
-                self.recipes[NULL_RECIPE_KEY].append(recipe_key)
-                print(f"NULL RECIPE: {e1} + {e2}")
-                continue
+                if result_key == "Nothing":
+                    self.recipes[NULL_RECIPE_KEY].append(recipe_key)
+                    print(f"NULL RECIPE: {e1} + {e2}")
+                    continue
 
-            print(f"{e1} + {e2} = {result_key}")
+                print(f"{e1} + {e2} = {result_key}")
 
-            # Update recipes
-            if result_key not in self.recipes:
-                self.recipes[result_key] = [recipe_key]
-            elif recipe_key not in self.recipes[result_key]:
-                self.recipes[result_key].append(recipe_key)
+                # Update recipes
+                if result_key not in self.recipes:
+                    self.recipes[result_key] = [recipe_key]
+                elif recipe_key not in self.recipes[result_key]:
+                    self.recipes[result_key].append(recipe_key)
 
-            # Update our history
-            if result_key not in self.crafted:
-                self.crafted.append(result_key)
+                # Update our history
+                if result_key not in self.crafted:
+                    self.crafted.append(result_key)
 
-            if result_key not in self.levels:
-                self.levels[result_key] = self.history["level"]
+                if result_key not in self.levels:
+                    self.levels[result_key] = self.history["level"]
 
-            # Keep track of new discoveries
-            if result_json["isNew"]:
-                print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
-                self.new_recipes.append(result_key)
+                # Keep track of new discoveries
+                if result_json["isNew"]:
+                    print(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
+                    self.new_recipes.append(result_key)
 
-            self.start_combo = combo  # Update start combo
-            time.sleep(self.sleep)
+                self.start_combo = combo  # Update start combo
+                time.sleep(self.sleep)
+        except Exception as e:
+            self.exception = e
