@@ -25,19 +25,17 @@ rHEADERS = {
     'Sec-GPC': '1',
 }
 class CrafterThread(threading.Thread):
-    def __init__(self, history: dict[str, any], start_combo: tuple[int, int],
-                 min_idx: int, max_idx: int, delay=0.0, id: int | None = None):
+    def __init__(self, history: dict[str, any], batch: list[tuple[int, int]],
+                 delay=0.0, id: int | None = None, timeout=5):
         """
         Creates a CrafterThread object, and automatically generates the combinations it
         will try from the given points.
 
         :param history: the history object to use for datakeeping
-        :param start_combo: the combination to start with. Also determines lower,
-        inclusive limit for the first combinee
-        :param min_idx: the lower, inclusive limit for the second combinee
-        :param max_idx: the upper, exclusive limit for the combinees
+        :param batch: the batch assigned to this thread
         :param delay: the time between trying combinations
         :param id: the ID of the thread
+        :param timeout: the max timeout for an HTTP request
         """
         super().__init__(target=self.process)
         self.session = requests.sessions.Session()
@@ -48,11 +46,10 @@ class CrafterThread(threading.Thread):
         self.cycle_proxy(first=True)
 
         self.history = history
-        self.next_combo = start_combo
-        self.min_idx = min_idx
-        self.max_idx = max_idx
+        self.batch: list[tuple[int, int]] = batch
+        self.timeout = timeout
+        self.next_combo = 0
         self.sleep = delay
-        self.batch: list[tuple[int, int]] = []
         self.crafted: list[str] = []
         self.recipes: dict[str, list[str]] = {NULL_RECIPE_KEY: []}
         self.levels: dict[str, int] = {}
@@ -62,17 +59,11 @@ class CrafterThread(threading.Thread):
         self.success = False
         self.ID = id
 
-        # Process batch
-        for j in range(start_combo[1], max_idx):
-            self.batch.append((start_combo[0], j))  # Only check ones that came after our last combo
-
-        for i in range(start_combo[0] + 1, max_idx):
-            for j in range(max(i, min_idx), max_idx):
-                self.batch.append((i, j))  # Only check ones that came after our last combo
-
     def cycle_proxy(self, first=False):
-        self.proxy = proxy.PROXIES.popleft()
-        proxy.PROXIES.append(self.proxy)
+        with threading.Lock():
+            self.proxy = proxy.PROXIES.popleft()
+            proxy.PROXIES.append(self.proxy)
+
         if first:
             self.first_proxy = self.proxy
         elif self.proxy is self.first_proxy:  # We've cycled back around to our first proxy, fail the thread
@@ -86,13 +77,16 @@ class CrafterThread(threading.Thread):
         Constructs an HTTP GET request emulating combining the two elements,
         sends it to neal.fun, and returns the result.
         """
+        if self.cancel:
+            raise FailThreadInterrupt()
+
         params = {
             'first': one,
             'second': two,
         }
 
         try:
-            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=10)
+            response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=self.timeout)
         except requests.exceptions.Timeout:
             # If a proxy timed out, cycle to the next one
             self.log(f"Proxy has timed out: {self.proxy} - "
@@ -122,23 +116,17 @@ class CrafterThread(threading.Thread):
         print(f"[Thread #{self.ID}] [Progress: {to_percent(self.progress())}%] {msg}")
 
     def progress(self) -> float:
-        n = self.max_idx - self.min_idx
-        total = n * self.min_idx + n * (n + 1) / 2.0
+        return self.next_combo / len(self.batch)
 
-        p1 = min(self.next_combo[0], self.min_idx) * n
-
-        x = max(self.next_combo[0] - self.min_idx, 0)
-        p2 = x * (n - (x - 1) / 2.0)
-
-        p3 = self.next_combo[1] - self.next_combo[0]
-
-        return (p1 + p2 + p3) / total
+    def dump_combos(self, dest: list[tuple[int, int]]):
+        for i in range(self.next_combo, len(self.batch)):
+            dest.append(self.batch[i])
 
     def process(self):
         """The function that runs during the thread. Automatically stops if self.cancel is true."""
         try:
             for i, combo in enumerate(self.batch):
-                self.next_combo = combo  # Update next combo
+                self.next_combo = i  # Update next combo
                 if self.cancel:
                     raise FailThreadInterrupt()
 

@@ -1,3 +1,4 @@
+import math
 import sys
 import warnings
 import requests
@@ -32,43 +33,37 @@ def store_thread_results(thread: CrafterThread):
         for element in thread.new_recipes:
             fp.write(element)
 
-def regenerate_thread_data(num_threads):
-    new_threads: list[dict[str, any]] = []
-
-    min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
-    while min_thread_size < 1:  # Lower the number of threads if we have too many
-        num_threads -= 1
-        min_thread_size = (data.HISTORY["batch_size"] - data.HISTORY["last_batch_size"]) // num_threads
-
-    # Prepare the next set of thread data to be processed
-    for i in range(data.HISTORY["last_batch_size"], data.HISTORY["batch_size"] - min_thread_size + 1,
-                   min_thread_size):
-        min_idx = i
-        if i + 2 * min_thread_size > data.HISTORY["batch_size"]:
-            max_idx = data.HISTORY["batch_size"]
-        else:
-            max_idx = i + min_thread_size
-
-        start_combo = 0, min_idx
-
-        new_threads.append({"min": min_idx, "max": max_idx, "start": start_combo})
-    data.THREAD_DATA = new_threads
+def generate_combos() -> list[tuple[int, int]]:
+    combos = []
+    for i in range(data.HISTORY["batch_size"]):
+        for j in range(max(i, data.HISTORY["last_batch_size"]), data.HISTORY["batch_size"]):
+            combos.append((i, j))
+    return combos
 
 
 def evolve(num_threads=1, delay=0.0):
-    # If there are no threads...
     if len(data.THREAD_DATA) == 0:
-        regenerate_thread_data(num_threads)  # Create some
+        data.THREAD_DATA = generate_combos()
 
+    # Create threads
+    max_thread_size = math.ceil(len(data.THREAD_DATA) / num_threads)
     threads = []
-    for i, thread_data in enumerate(data.THREAD_DATA):
-        t = CrafterThread(data.HISTORY, thread_data["start"],
-                          thread_data["min"], thread_data["max"], delay=delay, id=i)
+    mini_batch = []
+    for combo in data.THREAD_DATA:
+        mini_batch.append(tuple(combo))
+        if len(mini_batch) >= max_thread_size:
+            t = CrafterThread(data.HISTORY, mini_batch, delay=delay, id=len(threads))
+            t.start()
+            threads.append(t)
+            mini_batch = []
+
+    if len(mini_batch) > 0:
+        t = CrafterThread(data.HISTORY, mini_batch, delay=delay, id=len(threads))
         t.start()
         threads.append(t)
 
     # Rejoin with threads once they finish
-    new_thread_data = []
+    new_thread_data: list[tuple[int, int]] = []
     first_open_thread = 0
     try:
         for i, t in enumerate(threads):
@@ -76,7 +71,7 @@ def evolve(num_threads=1, delay=0.0):
                 t.join(0.1)
             store_thread_results(t)
             if not t.success:  # If thread failed, save its progress for next time
-                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.next_combo})
+                t.dump_combos(new_thread_data)
             first_open_thread += 1  # Increment this counter so we don't try to close an already closed thread
             print(f"THREAD #{t.ID} CLOSED")
     except BaseException as e:
@@ -87,7 +82,7 @@ def evolve(num_threads=1, delay=0.0):
             t.join(ignore_exceptions=True)
             store_thread_results(t)
             if not t.success:  # Store thread progress so we can restart at same place
-                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.next_combo})
+                t.dump_combos(new_thread_data)
             print(f"THREAD #{t.ID} CLOSED")
         data.THREAD_DATA = new_thread_data
         data.dump()
@@ -101,11 +96,13 @@ def evolve(num_threads=1, delay=0.0):
         print("One of the threads failed. Please try again later.")
         sys.exit(1)
 
+    # Save data
     with DelayedKeyboardInterrupt():  # Ensures we don't accidentally exit the code while updating crucial data
         data.HISTORY["last_batch_size"] = data.HISTORY["batch_size"]
         data.HISTORY["batch_size"] = len(data.HISTORY["elements"])
         data.HISTORY["level"] += 1
-        regenerate_thread_data(num_threads)
+        data.THREAD_DATA = generate_combos()
+        data.dump()
 
 
 if __name__ == "__main__":
@@ -124,12 +121,11 @@ if __name__ == "__main__":
 
         while True:
             start = time.time()
-            evolve(num_threads=num_proxies // 2 + 1, delay=3)
+            evolve(num_threads=50, delay=0.15)
             duration = time.time() - start
             print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
             print("---------------")
-            data.dump()
     except KeyboardInterrupt:
         pass
     finally:

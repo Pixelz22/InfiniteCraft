@@ -7,7 +7,7 @@ RECIPE_FILE = "recipes.json"
 RECIPES: dict[str, list[str]] = {}
 NULL_RECIPE_KEY = "%NULL%"
 THREADS_FILE = "threads.json"
-THREAD_DATA: list[dict[str, any]] = []
+THREAD_DATA: list[tuple[int, int]] = []
 
 def load():
     global HISTORY
