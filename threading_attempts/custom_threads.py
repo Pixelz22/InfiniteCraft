@@ -84,15 +84,16 @@ class CrafterThread(threading.Thread):
             response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=10)
         except requests.exceptions.Timeout:
             # If a proxy timed out, try it with our default setup
-            self.cycle_proxy()
-            return self.combine(one, two)
+            self.cycle_proxy()  # TODO: account for the case where there are only a few proxies
+            return self.combine(one, two)  # TODO: Right now, it just recursively loops until it reaches max depth
 
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
             self.log(f"InfiniteCraft has temporarily IP-blocked this proxy: {self.proxy} - "
                      f"Switching proxies...")
-            self.cycle_proxy()
+            self.cycle_proxy()  # TODO: account for the case where there are only a few proxies
+            # TODO: Right now, it just recursively loops until it reaches max depth
             return self.combine(one, two)  # Retry the message with the cycled proxy
 
     def kill(self):

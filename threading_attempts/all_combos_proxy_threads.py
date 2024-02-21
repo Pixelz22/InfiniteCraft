@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
         while True:
             start = time.time()
-            evolve(num_threads=num_proxies // 2 + 1, sleep=0.15)
+            evolve(num_threads=num_proxies // 2 + 1, sleep=2)
             duration = time.time() - start
             print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
