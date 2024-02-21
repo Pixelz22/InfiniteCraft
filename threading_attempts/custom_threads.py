@@ -109,6 +109,8 @@ class CrafterThread(threading.Thread):
         super().join(timeout)
         if self.session is not None:
             self.session.close()
+        if len(self.new_recipes) != 0:
+            self.log("FOUND NEW RECIPES")
         if not ignore_exceptions and self.exception is not None:
             raise self.exception
 
