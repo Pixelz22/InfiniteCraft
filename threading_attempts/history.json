@@ -2190,7 +2190,17 @@
         "Lake Doodle",
         "Rope",
         "Smoking Angel",
-        "Peter O\u2019Toole"
+        "Peter O\u2019Toole",
+        "Kiteboarder",
+        "Surf And Turf",
+        "Lhasa",
+        "Yoda",
+        "Tornahydra",
+        "Tornadam",
+        "Scandal",
+        "Land Sailor",
+        "Yellow Submarine",
+        "Sea Urchin"
     ],
     "levels": {
         "Lake": 1,
@@ -4380,6 +4390,16 @@
         "Lake Doodle": 5,
         "Rope": 5,
         "Smoking Angel": 5,
-        "Peter O\u2019Toole": 5
+        "Peter O\u2019Toole": 5,
+        "Kiteboarder": 5,
+        "Surf And Turf": 5,
+        "Lhasa": 5,
+        "Yoda": 5,
+        "Tornahydra": 5,
+        "Tornadam": 5,
+        "Scandal": 5,
+        "Land Sailor": 5,
+        "Yellow Submarine": 5,
+        "Sea Urchin": 5
     }
 }

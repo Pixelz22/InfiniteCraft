@@ -5,6 +5,7 @@ import json
 from json.decoder import JSONDecodeError
 from data import NULL_RECIPE_KEY
 import proxy
+from utilities import to_percent
 
 class FailThreadInterrupt(RuntimeError):
     def __init__(self):
@@ -25,7 +26,7 @@ rHEADERS = {
 }
 class CrafterThread(threading.Thread):
     def __init__(self, history: dict[str, any], start_combo: tuple[int, int],
-                 min_idx: int, max_idx: int, sleep=0.0, id: int | None = None):
+                 min_idx: int, max_idx: int, delay=0.0, id: int | None = None):
         """
         Creates a CrafterThread object, and automatically generates the combinations it
         will try from the given points.
@@ -35,7 +36,7 @@ class CrafterThread(threading.Thread):
         inclusive limit for the first combinee
         :param min_idx: the lower, inclusive limit for the second combinee
         :param max_idx: the upper, exclusive limit for the combinees
-        :param sleep: the time between trying combinations
+        :param delay: the time between trying combinations
         :param id: the ID of the thread
         """
         super().__init__(target=self.process)
@@ -47,10 +48,10 @@ class CrafterThread(threading.Thread):
         self.cycle_proxy(first=True)
 
         self.history = history
-        self.start_combo = start_combo
+        self.next_combo = start_combo
         self.min_idx = min_idx
         self.max_idx = max_idx
-        self.sleep = sleep
+        self.sleep = delay
         self.batch: list[tuple[int, int]] = []
         self.crafted: list[str] = []
         self.recipes: dict[str, list[str]] = {NULL_RECIPE_KEY: []}
@@ -93,17 +94,18 @@ class CrafterThread(threading.Thread):
         try:
             response = self.session.get('https://neal.fun/api/infinite-craft/pair', params=params, timeout=10)
         except requests.exceptions.Timeout:
-            # If a proxy timed out, try it with our default setup
-            self.cycle_proxy()  # TODO: account for the case where there are only a few proxies
-            return self.combine(one, two)  # TODO: Right now, it just recursively loops until it reaches max depth
+            # If a proxy timed out, cycle to the next one
+            self.log(f"Proxy has timed out: {self.proxy} - "
+                     f"Switching proxies...")
+            self.cycle_proxy()
+            return self.combine(one, two)
 
         try:
             return json.loads(response.content.decode('utf-8'))
         except JSONDecodeError:
             self.log(f"InfiniteCraft has temporarily IP-blocked this proxy: {self.proxy} - "
                      f"Switching proxies...")
-            self.cycle_proxy()  # TODO: account for the case where there are only a few proxies
-            # TODO: Right now, it just recursively loops until it reaches max depth
+            self.cycle_proxy()
             return self.combine(one, two)  # Retry the message with the cycled proxy
 
     def kill(self):
@@ -117,12 +119,26 @@ class CrafterThread(threading.Thread):
             raise self.exception
 
     def log(self, msg: str):
-        print(f"[Thread #{self.ID}] {msg}")
+        print(f"[Thread #{self.ID}] [Progress: {to_percent(self.progress())}%] {msg}")
+
+    def progress(self) -> float:
+        n = self.max_idx - self.min_idx
+        total = n * self.min_idx + n * (n + 1) / 2.0
+
+        p1 = min(self.next_combo[0], self.min_idx) * n
+
+        x = max(self.next_combo[0] - self.min_idx, 0)
+        p2 = x * (n - (x - 1) / 2.0)
+
+        p3 = self.next_combo[1] - self.next_combo[0]
+
+        return (p1 + p2 + p3) / total
 
     def process(self):
         """The function that runs during the thread. Automatically stops if self.cancel is true."""
         try:
             for i, combo in enumerate(self.batch):
+                self.next_combo = combo  # Update next combo
                 if self.cancel:
                     raise FailThreadInterrupt()
 
@@ -158,7 +174,6 @@ class CrafterThread(threading.Thread):
                     self.log(f"NEW DISCOVERY: {e1} + {e2} = {result_key}")
                     self.new_recipes.append(result_key)
 
-                self.start_combo = combo  # Update start combo
                 time.sleep(self.sleep)
 
             # we only get here if we complete everything

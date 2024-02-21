@@ -55,7 +55,7 @@ def regenerate_thread_data(num_threads):
     data.THREAD_DATA = new_threads
 
 
-def evolve(num_threads=1, sleep=0.0):
+def evolve(num_threads=1, delay=0.0):
     # If there are no threads...
     if len(data.THREAD_DATA) == 0:
         regenerate_thread_data(num_threads)  # Create some
@@ -63,7 +63,7 @@ def evolve(num_threads=1, sleep=0.0):
     threads = []
     for i, thread_data in enumerate(data.THREAD_DATA):
         t = CrafterThread(data.HISTORY, thread_data["start"],
-                          thread_data["min"], thread_data["max"], sleep=sleep, id=i)
+                          thread_data["min"], thread_data["max"], delay=delay, id=i)
         t.start()
         threads.append(t)
 
@@ -76,7 +76,7 @@ def evolve(num_threads=1, sleep=0.0):
                 t.join(0.1)
             store_thread_results(t)
             if not t.success:  # If thread failed, save its progress for next time
-                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
+                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.next_combo})
             first_open_thread += 1  # Increment this counter so we don't try to close an already closed thread
             print(f"THREAD #{t.ID} CLOSED")
     except BaseException as e:
@@ -87,7 +87,7 @@ def evolve(num_threads=1, sleep=0.0):
             t.join(ignore_exceptions=True)
             store_thread_results(t)
             if not t.success:  # Store thread progress so we can restart at same place
-                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
+                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.next_combo})
             print(f"THREAD #{t.ID} CLOSED")
         data.THREAD_DATA = new_thread_data
         data.dump()
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
         while True:
             start = time.time()
-            evolve(num_threads=num_proxies // 2 + 1, sleep=2)
+            evolve(num_threads=num_proxies // 2 + 1, delay=3)
             duration = time.time() - start
             print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")
