@@ -6,6 +6,10 @@ from json.decoder import JSONDecodeError
 from data import NULL_RECIPE_KEY
 import proxy
 
+class FailThreadInterrupt(RuntimeError):
+    def __init__(self):
+        super().__init__()
+
 
 rHEADERS = {
     'User-Agent': 'BocketBot',
@@ -38,8 +42,9 @@ class CrafterThread(threading.Thread):
         self.session = requests.sessions.Session()
         self.session.headers = rHEADERS
         self.session.verify = False
-        self.proxy = None
-        self.cycle_proxy()
+        self.proxy: dict | None = None
+        self.first_proxy: dict | None = None
+        self.cycle_proxy(first=True)
 
         self.history = history
         self.start_combo = start_combo
@@ -64,11 +69,16 @@ class CrafterThread(threading.Thread):
             for j in range(max(i, min_idx), max_idx):
                 self.batch.append((i, j))  # Only check ones that came after our last combo
 
-    def cycle_proxy(self):
+    def cycle_proxy(self, first=False):
         self.proxy = proxy.PROXIES.popleft()
+        proxy.PROXIES.append(self.proxy)
+        if first:
+            self.first_proxy = self.proxy
+        elif self.proxy is self.first_proxy:  # We've cycled back around to our first proxy, fail the thread
+            raise FailThreadInterrupt()
+
         if self.proxy is not None:
             self.session.proxies = {'https': self.proxy["parsed"]}
-        proxy.PROXIES.append(self.proxy)
 
     def combine(self, one: str, two: str) -> dict[str, any]:
         """
@@ -114,8 +124,7 @@ class CrafterThread(threading.Thread):
         try:
             for i, combo in enumerate(self.batch):
                 if self.cancel:
-                    self.success = False
-                    return
+                    raise FailThreadInterrupt()
 
                 e1 = self.history["elements"][combo[0]]
                 e2 = self.history["elements"][combo[1]]
@@ -155,4 +164,5 @@ class CrafterThread(threading.Thread):
             # we only get here if we complete everything
             self.success = True
         except Exception as e:
-            self.exception = e
+            if type(e) is not FailThreadInterrupt:
+                self.exception = e

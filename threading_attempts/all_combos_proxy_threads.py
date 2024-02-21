@@ -1,3 +1,4 @@
+import sys
 import warnings
 import requests
 import data
@@ -67,25 +68,38 @@ def evolve(num_threads=1, sleep=0.0):
         threads.append(t)
 
     # Rejoin with threads once they finish
+    new_thread_data = []
+    first_open_thread = 0
     try:
-        for t in threads:
+        for i, t in enumerate(threads):
             while t.is_alive():  # Can't use straight up t.join(), cause then it doesn't let KeyboardInterrupts through
                 t.join(0.1)
             store_thread_results(t)
+            if not t.success:  # If thread failed, save its progress for next time
+                new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
+            first_open_thread += 1  # Increment this counter so we don't try to close an already closed thread
+            print(f"THREAD #{t.ID} CLOSED")
     except BaseException as e:
         print("Exception raised while processing threads, closing threads safely...")
-        new_thread_data = []
-        for i, t in enumerate(threads):
+        for i in range(first_open_thread, len(threads)):  # Start closing the open threads
+            t = threads[i]
             t.kill()  # Safely kill threads
             t.join(ignore_exceptions=True)
-            print(f"THREAD #{t.ID} CLOSED")
             store_thread_results(t)
             if not t.success:  # Store thread progress so we can restart at same place
                 new_thread_data.append({"min": t.min_idx, "max": t.max_idx, "start": t.start_combo})
+            print(f"THREAD #{t.ID} CLOSED")
         data.THREAD_DATA = new_thread_data
         data.dump()
         print("Threads closed safely")
         raise e
+
+    # Check if any of the threads exited unsuccessfully
+    if len(new_thread_data) != 0:
+        data.THREAD_DATA = new_thread_data
+        data.dump()
+        print("One of the threads failed. Please try again later.")
+        sys.exit(1)
 
     with DelayedKeyboardInterrupt():  # Ensures we don't accidentally exit the code while updating crucial data
         data.HISTORY["last_batch_size"] = data.HISTORY["batch_size"]
