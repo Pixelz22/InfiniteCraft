@@ -55,8 +55,9 @@ def regenerate_thread_data(num_threads):
 
 
 def evolve(num_threads=1, sleep=0.0):
-    if len(data.THREAD_DATA) == 0:  # Quick catch in case threads were deleted
-        regenerate_thread_data(num_threads)
+    # If there are no threads...
+    if len(data.THREAD_DATA) == 0:
+        regenerate_thread_data(num_threads)  # Create some
 
     threads = []
     for i, thread_data in enumerate(data.THREAD_DATA):
@@ -97,9 +98,10 @@ if __name__ == "__main__":
     data.load()
 
     # Initialize proxies
+    num_proxies = 1
     try:
         warnings.filterwarnings("ignore")
-        proxy.update_proxies()
+        num_proxies = proxy.update_proxies()
         print("Proxies initialized")
     except:
         print("Proxies failed")
@@ -108,7 +110,7 @@ if __name__ == "__main__":
 
         while True:
             start = time.time()
-            evolve(num_threads=20, sleep=0.15)
+            evolve(num_threads=num_proxies // 2 + 1, sleep=0.15)
             duration = time.time() - start
             print(f"LEVEL {data.HISTORY['level'] - 1}: Duration - {duration} s; "
                   f"Found {data.HISTORY['batch_size'] - data.HISTORY['last_batch_size']} new crafts")

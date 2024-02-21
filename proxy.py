@@ -4,11 +4,11 @@ import js2py
 import requests
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
-from queue import Queue
+from collections import deque
 
 ua = UserAgent()
 
-PROXIES: Queue[dict[str, any] | None] = Queue()
+PROXIES: deque[dict[str, any] | None] = deque()
 
 # Retrieve latest proxies
 def update_proxies():
@@ -27,7 +27,7 @@ def update_proxies():
     This is what you get.
     :return:
     """
-    PROXIES.put(None)  # Add our first proxy
+    PROXIES.append(None)  # Add our first proxy
 
     proxies_doc = requests.get('https://spys.one/en/socks-proxy-list', headers={"User-Agent": ua.random, "Content-Type": "application/x-www-form-urlencoded"}).text
     soup = BeautifulSoup(proxies_doc, 'html.parser')
@@ -61,6 +61,6 @@ def update_proxies():
             second_variable = variables[partial_port.split("^")[1]]
             port += "("+str(first_variable) + "^" + str(second_variable) + ")+"
         port = js2py.eval_js('function f() {return "" + ' + port[:-1] + '}')()
-        PROXIES.put({"ip": address.get_text(), "port": port, "parsed": f"socks5h://{address.get_text()}:{port}"})
-    return PROXIES
+        PROXIES.append({"ip": address.get_text(), "port": port, "parsed": f"socks5h://{address.get_text()}:{port}"})
+    return len(PROXIES)
 

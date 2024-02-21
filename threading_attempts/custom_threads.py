@@ -65,14 +65,14 @@ class CrafterThread(threading.Thread):
                 self.batch.append((i, j))  # Only check ones that came after our last combo
 
     def cycle_proxy(self):
-        self.proxy = proxy.PROXIES.get()
+        self.proxy = proxy.PROXIES.popleft()
         if self.proxy is not None:
             self.session.proxies = {'https': self.proxy["parsed"]}
-        proxy.PROXIES.put(self.proxy)
+        proxy.PROXIES.append(self.proxy)
 
     def combine(self, one: str, two: str) -> dict[str, any]:
         """
-        Constructs a HTTP GET request emulating combining the two elements,
+        Constructs an HTTP GET request emulating combining the two elements,
         sends it to neal.fun, and returns the result.
         """
         params = {
