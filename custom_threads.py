@@ -7,9 +7,11 @@ from data import NULL_RECIPE_KEY
 import proxy
 from utilities import to_percent
 
+LOCK = threading.Lock()
+
 class FailThreadInterrupt(RuntimeError):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, msg: str):
+        super().__init__(msg)
 
 
 rHEADERS = {
@@ -41,9 +43,9 @@ class CrafterThread(threading.Thread):
         self.session = requests.sessions.Session()
         self.session.headers = rHEADERS
         self.session.verify = False
-        self.proxy: dict | None = None
+        self.proxy: proxy.Proxy | None = None
         self.first_proxy: dict | None = None
-        self.cycle_proxy(first=True)
+        self.cycle_proxy()
 
         self.history = history
         self.batch: list[tuple[int, int]] = batch
@@ -59,18 +61,17 @@ class CrafterThread(threading.Thread):
         self.success = False
         self.ID = id
 
-    def cycle_proxy(self, first=False):
-        with threading.Lock():
-            self.proxy = proxy.PROXIES.popleft()
-            proxy.PROXIES.append(self.proxy)
+    def cycle_proxy(self):
+        with LOCK:
+            if self.proxy is not None:
+                proxy.return_proxy(self.proxy, proxy.ProxyStatus.BAD)
+            self.proxy = proxy.request_proxy()
 
-        if first:
-            self.first_proxy = self.proxy
-        elif self.proxy is self.first_proxy:  # We've cycled back around to our first proxy, fail the thread
-            raise FailThreadInterrupt()
+        if self.proxy is None:
+            raise FailThreadInterrupt("No proxy available")
 
-        if self.proxy is not None:
-            self.session.proxies = {'https': self.proxy["parsed"]}
+        if self.proxy.ip is not None:
+            self.session.proxies = {'https': self.proxy.parsed}
 
     def combine(self, one: str, two: str) -> dict[str, any]:
         """
@@ -105,7 +106,7 @@ class CrafterThread(threading.Thread):
     def kill(self):
         self.cancel = True
 
-    def join(self, timeout: float | None = None, ignore_exceptions=False) -> None:
+    def join(self, timeout: float | None = None, ignore_exceptions=True) -> None:
         super().join(timeout)
         if self.session is not None:
             self.session.close()
@@ -130,7 +131,8 @@ class CrafterThread(threading.Thread):
             for i, combo in enumerate(self.batch):
                 self.next_combo = i  # Update next combo
                 if self.cancel:
-                    raise FailThreadInterrupt()
+                    proxy.return_proxy(self.proxy)
+                    raise FailThreadInterrupt("Thread was killed.")
 
                 e1 = self.history["elements"][combo[0]]
                 e2 = self.history["elements"][combo[1]]
@@ -169,5 +171,8 @@ class CrafterThread(threading.Thread):
             # we only get here if we complete everything
             self.success = True
         except Exception as e:
+            self.log(f"Exception was raised: {e}")
             if type(e) is not FailThreadInterrupt:
                 self.exception = e
+        finally:
+            self.session.close()

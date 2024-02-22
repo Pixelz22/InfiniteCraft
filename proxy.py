@@ -90,9 +90,12 @@ def request_proxy() -> Proxy | None:
     while p.status != ProxyStatus.FREE and count < len(PROXIES):
         PROXIES.append(p)
         p = PROXIES.popleft()
+        count += 1
 
     if count >= len(PROXIES):
         return None  # No available proxies
+
+    p.status = ProxyStatus.IN_USE
     return p
 
 def return_proxy(p: Proxy, status: ProxyStatus = ProxyStatus.FREE):

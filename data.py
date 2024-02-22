@@ -6,13 +6,13 @@ HISTORY: dict[str, int | list[any] | dict[str, int]] = {}
 RECIPE_FILE = "recipes.json"
 RECIPES: dict[str, list[str]] = {}
 NULL_RECIPE_KEY = "%NULL%"
-THREADS_FILE = "threads.json"
-THREAD_DATA: list[tuple[int, int]] = []
+BATCH_FILE = "batch_data.json"
+BATCH_DATA: list[tuple[int, int]] = []
 
 def load():
     global HISTORY
     global RECIPES
-    global THREAD_DATA
+    global BATCH_DATA
     # Load history from JSON file
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, "r") as fp:
@@ -26,9 +26,9 @@ def load():
             RECIPES[NULL_RECIPE_KEY] = []
 
     # Load thread data from JSON file
-    if os.path.exists(THREADS_FILE):
-        with open(THREADS_FILE, "r") as fp:
-            THREAD_DATA = json.load(fp)
+    if os.path.exists(BATCH_FILE):
+        with open(BATCH_FILE, "r") as fp:
+            BATCH_DATA = json.load(fp)
 
 def dump():
     # Save data after each level
@@ -36,5 +36,5 @@ def dump():
         json.dump(HISTORY, fp, indent=4)
     with open(RECIPE_FILE, "w") as fp:
         json.dump(RECIPES, fp, indent=4)
-    with open(THREADS_FILE, "w") as fp:
-        json.dump(THREAD_DATA, fp, indent=4)
+    with open(BATCH_FILE, "w") as fp:
+        json.dump(BATCH_DATA, fp, indent=4)
