@@ -1652,7 +1652,10 @@
         "Wreck;Snowpocalypse",
         "Roll;Bjorn",
         "Roll;Hack",
-        "Water Rocket;Mountain Dew Glacier Burst"
+        "Water Rocket;Mountain Dew Glacier Burst",
+        "Cannabis;Icewine",
+        "Cannabis;Ice Sculpture",
+        "Cannabis;Krill"
     ],
     "Lake": [
         "Water;Water",
@@ -18837,7 +18840,11 @@
         "Wood;Combine",
         "Wood;Taxi",
         "Wood;Chauffeur",
-        "Wood;Cultivator"
+        "Wood;Cultivator",
+        "Wood;Solar Car",
+        "Wood;Moon Buggy",
+        "Wood;Amphicar",
+        "Wood;Hoover Dam"
     ],
     "Lily": [
         "Lake;Plant",
@@ -19489,7 +19496,8 @@
         "Wet Dandelion Patch;Sea Monster",
         "Matcha;Starfish",
         "Land;Mermaid Flytrap",
-        "Ragnarok;Icelandic Kelp"
+        "Ragnarok;Icelandic Kelp",
+        "Cannabis;Starfish"
     ],
     "Incense": [
         "Smoke;Plant",
@@ -32417,7 +32425,10 @@
         "Fuji;Haunted Tree",
         "Fuji;Casper",
         "Lei;Haunted",
-        "Ragnarok;Haunted"
+        "Ragnarok;Haunted",
+        "Cannabis;Foggy Ghost",
+        "Cannabis;Haunted Tree",
+        "Cannabis;Casper"
     ],
     "Surfing": [
         "Wind;Surf",
@@ -34801,7 +34812,9 @@
         "Steam Surfing;Ghost Ship",
         "Paradise;Steam Car",
         "Matterhorn;Steam Surfing",
-        "Matterhorn;Steamfrog"
+        "Matterhorn;Steamfrog",
+        "Wood;Steamcough",
+        "Wood;Steam Tractor"
     ],
     "Alligator": [
         "Swamp;Hurricane",
@@ -36700,7 +36713,8 @@
         "Firefighter;Sunstroke",
         "Firefighter;Hayride",
         "Wood;Trainwreck",
-        "Wood;Leafblower"
+        "Wood;Leafblower",
+        "Wood;Sunstroke"
     ],
     "Weed": [
         "Plant;Dandelion",
@@ -44847,7 +44861,8 @@
         "Mass;Zen",
         "Martian;Prayer Wheel",
         "Whale;Prayer Wheel",
-        "Party;Surfing Buddha"
+        "Party;Surfing Buddha",
+        "Cannabis;Dalai Lama"
     ],
     "Mosquito": [
         "Swamp;Incense",
@@ -47878,7 +47893,8 @@
         "Wood;Pelican",
         "Tree;Sketch",
         "Fish;Sketch",
-        "Wood;Mustard"
+        "Wood;Mustard",
+        "Wood;Grinder"
     ],
     "Oasis": [
         "Water;Sandstorm",
@@ -54287,7 +54303,8 @@
         "Matterhorn;Steam Tractor",
         "Matterhorn;Hayride",
         "Firefighter;John Deere",
-        "Blade;John Deere"
+        "Blade;John Deere",
+        "Wood;John Deere"
     ],
     "Boat": [
         "Lake;Engine",
@@ -55605,7 +55622,12 @@
         "Wreck;Transcontinental Railroad",
         "Firefighter;Minecart",
         "Firefighter;Choo-Choo",
-        "Blade;Choo-Choo"
+        "Blade;Choo-Choo",
+        "Wood;Monorail",
+        "Wood;Minecart",
+        "Wood;Steam Train",
+        "Wood;Choo-Choo",
+        "Wood;Steam Car"
     ],
     "Submarine": [
         "Ocean;Engine",
@@ -60115,7 +60137,8 @@
         "Cyclone;Frost Giant",
         "Sky;Snowlord",
         "Cannabis;Snow Storm",
-        "Cannabis;Ice Storm"
+        "Cannabis;Ice Storm",
+        "Cannabis;Ice Tornado"
     ],
     "Snowman": [
         "Plant;Avalanche",
@@ -65187,7 +65210,8 @@
         "Ragnarok;Steam Norway",
         "Mass;Steam Norway",
         "Snow Castle;Thorfinn",
-        "Roll;Steam Norway"
+        "Roll;Steam Norway",
+        "Cannabis;Longboat"
     ],
     "Pine": [
         "Tree;Fjord",
@@ -75916,7 +75940,11 @@
         "Cannabis;Log",
         "Cannabis;Snow Globe",
         "Cannabis;Ice Plant",
-        "Cannabis;Sinking"
+        "Cannabis;Sinking",
+        "Cannabis;Bridge",
+        "Cannabis;Wet",
+        "Cannabis;Air",
+        "Cannabis;Skimming"
     ],
     "Splash": [
         "Water;Fireworks",
@@ -77643,7 +77671,8 @@
         "Weed;Jam",
         "Weed;Park",
         "Roll;Hashish",
-        "420;Burnt"
+        "420;Burnt",
+        "Cannabis;Smoking"
     ],
     "Pig": [
         "Mud;Wish",
@@ -78838,7 +78867,8 @@
         "420;Sandtitanic",
         "420;Space Ghost",
         "420;Champagne",
-        "420;Matterhorn"
+        "420;Matterhorn",
+        "Cannabis;Ragnarok"
     ],
     "Firefly": [
         "Fireworks;Fairy",
@@ -80121,7 +80151,8 @@
         "Ragnarok;Ogre",
         "Ragnarok;Minotaur",
         "Mass;Salty Viking",
-        "Mass;Bifrost"
+        "Mass;Bifrost",
+        "Cannabis;Odin"
     ],
     "Fishing Pole": [
         "Fish;Dandelion Patch",
@@ -82925,7 +82956,9 @@
         "Giant Mushroom;Martini",
         "Giant Mushroom;Mead",
         "Giant Mushroom;Sneezeweed",
-        "Giant Mushroom;War"
+        "Giant Mushroom;War",
+        "Cannabis;Fungi",
+        "Cannabis;Fungus"
     ],
     "Wind": [
         "Water;Kite",
@@ -87518,7 +87551,8 @@
         "Sacrifice;Caduceus",
         "Snake;Snow Lotus",
         "Snake;Sage",
-        "Plow;Coughdrop"
+        "Plow;Coughdrop",
+        "Cannabis;Shaman"
     ],
     "Flour": [
         "Dust;Windmill",
@@ -88146,7 +88180,8 @@
     "Woodpecker": [
         "Tree;Helicopter",
         "Forest;Pelican",
-        "Tree;Amphibious Helicopter"
+        "Tree;Amphibious Helicopter",
+        "Wood;Owl"
     ],
     "Woodchips": [
         "Tree;Steamroller"
@@ -90693,7 +90728,9 @@
         "Alligator;Maple",
         "Wood;Scuba Frog",
         "Forest;Republican",
-        "Wood;Mountain Tractor"
+        "Wood;Mountain Tractor",
+        "Wood;Muddy Cough",
+        "Wood;Truck"
     ],
     "Snowlily": [
         "Lily;Snowman",
@@ -91335,7 +91372,8 @@
         "Kite;Greenland",
         "Fjord;Matcha Tea",
         "Wet Dandelion Patch;Greenland",
-        "Matcha;Greenland"
+        "Matcha;Greenland",
+        "Cannabis;Greenland"
     ],
     "Tornadroll": [
         "Tornado;Troll",
@@ -91386,7 +91424,8 @@
         "Tornadroll;Yellow Car",
         "Tornadroll;Cough Drop",
         "Tornadroll;Leafblower",
-        "Wet Dandelion Patch;Tornadroll"
+        "Wet Dandelion Patch;Tornadroll",
+        "Cannabis;Tornadroll"
     ],
     "Ice Tornado": [
         "Tornado;Iceland",
@@ -91461,7 +91500,8 @@
         "Mud;Trollwich",
         "Destruction;Ogre",
         "Fairy;Bogey",
-        "Matcha;Goblin"
+        "Matcha;Goblin",
+        "Cannabis;Goblin"
     ],
     "Longboat": [
         "Water;Viking",
@@ -91793,7 +91833,8 @@
         "Wet Dandelion Patch;Sand Surfing",
         "Ice Dragon;Sand Castle",
         "Snow Castle;Sand Punk",
-        "Snow Castle;Sandvik"
+        "Snow Castle;Sandvik",
+        "Cannabis;Sand Castle"
     ],
     "Smoking": [
         "Smoke;Viking",
@@ -92100,7 +92141,8 @@
         "Hurricane;Whalecopter",
         "Wet Dandelion Patch;Sharknado",
         "Energy;Sharknado",
-        "Ragnarok;Orca"
+        "Ragnarok;Orca",
+        "Cannabis;Sharknado"
     ],
     "Starfish": [
         "Dust;Fish",
@@ -92207,7 +92249,8 @@
         "Dust Storm;Stingray",
         "Fish;Sand Punk",
         "Matcha;Sand Shark",
-        "Fuji;Sand Shark"
+        "Fuji;Sand Shark",
+        "Cannabis;Sand Shark"
     ],
     "Tease": [
         "Tea;Sea",
@@ -92268,7 +92311,8 @@
         "Swamp;Coffin",
         "Incense;Sunstroke",
         "Energy;Zombie",
-        "Shroom;Skeleton"
+        "Shroom;Skeleton",
+        "Cannabis;Zombie"
     ],
     "Fungi": [
         "Tornado;Mushroom",
@@ -92471,7 +92515,8 @@
         "Mud;Pepper",
         "Mud;Nympho",
         "Mud;Tea Surfing",
-        "Cyclone;Mud Party"
+        "Cyclone;Mud Party",
+        "Cannabis;Muddy"
     ],
     "Sandboard": [
         "Sandstorm;Surfboard",
@@ -94867,7 +94912,8 @@
         "Moss;SOS",
         "Fuji;Lichen",
         "Fuji;Moss",
-        "Mass;SOS"
+        "Mass;SOS",
+        "Cannabis;Lichen"
     ],
     "Yggdrasil": [
         "Forest;Geysir",
@@ -95124,7 +95170,8 @@
         "Wood;Quicksand",
         "Wood;Tomb",
         "Wood;Mummy",
-        "Wood;Angel of Death"
+        "Wood;Angel of Death",
+        "Wood;Salty"
     ],
     "Hookah": [
         "Mermaid;Tobacco",
@@ -98368,7 +98415,8 @@
         "Paradise;Ark",
         "Matterhorn;Ark",
         "Sky;Wooden Submarine",
-        "Firefighter;Ark"
+        "Firefighter;Ark",
+        "Wood;Ark"
     ],
     "Taxi": [
         "Angel;Car",
@@ -98503,7 +98551,8 @@
         "Destruction;Skeetervac",
         "Beach;Skeetervac",
         "Glass;Skeetervac",
-        "Firefighter;Skeetervac"
+        "Firefighter;Skeetervac",
+        "Wood;Skeetervac"
     ],
     "Worm": [
         "Snake;Car",
@@ -100794,7 +100843,8 @@
         "Prince;Sled",
         "Sword;Sled",
         "Lei;Snowboat",
-        "Mass;Sled"
+        "Mass;Sled",
+        "Wood;Hayride"
     ],
     "Sage": [
         "Incense;Land",
@@ -104724,7 +104774,8 @@
         "Fire;Resin",
         "Fire;Flattened Lily",
         "Fire;Jack",
-        "Fire;Skier"
+        "Fire;Skier",
+        "Wood;Light"
     ],
     "Feng Shui": [
         "Wind;Yin Yang"
@@ -105793,7 +105844,8 @@
         "Fish;Honeymoon",
         "Seed;Honeymoon",
         "Fairy;Honeymoon",
-        "Dandelion Patch;Honeymoon"
+        "Dandelion Patch;Honeymoon",
+        "Cannabis;Sperm"
     ],
     "Mjolnir": [
         "Water;Odin",
@@ -106113,7 +106165,8 @@
         "Dandelion Patch;Pufferfish",
         "Prayer;Pufferfish",
         "Dandelion;Flatfish",
-        "Fireworks;Flatfish"
+        "Fireworks;Flatfish",
+        "Cannabis;Pufferfish"
     ],
     "Smurfette": [
         "Water;Smurf",
@@ -106749,7 +106802,8 @@
         "Lightning;Marijuana",
         "Lei;Stinky",
         "Ice Dragon;Stink",
-        "Cannabis;Skeleton"
+        "Cannabis;Skeleton",
+        "Cannabis;Toxic"
     ],
     "Holy Spirit": [
         "Fire;Baptism",
@@ -109342,7 +109396,8 @@
         "Flower;Arrakis",
         "Leaf;Arrakis",
         "Comet;Pepper",
-        "Dutch;Pepper"
+        "Dutch;Pepper",
+        "Wood;Pepper"
     ],
     "Houseboat": [
         "Lake;Brick House"
@@ -116076,7 +116131,8 @@
     "Noah\u2019s Ark": [
         "Mountain;Wooden Submarine",
         "Venus Flytrap;Noah",
-        "Titanic;Rainbow Tree"
+        "Titanic;Rainbow Tree",
+        "Wood;Love Boat"
     ],
     "Smoke Screen": [
         "Smoke;Thunderjet",
@@ -117724,7 +117780,8 @@
     ],
     "Ganja": [
         "Weed;Monster",
-        "Weed;Ogre"
+        "Weed;Ogre",
+        "Cannabis;Rainbow Trout"
     ],
     "Hot Box": [
         "Weed;Hot Chocolate"
@@ -118620,7 +118677,8 @@
         "Incense;Yak",
         "Dandelion Patch;Yak",
         "Kelp;Yak",
-        "Wet Dandelion Patch;Yak"
+        "Wet Dandelion Patch;Yak",
+        "Cannabis;Yak"
     ],
     "Seduce": [
         "Incense;Tease"
@@ -121493,7 +121551,8 @@
         "Plant;Lunar Lander",
         "Tree;Lunar Lander",
         "Wood;Lunar Lander",
-        "Mangrove;Lunar Lander"
+        "Mangrove;Lunar Lander",
+        "Wood;Lunar Rover"
     ],
     "Starfruit": [
         "Tree;Constellation"
@@ -122342,7 +122401,8 @@
         "Beach;Magic Carpet",
         "Broom;Magic Carpet",
         "Sandtitanic;Magic Carpet",
-        "UFO;Magic Carpet"
+        "UFO;Magic Carpet",
+        "Wood;Magic Carpet"
     ],
     "Sickweed": [
         "Seaweed;Seasick",
@@ -130889,7 +130949,8 @@
         "Cannabis;Snowlily"
     ],
     "Hotbox": [
-        "Cannabis;Hot Chocolate"
+        "Cannabis;Hot Chocolate",
+        "Cannabis;Geysers"
     ],
     "Snowcap": [
         "Cannabis;Snowtrap"
@@ -130914,5 +130975,27 @@
     ],
     "Space Sherpa": [
         "Water Rocket;Sherpa"
+    ],
+    "Baked Alaska": [
+        "Cannabis;Ice Wine",
+        "Cannabis;Old Faithful"
+    ],
+    "Rastaman": [
+        "Cannabis;Berserker"
+    ],
+    "Superweed": [
+        "Cannabis;Supervolcano"
+    ],
+    "Mount Kushmore": [
+        "Cannabis;Mount Everest"
+    ],
+    "Sativa": [
+        "Cannabis;Tease"
+    ],
+    "Ganja Yoga": [
+        "Cannabis;Yoga"
+    ],
+    "Bookworm": [
+        "Wood;Worm"
     ]
 }

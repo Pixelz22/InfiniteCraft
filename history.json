@@ -7496,7 +7496,14 @@
         "Solar Blade",
         "Space Roll",
         "Tea Roll",
-        "Space Sherpa"
+        "Space Sherpa",
+        "Baked Alaska",
+        "Rastaman",
+        "Superweed",
+        "Mount Kushmore",
+        "Sativa",
+        "Ganja Yoga",
+        "Bookworm"
     ],
     "levels": {
         "Lake": 1,
@@ -14992,6 +14999,13 @@
         "Solar Blade": 5,
         "Space Roll": 5,
         "Tea Roll": 5,
-        "Space Sherpa": 5
+        "Space Sherpa": 5,
+        "Baked Alaska": 5,
+        "Rastaman": 5,
+        "Superweed": 5,
+        "Mount Kushmore": 5,
+        "Sativa": 5,
+        "Ganja Yoga": 5,
+        "Bookworm": 5
     }
 }

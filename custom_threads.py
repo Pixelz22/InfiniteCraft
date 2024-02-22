@@ -70,7 +70,7 @@ class CrafterThread(threading.Thread):
         if self.proxy is None:
             raise FailThreadInterrupt("No proxy available")
 
-        if self.proxy.ip is not None:
+        if self.proxy.ip is not "":
             self.session.proxies = {'https': self.proxy.parsed}
 
     def combine(self, one: str, two: str) -> dict[str, any]:

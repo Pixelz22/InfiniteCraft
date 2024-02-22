@@ -45,6 +45,8 @@ def update_proxies():
     """
     global PROXIES
     PROXIES = deque()
+    PROXIES.append(Proxy("", ""))
+
     proxies_doc = requests.get('https://spys.one/en/socks-proxy-list', headers={"User-Agent": ua.random,
                                                                                 "Content-Type": "application/x-www-form-urlencoded"}).text
     soup = BeautifulSoup(proxies_doc, 'html.parser')

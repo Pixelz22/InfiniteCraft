@@ -66,7 +66,7 @@ def evolve(num_threads=1, delay=0.0):
     # Rejoin with threads once they finish
     new_batch_data: list[tuple[int, int]] = []
     try:
-        while len(threads) > 0:
+        while len(threads) > 0:  # Periodically check on threads
             t = threads[0]
             if t.is_alive():
                 t.join(0.1)
