@@ -1,4 +1,4 @@
-# InfiniteTree - The ultimate companion to InfinteCraft
+# InfiniteTree - The ultimate companion to InfiniteCraft
 
 Ever wanted to know the quickest way to craft anything?  
 Well, InfiniteTree is here for you.
